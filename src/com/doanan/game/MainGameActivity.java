@@ -31,4 +31,9 @@ public class MainGameActivity extends Activity {
 		
 		setContentView(R.layout.main_game);
 	}
+	
+	protected void imageView1(){
+		
+		
+	}
 }
