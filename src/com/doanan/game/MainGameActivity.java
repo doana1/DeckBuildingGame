@@ -1,6 +1,7 @@
 package com.doanan.game;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -33,7 +34,11 @@ public class MainGameActivity extends Activity {
 	}
 	
 	protected void imageView1(){
+		AlertDialog.Builder builder = new AlertDialog.Builder(null);
 		
+		builder.setMessage("How are you")
+			   .setTitle("The Title");
 		
+		AlertDialog dialog = builder.create();
 	}
 }
