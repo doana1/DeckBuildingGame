@@ -1102,6 +1102,7 @@ containing a value of this type.
         public static final int container=0x7f09003c;
         public static final int default_activity_button=0x7f090028;
         public static final int dialog=0x7f090014;
+        public static final int dialogButtonOK=0x7f09003e;
         public static final int disableHome=0x7f090009;
         public static final int dropdown=0x7f090015;
         public static final int editText1=0x7f090045;
@@ -1143,7 +1144,6 @@ containing a value of this type.
         public static final int none=0x7f090019;
         public static final int normal=0x7f090007;
         public static final int opengl=0x7f090058;
-        public static final int password=0x7f09003e;
         public static final int progress_circular=0x7f090004;
         public static final int progress_horizontal=0x7f090005;
         public static final int radio=0x7f09002f;
@@ -1165,13 +1165,13 @@ containing a value of this type.
         public static final int start_game=0x7f090043;
         public static final int submit_area=0x7f090039;
         public static final int tabMode=0x7f090008;
+        public static final int text=0x7f09003d;
         public static final int textView1=0x7f09003f;
         public static final int textView2=0x7f090040;
         public static final int title=0x7f09002b;
         public static final int top_action_bar=0x7f090020;
         public static final int up=0x7f090021;
         public static final int useLogo=0x7f09000e;
-        public static final int username=0x7f09003d;
         public static final int withText=0x7f090013;
     }
     public static final class integer {
