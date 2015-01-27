@@ -8,22 +8,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp" />
- 
+    <ScrollView
+         android:id="@+id/scrollView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_toRightOf="@+id/image" 
+         android:layout_marginBottom="50dp">
     <TextView
         android:id="@+id/text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="#AAA" 
-        android:layout_toRightOf="@+id/image"/>/>
+       />
+
+     </ScrollView>
  
      <Button
          android:id="@+id/dialogButtonOK"
-         android:layout_width="100px"
+         android:layout_width="100dp"
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
          android:layout_alignParentLeft="true"
          android:layout_alignParentRight="true"
-         android:layout_marginBottom="66dp"
-         android:text=" Ok " />
+         android:text=" BUY " />
+
+     
+
+         
  
 </RelativeLayout>

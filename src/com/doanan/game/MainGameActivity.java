@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.doanan.gameCards.Character;
+import com.doanan.gameComponentsCreate.AmmunitionCreate;
+import com.doanan.gameComponentsCreate.CharacterCreate;
 import com.example.firstgame.R;
 
 public class MainGameActivity extends Activity {
@@ -60,7 +63,20 @@ public class MainGameActivity extends Activity {
 	// Image Description
 	String imageDescription[] = new String[imageNumber];
 	
+	// Image Title
+	String imageTitle[] = new String[imageNumber];
+	
 	private Context context = this;
+	
+	/*
+	 * Used to test Cards
+	 */
+	String name = "BOB";
+	String characterName = "Chris";
+	int cost = 500;
+	int health = 20;
+	int decorations = 2;
+	int level = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +90,30 @@ public class MainGameActivity extends Activity {
 		
 		setContentView(R.layout.main_game);
 		
+		
+		// Implement the Cards
+		Character chris = new Character(characterName,cost,health,decorations,level);
+		
+		
+		TextView textView2 = (TextView) findViewById(R.id.textView2);
+		textView2.setText(chris.NAME);
+		textView2.setText(Integer.toString(chris.DECORATIONS));
+		
+		
+		// Cards Implemented
+		
+		
 		declareImages();
-		setImages(images,imageFileName,imageDescription);
+		setImages(images,imageFileName,imageDescription,imageTitle);
 	}
 	
 	public void declareImages(){
+		// Declare Characters
+		CharacterCreate char1 = new CharacterCreate();
+		// Declare Ammo
+		AmmunitionCreate ammo1 = new AmmunitionCreate();
+		
+		// Assigned imageviews to variables
 		image1 = (ImageView) findViewById(R.id.imageView1);
 		image2 = (ImageView) findViewById(R.id.imageView2);
 		image3 = (ImageView) findViewById(R.id.imageView3);
@@ -126,34 +161,56 @@ public class MainGameActivity extends Activity {
 		imageFileName[12] = "red_joker.jpg";
 		imageFileName[13] = "black_joker.jpg";
 		imageFileName[14] = "royalty.png";
-		//
+		// Description of image
 		imageDescription[0] = "ACE OF HEARTS";
 		imageDescription[1] = "ACE OF SPADES";
 		imageDescription[2] = "ACE OF DIAMONDS";
 		imageDescription[3] = "ACE OF CLUBS";
-		imageDescription[4] = "KING OF HEARTS";
+		imageDescription[4] = "A talented girl, Rebecca graduated college at the young age of 18.[7] Her expertise in chemistry and medicine earned her a position in the Special Tactics And Rescue Service, a Raccoon City Police Department branch handling specialist cases. She was assigned as Rear Security (RS) and Medic for the Bravo team.[7] She became the unit's youngest and most inexperienced member, which made her quite nervous around her teammates.[7] Because of this, she was eager to please and has been known to take on any task assigned to her without hesitation.";
 		imageDescription[5] = "KING OF SPADES";
 		imageDescription[6] = "KING OF DIAMONDS";
 		imageDescription[7] = "KING OF CLUBS";
 		imageDescription[8] = "QUEEN OF HEARTS";
-		imageDescription[9] = "QUEEN OF SPADES";
+		imageDescription[9] = "Gives 10 ammo";
 		imageDescription[10] = "QUEEN OF DIAMONDS";
 		imageDescription[11] = "QUEEN OF CLUBS";
 		imageDescription[12] = "RED JOKER";
 		imageDescription[13] = "BLACK JOKER";
 		imageDescription[14] = "ROYALTY";
+		// Title of image
+		imageTitle[0] = "ACE OF HEARTS";
+		imageTitle[1] = "ACE OF SPADES";
+		imageTitle[2] = "ACE OF DIAMONDS";
+		imageTitle[3] = "ACE OF CLUBS";
+		imageTitle[4] = char1.Rebecca.NAME;
+		imageTitle[5] = "KING OF SPADES";
+		imageTitle[6] = "KING OF DIAMONDS";
+		imageTitle[7] = "KING OF CLUBS";
+		imageTitle[8] = "QUEEN OF HEARTS";
+		imageTitle[9] = ammo1.ammo10.NAME;
+		imageTitle[10] = "QUEEN OF DIAMONDS";
+		imageTitle[11] = "QUEEN OF CLUBS";
+		imageTitle[12] = "RED JOKER";
+		imageTitle[13] = "BLACK JOKER";
+		imageTitle[14] = "ROYALTY";
+		
 		
 		
 	}
 	
-	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription){
+	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle){
 		int iterator = 0;
 		for(ImageView img:image){
-			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,iterator){
+			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,iterator){
 				public void onClick(View v){
 					final Dialog dialog = new Dialog(context);
 					dialog.setContentView(R.layout.bigimage);
-					dialog.setTitle("Title...");
+					
+					
+					// Sets title to card
+					String title;
+					title = imageTitle[iterator];
+					dialog.setTitle(title);
 					
 					//set the custom dialog components - text, image and button
 					String imageDesc;

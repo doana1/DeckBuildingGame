@@ -8,23 +8,25 @@ public class myOnClickListener implements OnClickListener{
 	int myOnClickVariable;
 	String[] imageFileName;
 	String[] imageDescription;
+	String[] imageTitle;
 	int iterator;
 	
-	public myOnClickListener(Context context, String[] imageFileName, String[] imageDescription, int iterator){
+	public myOnClickListener(Context context, String[] imageFileName, String[] imageDescription, String[] imageTitle, int iterator){
 		this.imageFileName = imageFileName;
 		this.imageDescription = imageDescription;
+		this.imageTitle = imageTitle;
 		this.iterator = iterator;
 	}
 	
-	public void onClick(View v, String[] imageFileName,String[] imageDescription,int iterator) {
+	public void onClick(View v, String[] imageFileName,String[] imageDescription, String[] imageTitle, int iterator) {
 		imageFileName = this.imageFileName;
 		imageDescription = this.imageDescription;
+		imageTitle = this.imageTitle;
 		iterator = this.iterator;
-		// TODO Auto-generated method stub
+
 	}
 
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		
 	}
 	
