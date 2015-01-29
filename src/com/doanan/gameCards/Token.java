@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Token implements Card{
+public class Token extends Card{
 	
 	/*
 	 * Token Attributes
@@ -13,9 +13,9 @@ public class Token implements Card{
 	public int COST;
 
 	public Token(String name, int cost) {
-//		super(name, cost);
-		this.NAME = name;
-		this.COST = cost;
+		super(name, cost);
+//		this.NAME = name;
+//		this.COST = cost;
 		// TODO Auto-generated constructor stub
 	}
 

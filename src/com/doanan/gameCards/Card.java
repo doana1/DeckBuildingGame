@@ -1,10 +1,19 @@
 package com.doanan.gameCards;
 
+import com.doanan.gamePlayer.Turn;
 
-public interface Card{
-
+public class Card implements Turn{
 	
-//	public void f(String name, int cost);
+	public String NAME;
+	public int COST;
+	
+	public Card(String name, int cost){
+		this.NAME = name;
+		this.COST = cost;
+	}
 
-	public void getCurrentTurn();	
+	public void getCurrentTurn() {
+		// TODO Auto-generated method stub
+		
+	}
 }

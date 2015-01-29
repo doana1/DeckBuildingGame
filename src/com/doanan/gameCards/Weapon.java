@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Weapon implements Card{
+public class Weapon extends Card{
 	
 	/*
 	 * Weapons have the following attributes
@@ -17,9 +17,9 @@ public class Weapon implements Card{
 	public int COST;
 
 	public Weapon(String name, int cost, boolean effect) {
-//		super(name,cost);
-		this.NAME = name;
-		this.COST = cost;
+		super(name,cost);
+//		this.NAME = name;
+//		this.COST = cost;
 		
 		this.EFFECT = effect;	
 	}

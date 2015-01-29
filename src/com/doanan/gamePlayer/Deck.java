@@ -1,14 +1,12 @@
 package com.doanan.gamePlayer;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import com.doanan.gameCards.Action;
 import com.doanan.gameCards.Ammunition;
 import com.doanan.gameCards.Card;
 import com.doanan.gameCards.Item;
 import com.doanan.gameCards.Weapon;
-import com.doanan.gameComponentsCreate.AmmunitionCreate;
 
 public class Deck {
 	
@@ -67,12 +65,20 @@ public class Deck {
 //		}
 	}
 	
-
+	public String itemC(){
+		for(Object o:deck){
+			if(o.getClass().equals(Item.class)){
+				return "Item Card Added";
+				
+			}
+		}
+		return null;
+	}
 	
 	public String ammoC(){
 		for(Object o:deck){
 			if(o.getClass().equals(Ammunition.class)){
-				return "all AMMO";
+				return "Ammo Card Added";
 				
 			}
 		}

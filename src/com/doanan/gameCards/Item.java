@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Item implements Card{
+public class Item extends Card{
 	
 	/*
 	 * Item Attributes
@@ -13,10 +13,10 @@ public class Item implements Card{
 	int COST;
 
 	public Item(String name, int cost) {
-//		super(name, cost);
+		super(name, cost);
 		// TODO Auto-generated constructor stub
-		this.NAME = name;
-		this.COST = cost;
+//		this.NAME = name;
+//		this.COST = cost;
 	}
 
 	public void getCurrentTurn() {

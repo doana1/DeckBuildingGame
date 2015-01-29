@@ -265,7 +265,7 @@ public class MainGameActivity extends Activity {
 							
 							if(cardName.matches(itemCard)){
 								deck.add(item.item1);
-								text = "item Card";
+								text = deck.itemC();
 								Toast toast = Toast.makeText(context, text, duration);
 								toast.show();
 								
@@ -273,7 +273,6 @@ public class MainGameActivity extends Activity {
 							
 							if(cardName.matches(ammoCard)){
 								deck.add(ammo.ammo10);
-//								text = "ammo Card";
 								text = deck.ammoC();
 								Toast toast = Toast.makeText(context, text, duration);
 								toast.show();

@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Monster implements Card{
+public class Monster extends Card{
 	
 	/*
 	 * Monster attributes
@@ -16,9 +16,9 @@ public class Monster implements Card{
 	public boolean EFFECT;
 
 	public Monster(String name, int cost, int health, int damage, boolean effect, int reward) {
-//		super(name, cost);
-		this.NAME = name;
-		this.COST = cost;
+		super(name, cost);
+//		this.NAME = name;
+//		this.COST = cost;
 		this.HEALTH = health;
 		this.DAMAGE = damage;
 		this.REWARD = reward;
