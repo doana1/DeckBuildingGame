@@ -38,5 +38,9 @@ public class AmmunitionCreate {
 	public AmmunitionCreate(){
 		
 	}
+	
+	public Ammunition getAmmo10(){
+		return ammo10;
+	}
 
 }

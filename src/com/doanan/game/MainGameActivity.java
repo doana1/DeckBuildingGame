@@ -9,16 +9,20 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.doanan.gameCards.Character;
+import com.doanan.gameComponentsCreate.ActionCreate;
 import com.doanan.gameComponentsCreate.AmmunitionCreate;
 import com.doanan.gameComponentsCreate.CharacterCreate;
+import com.doanan.gameComponentsCreate.ItemCreate;
+import com.doanan.gameComponentsCreate.WeaponCreate;
+import com.doanan.gamePlayer.Deck;
 import com.example.firstgame.R;
 
 public class MainGameActivity extends Activity {
@@ -77,6 +81,7 @@ public class MainGameActivity extends Activity {
 	int health = 20;
 	int decorations = 2;
 	int level = 0;
+	Deck deck1 = new Deck();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +109,7 @@ public class MainGameActivity extends Activity {
 		
 		
 		declareImages();
-		setImages(images,imageFileName,imageDescription,imageTitle);
+		setImages(images,imageFileName,imageDescription,imageTitle,deck1);
 	}
 	
 	public void declareImages(){
@@ -198,10 +203,16 @@ public class MainGameActivity extends Activity {
 		
 	}
 	
-	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle){
+	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, Deck deck){
 		int iterator = 0;
+		final AmmunitionCreate ammo = new AmmunitionCreate();
+		final ActionCreate action = new ActionCreate();
+		final ItemCreate item = new ItemCreate();
+		final WeaponCreate weapon = new WeaponCreate();
+
+
 		for(ImageView img:image){
-			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,iterator){
+			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,iterator,deck){
 				public void onClick(View v){
 					final Dialog dialog = new Dialog(context);
 					dialog.setContentView(R.layout.bigimage);
@@ -222,6 +233,9 @@ public class MainGameActivity extends Activity {
 					
 					String imageName;
 					imageName = imageFileName[iterator];
+					
+					final String cardName = imageName;
+					
 					try{
 						//get input stream
 						InputStream ims = getAssets().open("imgs/cards/" + imageName);
@@ -238,8 +252,56 @@ public class MainGameActivity extends Activity {
 					
 					Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 					//if button is clicked, close the custom dialog
-					dialogButton.setOnClickListener(new OnClickListener(){
+					dialogButton.setOnClickListener(new cardAddOnClickListener(deck){
 						public void onClick(View v){
+							Context context = getApplicationContext();
+							CharSequence text = "Card Bought~~~";
+							int duration = Toast.LENGTH_SHORT;
+
+							String itemCard = "(.*)king(.*)";
+							String ammoCard = "(.*)queen(.*)";
+							String actionCard = "(.*)action(.*)";
+							String weaponCard = "(.*)weapon(.*)";
+							
+							if(cardName.matches(itemCard)){
+								deck.add(item.item1);
+								text = "item Card";
+								Toast toast = Toast.makeText(context, text, duration);
+								toast.show();
+								
+							}
+							
+							if(cardName.matches(ammoCard)){
+								deck.add(ammo.ammo10);
+//								text = "ammo Card";
+								text = deck.ammoC();
+								Toast toast = Toast.makeText(context, text, duration);
+								toast.show();
+							}
+							
+							if(cardName.matches(actionCard)){
+								deck.add(action.action1);
+								text = "action Card";
+								Toast toast = Toast.makeText(context, text, duration);
+								toast.show();
+								
+							}
+							
+							if(cardName.matches(weaponCard)){
+								deck.add(weapon.weapon1);
+								text = "Testing";
+								Toast toast = Toast.makeText(context, text, duration);
+								toast.show();
+								
+							}
+								
+
+							
+							/*
+							 * Check which card to add based on image
+							 * Card Types that can be bought
+							 * (Action, Ammunition, Item, Weapon)
+							 */
 							dialog.dismiss();
 						}
 					});

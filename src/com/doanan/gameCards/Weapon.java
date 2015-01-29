@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Weapon extends Card{
+public class Weapon implements Card{
 	
 	/*
 	 * Weapons have the following attributes
@@ -13,14 +13,24 @@ public class Weapon extends Card{
 	 * Weapon Effect (Use methods to add and change values as needed?)
 	 */
 	public boolean EFFECT;
+	public String NAME;
+	public int COST;
 
 	public Weapon(String name, int cost, boolean effect) {
-		super(name,cost);
+//		super(name,cost);
+		this.NAME = name;
+		this.COST = cost;
+		
 		this.EFFECT = effect;	
 	}
 	
 	public void addDamage(){
 		this.COST += 20;
+	}
+
+	public void getCurrentTurn() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

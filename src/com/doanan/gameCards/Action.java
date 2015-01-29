@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Action extends Card{
+public class Action implements Card{
 	
 	/*
 	 * Action Attributes
@@ -10,10 +10,18 @@ public class Action extends Card{
 	 * Effect
 	 * Bonus Icons
 	 */
+	String NAME;
+	int COST;
 
 	public Action(String name, int cost) {
-		super(name, cost);
+		this.NAME = name;
+		this.COST = cost;
 		// TODO Auto-generated constructor stub
+	}
+
+	public void getCurrentTurn() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

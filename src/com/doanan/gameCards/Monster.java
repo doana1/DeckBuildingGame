@@ -1,6 +1,6 @@
 package com.doanan.gameCards;
 
-public class Monster extends Card{
+public class Monster implements Card{
 	
 	/*
 	 * Monster attributes
@@ -11,11 +11,14 @@ public class Monster extends Card{
 	 * Damage
 	 * Decoration Reward
 	 */
-	public int HEALTH, DAMAGE, REWARD;
+	public int COST, HEALTH, DAMAGE, REWARD;
+	public String NAME;
 	public boolean EFFECT;
 
 	public Monster(String name, int cost, int health, int damage, boolean effect, int reward) {
-		super(name, cost);
+//		super(name, cost);
+		this.NAME = name;
+		this.COST = cost;
 		this.HEALTH = health;
 		this.DAMAGE = damage;
 		this.REWARD = reward;
@@ -24,6 +27,11 @@ public class Monster extends Card{
 	
 	public void doubleDamage(){
 		this.DAMAGE *= 2;
+	}
+
+	public void getCurrentTurn() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

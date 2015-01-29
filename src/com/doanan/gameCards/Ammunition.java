@@ -1,12 +1,21 @@
 package com.doanan.gameCards;
 
-public class Ammunition extends Card{
+public class Ammunition implements Card{
 	
-	public int AMMO, GOLD;
+	public int COST, AMMO, GOLD;
+	public String NAME;
 	
 	public Ammunition(String name, int cost, int ammo, int gold){
-		super(name, cost);
+//		super(name, cost);
+		
 		this.AMMO = ammo;
 		this.GOLD = gold;
+		this.COST = cost;
+		this.NAME = name;
+	}
+
+	public void getCurrentTurn() {
+		// TODO Auto-generated method stub
+		
 	}
 }
