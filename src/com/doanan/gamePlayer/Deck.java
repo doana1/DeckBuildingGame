@@ -22,7 +22,7 @@ public class Deck {
 	 */
 //	Card[] deck = new Card[10];
 	
-	ArrayList<Card> deck = new ArrayList<Card>();
+	public ArrayList<Card> deck = new ArrayList<Card>();
 
 	int index;
 	
@@ -83,5 +83,10 @@ public class Deck {
 			}
 		}
 		return null;
+	}
+	
+	public Card remove(){
+		return deck.remove(deck.size());
+		
 	}
 }

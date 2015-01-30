@@ -1078,6 +1078,14 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
+        public static final int sample_0=0x7f020058;
+        public static final int sample_1=0x7f020059;
+        public static final int sample_2=0x7f02005a;
+        public static final int sample_3=0x7f02005b;
+        public static final int sample_4=0x7f02005c;
+        public static final int sample_5=0x7f02005d;
+        public static final int sample_6=0x7f02005e;
+        public static final int sample_7=0x7f02005f;
     }
     public static final class id {
         public static final int OpenGL=0x7f090045;
@@ -1092,8 +1100,10 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f09005a;
+        public static final int action_settings=0x7f090061;
         public static final int activity_chooser_view_content=0x7f090025;
+        public static final int addinhorizontalscrollview=0x7f09005d;
+        public static final int addinscrollview=0x7f09005f;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
         public static final int button1=0x7f090042;
@@ -1111,19 +1121,21 @@ containing a value of this type.
         public static final int end=0x7f090017;
         public static final int expand_activities_button=0x7f090026;
         public static final int expanded_menu=0x7f09002c;
+        public static final int gridview=0x7f09005a;
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000a;
+        public static final int horizontalScrollView1=0x7f09005b;
         public static final int icon=0x7f09002a;
         public static final int ifRoom=0x7f090011;
         public static final int image=0x7f090027;
         public static final int imageView1=0x7f090048;
         public static final int imageView10=0x7f090052;
-        public static final int imageView11=0x7f090053;
-        public static final int imageView12=0x7f090054;
-        public static final int imageView13=0x7f090055;
-        public static final int imageView14=0x7f090056;
-        public static final int imageView15=0x7f090057;
-        public static final int imageView16=0x7f090058;
+        public static final int imageView11=0x7f090054;
+        public static final int imageView12=0x7f090055;
+        public static final int imageView13=0x7f090056;
+        public static final int imageView14=0x7f090057;
+        public static final int imageView15=0x7f090058;
+        public static final int imageView16=0x7f090059;
         public static final int imageView2=0x7f090049;
         public static final int imageView3=0x7f09004a;
         public static final int imageView4=0x7f09004b;
@@ -1132,18 +1144,21 @@ containing a value of this type.
         public static final int imageView7=0x7f09004f;
         public static final int imageView8=0x7f090050;
         public static final int imageView9=0x7f090051;
-        public static final int item1=0x7f09005b;
-        public static final int item2=0x7f09005c;
-        public static final int item3=0x7f09005d;
+        public static final int inhorizontalscrollview=0x7f09005e;
+        public static final int inscrollview=0x7f090060;
+        public static final int item1=0x7f090062;
+        public static final int item2=0x7f090063;
+        public static final int item3=0x7f090064;
         public static final int layout1=0x7f090047;
         public static final int layout2=0x7f09004d;
+        public static final int linearLayout1=0x7f090053;
         public static final int listMode=0x7f090006;
         public static final int list_item=0x7f090029;
         public static final int middle=0x7f090018;
         public static final int never=0x7f090012;
         public static final int none=0x7f090019;
         public static final int normal=0x7f090007;
-        public static final int opengl=0x7f090059;
+        public static final int opengl=0x7f09005c;
         public static final int progress_circular=0x7f090004;
         public static final int progress_horizontal=0x7f090005;
         public static final int radio=0x7f09002f;
@@ -1232,7 +1247,8 @@ containing a value of this type.
         public static final int fragment_3=0x7f03001c;
         public static final int main_game=0x7f03001d;
         public static final int opengl=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int scrollview=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

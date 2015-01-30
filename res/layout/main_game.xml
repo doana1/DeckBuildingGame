@@ -9,19 +9,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main Game" />
-    
+
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentRight="true" >
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -33,38 +33,37 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher" 
-            android:layout_marginLeft="5dp"/>
-
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
     </LinearLayout>
-    
+
     <LinearLayout
+        android:id="@+id/layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/layout2"
-        android:layout_below="@id/layout1"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/layout1" >
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -76,66 +75,65 @@
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
-
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
     </LinearLayout>
-    
+
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout2"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/layout2" >
 
         <ImageView
             android:id="@+id/imageView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/imageView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"
-            android:layout_marginLeft="5dp" />
-
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher" />
     </LinearLayout>
 
     <ImageView
@@ -154,5 +152,33 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="TextView" />
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView16"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toRightOf="@+id/imageView16"
+        android:numColumns="3" >
+    </GridView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView16"
+        android:layout_marginRight="57dp"
+        android:layout_toLeftOf="@+id/linearLayout1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </RelativeLayout>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -109,6 +110,8 @@ public class MainGameActivity extends Activity {
 		
 		
 		declareImages();
+		cardsPlayed();
+		playerHand();
 		setImages(images,imageFileName,imageDescription,imageTitle,deck1);
 	}
 	
@@ -204,12 +207,15 @@ public class MainGameActivity extends Activity {
 	}
 	
 	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, Deck deck){
+
+		
+
 		int iterator = 0;
 		final AmmunitionCreate ammo = new AmmunitionCreate();
 		final ActionCreate action = new ActionCreate();
 		final ItemCreate item = new ItemCreate();
 		final WeaponCreate weapon = new WeaponCreate();
-
+		
 
 		for(ImageView img:image){
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,iterator,deck){
@@ -310,5 +316,19 @@ public class MainGameActivity extends Activity {
 			});
 			iterator++;
 		}
+	}
+
+	public void cardsPlayed(){
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		gridview.setAdapter(new imageAdapter(this));
+		
+		
+	}
+	
+	public void playerHand(){
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		gridview.setAdapter(new imageAdapter(this));
+		
+		
 	}
 }

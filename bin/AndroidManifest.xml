@@ -44,6 +44,11 @@
             android:label="@string/title_activity_main_game"
             android:screenOrientation="landscape">
         </activity>
+        
+        <activity
+            android:name="com.example.firstgame.scrollView"
+            android:label="testing">
+        </activity>
     </application>
 
 </manifest>

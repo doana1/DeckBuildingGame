@@ -59,11 +59,13 @@ public class MainActivity extends ActionBarActivity {
 	}
 	
 	public void sendMessage(View view){
-		//TODO Do something in response to button
-		Intent intent = new Intent(this, MessageReceived.class);
-		EditText editText = (EditText) findViewById(R.id.edit_message);
-		String message = editText.getText().toString();
-		intent.putExtra(EXTRA_MESSAGE, message);
+//		Intent intent = new Intent(this, MessageReceived.class);
+//		EditText editText = (EditText) findViewById(R.id.edit_message);
+//		String message = editText.getText().toString();
+//		intent.putExtra(EXTRA_MESSAGE, message);
+//		startActivity(intent);
+		
+		Intent intent = new Intent(this, scrollView.class);
 		startActivity(intent);
 	}
 	
