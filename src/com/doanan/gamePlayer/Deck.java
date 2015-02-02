@@ -65,6 +65,9 @@ public class Deck {
 //		}
 	}
 	
+	/*
+	 * Checks if object in deck is an item
+	 */
 	public String itemC(){
 		for(Object o:deck){
 			if(o.getClass().equals(Item.class)){
@@ -75,6 +78,9 @@ public class Deck {
 		return null;
 	}
 	
+	/*
+	 * Checks if object in deck is an ammunition
+	 */
 	public String ammoC(){
 		for(Object o:deck){
 			if(o.getClass().equals(Ammunition.class)){
@@ -85,7 +91,52 @@ public class Deck {
 		return null;
 	}
 	
-	public Card remove(){
+	/*
+	 * Checks if object in deck is a weapon
+	 */
+	public String weaponC(){
+		for(Object o:deck){
+			if(o.getClass().equals(Weapon.class)){
+				return "Weapon Card Added";
+				
+			}
+		}
+		return null;
+	}
+	
+	/*
+	 * Checks if object in deck is an action
+	 */
+	public String action(){
+		for(Object o:deck){
+			if(o.getClass().equals(Action.class)){
+				return "Action Card Added";
+				
+			}
+		}
+		return null;
+	}
+	
+	/*
+	 * Returns Top Card Information
+	 */
+	
+	public String getCardTitle(){
+		Card card = deck.get(deck.size()-1);
+		return card.NAME;
+	}
+	
+	/*
+	 * Returns Image Description
+	 */
+	public int getCardDescription(){
+		return deck.remove(deck.size()).COST;
+	}
+	
+	/*
+	 * Removes the top card of the Deck
+	 */
+	public Card removeCard(){
 		return deck.remove(deck.size());
 		
 	}

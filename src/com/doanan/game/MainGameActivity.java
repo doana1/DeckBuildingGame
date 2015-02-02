@@ -9,11 +9,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.doanan.gameComponentsCreate.CharacterCreate;
 import com.doanan.gameComponentsCreate.ItemCreate;
 import com.doanan.gameComponentsCreate.WeaponCreate;
 import com.doanan.gamePlayer.Deck;
+import com.doanan.gamePlayer.PlayerHand;
 import com.example.firstgame.R;
 
 public class MainGameActivity extends Activity {
@@ -73,16 +75,14 @@ public class MainGameActivity extends Activity {
 	
 	private Context context = this;
 	
-	/*
-	 * Used to test Cards
-	 */
-	String name = "BOB";
-	String characterName = "Chris";
-	int cost = 500;
-	int health = 20;
-	int decorations = 2;
-	int level = 0;
 	Deck deck1 = new Deck();
+	PlayerHand player1 = new PlayerHand();
+	
+	/*
+	 * Scroll View
+	 */
+	Button addinHorizontalScrollView1, addinScrollView1;
+	 LinearLayout inHorizontalScrollView1, inHorizontalScrollView2, inScrollView1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,23 +96,140 @@ public class MainGameActivity extends Activity {
 		
 		setContentView(R.layout.main_game);
 		
-		
-		// Implement the Cards
-		Character chris = new Character(characterName,cost,health,decorations,level);
-		
-		
-		TextView textView2 = (TextView) findViewById(R.id.textView2);
-		textView2.setText(chris.NAME);
-		textView2.setText(Integer.toString(chris.DECORATIONS));
+		ImageView imageDeck = (ImageView) findViewById(R.id.Deck);
+//		textView2.setText(chris.NAME);
+//		textView2.setText(Integer.toString(chris.DECORATIONS));
 		
 		
 		// Cards Implemented
-		
-		
 		declareImages();
-		cardsPlayed();
-		playerHand();
 		setImages(images,imageFileName,imageDescription,imageTitle,deck1);
+		
+		/*
+		 * Scroll View
+		 */
+//		inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
+		inHorizontalScrollView2 = (LinearLayout)findViewById(R.id.inhorizontalscrollview2);
+          
+        addinHorizontalScrollView1 = (Button)findViewById(R.id.addinhorizontalscrollview1);
+        addinHorizontalScrollView1.setOnClickListener(new OnClickListener(){
+        	public void onClick(View arg0) {
+//        		addImageView(inHorizontalScrollView1);
+//        		addImageView(inHorizontalScrollView2);
+        		addImageView(inHorizontalScrollView2);
+        	}});
+        }
+
+	/*
+	 * Adds an image to the horizontal Scroll View
+	 * Player Hand will be displayed Here
+	 * If Card is used
+	 * That Card will be moved into the Card Played Horizontal Viewed
+	 */
+		private void addImageView(LinearLayout layout){
+			ImageView imageView = new ImageView(this);
+			// Change ImageResource to the card that was played/drawn
+			
+//			imageView.setImageResource(d);
+			imageView.setImageResource(R.drawable.test);
+			
+			imageView.setOnClickListener(new OnClickListener(){
+
+				public void onClick(View v) {
+					// TODO 
+					Dialog dialog = new Dialog(context);
+					dialog.setContentView(R.layout.bigimage);
+					
+					
+					// Sets title to card
+					String title;
+					title = deck1.getCardTitle();//imageTitle[iterator];
+					dialog.setTitle(title);
+					
+					//set the custom dialog components - text, image and button
+					String imageDesc;
+					imageDesc = deck1.getCardTitle();//imageDescription[iterator];
+					TextView text = (TextView) dialog.findViewById(R.id.text);
+					text.setText(imageDesc);
+					ImageView image = (ImageView) dialog.findViewById(R.id.image);
+					//Using image from Assets
+					
+					String imageName;
+					imageName = "ace_of_hearts.jpg";//imageFileName[iterator];
+					
+					try{
+						//get input stream
+						InputStream ims = getAssets().open("imgs/cards/" + imageName);
+						//load image as Drawable
+						Drawable d = Drawable.createFromStream(ims, null);
+						//set image to ImageView
+						image.setImageDrawable(d);
+					}
+					catch(IOException e){
+						//handle
+						image.setImageResource(R.drawable.test);
+						return;
+					}
+					
+					dialog.show();
+				}
+				
+			});
+			layout.addView(imageView);
+		}
+		
+	// Adds an image to the scrollViews
+	private void addImageViewOriginal(LinearLayout layout){
+		ImageView imageView = new ImageView(this);
+		imageView.setImageResource(R.drawable.ic_launcher);
+		/*
+		 * Testing clicking the image
+		 */
+		layout.addView(imageView);
+
+	}
+	
+	/*
+	 * Function to add onClick event to view cards in different piles
+	 * Parameters should include information to indicate which card was played or drawn
+	 */
+	public void onClick(Deck deck){
+		final Dialog dialog = new Dialog(context);
+		dialog.setContentView(R.layout.bigimage);
+		
+		
+		// Sets title to card
+		String title;
+		title = deck.getCardTitle();//imageTitle[iterator];
+		dialog.setTitle(title);
+		
+		//set the custom dialog components - text, image and button
+		String imageDesc;
+		imageDesc = deck.getCardTitle();//imageDescription[iterator];
+		TextView text = (TextView) dialog.findViewById(R.id.text);
+		text.setText(imageDesc);
+		ImageView image = (ImageView) dialog.findViewById(R.id.image);
+		//Using image from Assets
+		
+		String imageName;
+		imageName = "What";//imageFileName[iterator];
+		
+		try{
+			//get input stream
+			InputStream ims = getAssets().open("imgs/cards/" + imageName);
+			//load image as Drawable
+			Drawable d = Drawable.createFromStream(ims, null);
+			//set image to ImageView
+			image.setImageDrawable(d);
+			image.setImageResource(R.drawable.test);
+		}
+		catch(IOException e){
+			//handle
+			image.setImageResource(R.drawable.test);
+			return;
+		}
+		
+		dialog.show();
 	}
 	
 	public void declareImages(){
@@ -274,7 +391,9 @@ public class MainGameActivity extends Activity {
 								text = deck.itemC();
 								Toast toast = Toast.makeText(context, text, duration);
 								toast.show();
-								
+								/*
+								 * Separate function to assign what to do with each card
+								 */
 							}
 							
 							if(cardName.matches(ammoCard)){
@@ -282,6 +401,9 @@ public class MainGameActivity extends Activity {
 								text = deck.ammoC();
 								Toast toast = Toast.makeText(context, text, duration);
 								toast.show();
+								/*
+								 * Separate function to assign what to do with each card
+								 */
 							}
 							
 							if(cardName.matches(actionCard)){
@@ -289,7 +411,9 @@ public class MainGameActivity extends Activity {
 								text = "action Card";
 								Toast toast = Toast.makeText(context, text, duration);
 								toast.show();
-								
+								/*
+								 * Separate function to assign what to do with each card
+								 */
 							}
 							
 							if(cardName.matches(weaponCard)){
@@ -297,7 +421,9 @@ public class MainGameActivity extends Activity {
 								text = "Testing";
 								Toast toast = Toast.makeText(context, text, duration);
 								toast.show();
-								
+								/*
+								 * Separate function to assign what to do with each card
+								 */
 							}
 								
 
@@ -318,6 +444,10 @@ public class MainGameActivity extends Activity {
 		}
 	}
 
+	/*
+	 * Move this to a temp class to hold information to be used later
+	 */
+	/*
 	public void cardsPlayed(){
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(new imageAdapter(this));
@@ -331,4 +461,21 @@ public class MainGameActivity extends Activity {
 		
 		
 	}
+	
+	*/
+	/*
+	 * XML FOR THE ABOVE
+	 * <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView16"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toRightOf="@+id/imageView16"
+        android:numColumns="3" >
+    </GridView>
+    */
 }
