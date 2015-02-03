@@ -12,8 +12,8 @@ public class Item extends Card{
 	String NAME;
 	int COST;
 
-	public Item(String name, int cost) {
-		super(name, cost);
+	public Item(String name, int cost, int cardIndex) {
+		super(name, cost, cardIndex);
 		// TODO Auto-generated constructor stub
 //		this.NAME = name;
 //		this.COST = cost;

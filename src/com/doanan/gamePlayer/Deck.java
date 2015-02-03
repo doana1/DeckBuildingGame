@@ -133,11 +133,10 @@ public class Deck {
 		return deck.remove(deck.size()).COST;
 	}
 	
-	/*
+	/**
 	 * Removes the top card of the Deck
 	 */
 	public Card removeCard(){
-		return deck.remove(deck.size());
-		
+		return deck.remove(deck.size()-1);
 	}
 }

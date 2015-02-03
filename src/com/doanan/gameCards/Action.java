@@ -13,8 +13,8 @@ public class Action extends Card{
 	String NAME;
 	int COST;
 
-	public Action(String name, int cost) {
-		super(name,cost);
+	public Action(String name, int cost, int cardIndex) {
+		super(name,cost,cardIndex);
 //		this.NAME = name;
 //		this.COST = cost;
 		// TODO Auto-generated constructor stub

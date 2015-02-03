@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.doanan.gameCards.Character;
 import com.doanan.gameComponentsCreate.ActionCreate;
 import com.doanan.gameComponentsCreate.AmmunitionCreate;
 import com.doanan.gameComponentsCreate.CharacterCreate;
@@ -82,7 +81,7 @@ public class MainGameActivity extends Activity {
 	 * Scroll View
 	 */
 	Button addinHorizontalScrollView1, addinScrollView1;
-	 LinearLayout inHorizontalScrollView1, inHorizontalScrollView2, inScrollView1;
+	LinearLayout inHorizontalScrollView1, inHorizontalScrollView2, inScrollView1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +103,7 @@ public class MainGameActivity extends Activity {
 		// Cards Implemented
 		declareImages();
 		setImages(images,imageFileName,imageDescription,imageTitle,deck1);
-		
+//		player1.draw();//Causes Null Pointer Error
 		/*
 		 * Scroll View
 		 */
@@ -115,7 +114,6 @@ public class MainGameActivity extends Activity {
         addinHorizontalScrollView1.setOnClickListener(new OnClickListener(){
         	public void onClick(View arg0) {
 //        		addImageView(inHorizontalScrollView1);
-//        		addImageView(inHorizontalScrollView2);
         		addImageView(inHorizontalScrollView2);
         	}});
         }
@@ -126,57 +124,69 @@ public class MainGameActivity extends Activity {
 	 * If Card is used
 	 * That Card will be moved into the Card Played Horizontal Viewed
 	 */
-		private void addImageView(LinearLayout layout){
-			ImageView imageView = new ImageView(this);
-			// Change ImageResource to the card that was played/drawn
+	private void addImageView(LinearLayout layout){
+		ImageView imageView = new ImageView(this);
+		// Change ImageResource to the card that was played/drawn
+		imageView.setImageResource(R.drawable.test);
+		
+		imageView.setOnClickListener(new OnClickListener(){
 			
-//			imageView.setImageResource(d);
-			imageView.setImageResource(R.drawable.test);
-			
-			imageView.setOnClickListener(new OnClickListener(){
-
-				public void onClick(View v) {
-					// TODO 
-					Dialog dialog = new Dialog(context);
-					dialog.setContentView(R.layout.bigimage);
-					
-					
-					// Sets title to card
-					String title;
-					title = deck1.getCardTitle();//imageTitle[iterator];
-					dialog.setTitle(title);
-					
-					//set the custom dialog components - text, image and button
-					String imageDesc;
-					imageDesc = deck1.getCardTitle();//imageDescription[iterator];
-					TextView text = (TextView) dialog.findViewById(R.id.text);
-					text.setText(imageDesc);
-					ImageView image = (ImageView) dialog.findViewById(R.id.image);
-					//Using image from Assets
-					
-					String imageName;
-					imageName = "ace_of_hearts.jpg";//imageFileName[iterator];
-					
-					try{
-						//get input stream
-						InputStream ims = getAssets().open("imgs/cards/" + imageName);
-						//load image as Drawable
-						Drawable d = Drawable.createFromStream(ims, null);
-						//set image to ImageView
-						image.setImageDrawable(d);
-					}
-					catch(IOException e){
-						//handle
-						image.setImageResource(R.drawable.test);
-						return;
-					}
-					
-					dialog.show();
-				}
+			public void onClick(View v) {
+				// TODO 
+				final Dialog dialog = new Dialog(context);
+				dialog.setContentView(R.layout.bigimage);
 				
+				// Sets title to card
+				String title;
+				title = deck1.getCardTitle();//imageTitle[iterator];
+				dialog.setTitle(title);
+				
+				//set the custom dialog components - text, image and button
+				String imageDesc;
+				imageDesc = deck1.getCardTitle();//imageDescription[iterator];
+				TextView text = (TextView) dialog.findViewById(R.id.text);
+				text.setText(imageDesc);
+				ImageView image = (ImageView) dialog.findViewById(R.id.image);
+				//Using image from Assets
+				String imageName;
+				imageName = "ace_of_hearts.jpg";//imageFileName[iterator];
+				
+				try{
+					//get input stream
+					InputStream ims = getAssets().open("imgs/cards/" + imageName);
+					//load image as Drawable
+					Drawable d = Drawable.createFromStream(ims, null);
+					//set image to ImageView
+					image.setImageDrawable(d);
+					}
+				catch(IOException e){
+					//handle
+					image.setImageResource(R.drawable.test);
+					return;
+					}
+				Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+				dialogButton.setOnClickListener(new OnClickListener(){
+					public void onClick(View v){
+						//TODO
+						//Card in Player Hand will be used
+						//The card will then be moved to CardUsed
+						//Then it will appear in that horizontal View
+						
+						player1.draw(deck1);
+						player1.play(2);
+						
+						inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
+						addImageView(inHorizontalScrollView1);
+						dialog.dismiss();
+						}
+					});
+				
+				dialog.show();
+				}
 			});
-			layout.addView(imageView);
-		}
+		layout.addView(imageView);
+	}
+
 		
 	// Adds an image to the scrollViews
 	private void addImageViewOriginal(LinearLayout layout){
@@ -318,9 +328,6 @@ public class MainGameActivity extends Activity {
 		imageTitle[12] = "RED JOKER";
 		imageTitle[13] = "BLACK JOKER";
 		imageTitle[14] = "ROYALTY";
-		
-		
-		
 	}
 	
 	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, Deck deck){
@@ -332,6 +339,18 @@ public class MainGameActivity extends Activity {
 		final ActionCreate action = new ActionCreate();
 		final ItemCreate item = new ItemCreate();
 		final WeaponCreate weapon = new WeaponCreate();
+		//TODO
+		//Remove the adding cards to deck
+		//It is being used to test drawing cards to Player Hand
+		//and moving cards to Used Cards
+		//then Discarding them
+		deck1.add(ammo.ammo10);
+		deck1.add(ammo.ammo10);
+		deck1.add(ammo.ammo10);
+		deck1.add(ammo.ammo10);
+		deck1.add(ammo.ammo10);
+		deck1.add(ammo.ammo10);
+		deck1.add(ammo.ammo10);
 		
 
 		for(ImageView img:image){
@@ -360,6 +379,11 @@ public class MainGameActivity extends Activity {
 					final String cardName = imageName;
 					
 					try{
+						/*
+						 * TODO
+						 * Still deciding if I want to store images in the 
+						 * assets folder
+						 */
 						//get input stream
 						InputStream ims = getAssets().open("imgs/cards/" + imageName);
 						//load image as Drawable
@@ -387,6 +411,11 @@ public class MainGameActivity extends Activity {
 							String weaponCard = "(.*)weapon(.*)";
 							
 							if(cardName.matches(itemCard)){
+								/*
+								 * TODO
+								 * Call Functions Here
+								 * Functions determine which card to add to the Deck
+								 */
 								deck.add(item.item1);
 								text = deck.itemC();
 								Toast toast = Toast.makeText(context, text, duration);
@@ -443,39 +472,4 @@ public class MainGameActivity extends Activity {
 			iterator++;
 		}
 	}
-
-	/*
-	 * Move this to a temp class to hold information to be used later
-	 */
-	/*
-	public void cardsPlayed(){
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		gridview.setAdapter(new imageAdapter(this));
-		
-		
-	}
-	
-	public void playerHand(){
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		gridview.setAdapter(new imageAdapter(this));
-		
-		
-	}
-	
-	*/
-	/*
-	 * XML FOR THE ABOVE
-	 * <GridView
-        android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView16"
-        android:layout_marginBottom="200dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_toLeftOf="@+id/textView2"
-        android:layout_toRightOf="@+id/imageView16"
-        android:numColumns="3" >
-    </GridView>
-    */
 }

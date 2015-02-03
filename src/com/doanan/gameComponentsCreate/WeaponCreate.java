@@ -10,7 +10,7 @@ public class WeaponCreate {
 	String firstWeapon = "GUN";
 	int cost = 50;
 	
-	public Weapon weapon1 = new Weapon(firstWeapon, cost, false);
+	public Weapon weapon1 = new Weapon(firstWeapon, cost, false, -1);
 	
 	public WeaponCreate(){
 		

@@ -15,8 +15,8 @@ public class Monster extends Card{
 	public String NAME;
 	public boolean EFFECT;
 
-	public Monster(String name, int cost, int health, int damage, boolean effect, int reward) {
-		super(name, cost);
+	public Monster(String name, int cost, int health, int damage, boolean effect, int reward, int cardIndex) {
+		super(name, cost, cardIndex);
 //		this.NAME = name;
 //		this.COST = cost;
 		this.HEALTH = health;

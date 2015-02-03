@@ -5,8 +5,8 @@ public class Ammunition extends Card{
 	public int AMMO, GOLD;
 //	public String NAME;
 	
-	public Ammunition(String name, int cost, int ammo, int gold){
-		super(name, cost);
+	public Ammunition(String name, int cost, int ammo, int gold, int cardIndex){
+		super(name, cost, cardIndex);
 		
 		this.AMMO = ammo;
 		this.GOLD = gold;

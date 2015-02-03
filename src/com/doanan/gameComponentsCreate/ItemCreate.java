@@ -11,7 +11,7 @@ public class ItemCreate {
 	int itemCost = 20;
 	
 	
-	public Item item1 = new Item(item,itemCost);
+	public Item item1 = new Item(item,itemCost, -1);
 	
 	
 	public ItemCreate(){
