@@ -1090,6 +1090,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Deck=0x7f09005a;
+        public static final int Mansion=0x7f090059;
         public static final int OpenGL=0x7f090045;
         public static final int action_bar=0x7f09001c;
         public static final int action_bar_activity_content=0x7f090001;
@@ -1138,7 +1139,6 @@ containing a value of this type.
         public static final int imageView13=0x7f090056;
         public static final int imageView14=0x7f090057;
         public static final int imageView15=0x7f090058;
-        public static final int imageView16=0x7f090059;
         public static final int imageView2=0x7f090049;
         public static final int imageView3=0x7f09004a;
         public static final int imageView4=0x7f09004b;

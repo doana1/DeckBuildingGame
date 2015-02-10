@@ -245,6 +245,7 @@ int drawable sample_6 0x7f02005e
 int drawable sample_7 0x7f02005f
 int drawable test 0x7f020060
 int id Deck 0x7f09005a
+int id Mansion 0x7f090059
 int id OpenGL 0x7f090045
 int id action_bar 0x7f09001c
 int id action_bar_activity_content 0x7f090001
@@ -293,7 +294,6 @@ int id imageView12 0x7f090055
 int id imageView13 0x7f090056
 int id imageView14 0x7f090057
 int id imageView15 0x7f090058
-int id imageView16 0x7f090059
 int id imageView2 0x7f090049
 int id imageView3 0x7f09004a
 int id imageView4 0x7f09004b

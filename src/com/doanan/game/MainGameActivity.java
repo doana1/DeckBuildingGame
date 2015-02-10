@@ -18,12 +18,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.doanan.gameCards.Ammunition;
+import com.doanan.gameCards.Card;
 import com.doanan.gameComponentsCreate.ActionCreate;
 import com.doanan.gameComponentsCreate.AmmunitionCreate;
 import com.doanan.gameComponentsCreate.CharacterCreate;
 import com.doanan.gameComponentsCreate.ItemCreate;
 import com.doanan.gameComponentsCreate.WeaponCreate;
 import com.doanan.gamePlayer.Deck;
+import com.doanan.gamePlayer.Player;
 import com.doanan.gamePlayer.PlayerHand;
 import com.example.firstgame.R;
 
@@ -75,13 +78,14 @@ public class MainGameActivity extends Activity {
 	private Context context = this;
 	
 	Deck deck1 = new Deck();
-	PlayerHand player1 = new PlayerHand();
+	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0);
+	PlayerHand player1HAND = new PlayerHand();
 	
-	/*
-	 * Scroll View
-	 */
+	// ScrollView
 	Button addinHorizontalScrollView1, addinScrollView1;
 	LinearLayout inHorizontalScrollView1, inHorizontalScrollView2, inScrollView1;
+	
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +99,6 @@ public class MainGameActivity extends Activity {
 		
 		setContentView(R.layout.main_game);
 		
-		ImageView imageDeck = (ImageView) findViewById(R.id.Deck);
 //		textView2.setText(chris.NAME);
 //		textView2.setText(Integer.toString(chris.DECORATIONS));
 		
@@ -103,7 +106,8 @@ public class MainGameActivity extends Activity {
 		// Cards Implemented
 		declareImages();
 		setImages(images,imageFileName,imageDescription,imageTitle,deck1);
-//		player1.draw();//Causes Null Pointer Error
+		Deck();
+		Mansion();
 		/*
 		 * Scroll View
 		 */
@@ -114,36 +118,53 @@ public class MainGameActivity extends Activity {
         addinHorizontalScrollView1.setOnClickListener(new OnClickListener(){
         	public void onClick(View arg0) {
 //        		addImageView(inHorizontalScrollView1);
-        		addImageView(inHorizontalScrollView2);
+//        		cardsUsed(inHorizontalScrollView2,handCard);
         	}});
-        }
-
-	/*
-	 * Adds an image to the horizontal Scroll View
-	 * Player Hand will be displayed Here
-	 * If Card is used
-	 * That Card will be moved into the Card Played Horizontal Viewed
+	}
+	
+	/**
+	 * Draws cards from the player's deck.
 	 */
-	private void addImageView(LinearLayout layout){
-		ImageView imageView = new ImageView(this);
+	private void Draw(){
+		player1HAND.draw(deck1);
+	}
+	
+	/**
+	 * Displays the cards drawn in the horizontal view.
+	 */
+	private void displayDraw(LinearLayout layout){
+		for(int i = 0; i < 5;i++){
+			displayDraws(layout, i);
+		}
+	}
+	
+	/*TODO
+	 * Display cards by drawing them
+	 * Cards function when used properly
+	 * Cards move to Cards played area once played
+	 * Card that moves will vanish from this area.
+	 */
+	private void displayDraws(final LinearLayout layout, int index){
+		final Card handCard = player1HAND.playerHand.get(index);
+		final ImageView imageView = new ImageView(this);
 		// Change ImageResource to the card that was played/drawn
 		imageView.setImageResource(R.drawable.test);
 		
 		imageView.setOnClickListener(new OnClickListener(){
 			
 			public void onClick(View v) {
-				// TODO 
 				final Dialog dialog = new Dialog(context);
 				dialog.setContentView(R.layout.bigimage);
 				
 				// Sets title to card
 				String title;
-				title = deck1.getCardTitle();//imageTitle[iterator];
+//				title = deck1.getCardTitle();//imageTitle[iterator];
+				title = handCard.getName();
 				dialog.setTitle(title);
 				
 				//set the custom dialog components - text, image and button
 				String imageDesc;
-				imageDesc = deck1.getCardTitle();//imageDescription[iterator];
+				imageDesc = handCard.getName();//imageDescription[iterator];
 				TextView text = (TextView) dialog.findViewById(R.id.text);
 				text.setText(imageDesc);
 				ImageView image = (ImageView) dialog.findViewById(R.id.image);
@@ -172,11 +193,27 @@ public class MainGameActivity extends Activity {
 						//The card will then be moved to CardUsed
 						//Then it will appear in that horizontal View
 						
-						player1.draw(deck1);
-						player1.play(2);
+						//START TESTING OF MOVING CARDS TO CARDS PLAYED
 						
 						inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
-						addImageView(inHorizontalScrollView1);
+						cardsUsed(inHorizontalScrollView1,handCard);
+						//END TESTING OF MOVING CARDS TO CARDS PLAYED
+						
+						//TESTING TO USE AMMO CARD
+//						AmmunitionCreate ammo1 = new AmmunitionCreate();
+//						useAMMO(ammo1.ammo10);
+//						if(handCard.getClass().equals(Ammunition.class)){
+//							useAMMO(handCard);
+//						}
+						useCard(handCard);
+//						
+						String text = player.NAME + " has " + player.AMMO + "  bullets.\n" +
+									  "Player Hand: " + player1HAND.handSize();
+						int duration = Toast.LENGTH_SHORT;
+						Toast toast = Toast.makeText(context, text, duration);
+						toast.show();
+						
+						layout.removeView(imageView);
 						dialog.dismiss();
 						}
 					});
@@ -186,17 +223,157 @@ public class MainGameActivity extends Activity {
 			});
 		layout.addView(imageView);
 	}
+	
+	/**
+	 * Sets up the deck for drawing cards. 
+	 * Five cards will me moved from the Deck to PlayerHand.
+	 */
+	private void Deck(){
+		ImageView imageDeck = (ImageView) findViewById(R.id.Deck);
+		imageDeck.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				Draw();
+				/*
+				 * Uncomment this later
+				Draw();
+				String text = "Deck has " + deck1.deckSize() + " cards.\n" +
+						  	  "Player has " + player1HAND.handSize() + " cards in their hand.";
+				int duration = Toast.LENGTH_SHORT;
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.show();
+				*/
+				displayDraw(inHorizontalScrollView2);
+			}
+		});
+	}
+	
+	/**
+	 * If an ammo card is used call this function.
+	 * <p>
+	 * It allows an ammunition card to be used.
+	 */
+	private void useCard(Card card){
+		player1HAND.useCard(player, card);
+	}
+	
+	/**
+	 * TODO
+	 * Change this to fight monsters later.
+	 * Currently used to add Cards to the Deck quickly.
+	 */
+	private void Mansion(){
+		ImageView imageDeck = (ImageView) findViewById(R.id.Mansion);
+		imageDeck.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				final AmmunitionCreate ammo = new AmmunitionCreate();
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				deck1.add(ammo.ammo10);
+				deck1.add(ammo.ammo20);
+				deck1.add(ammo.ammo30);
+				String text = "Deck has " + deck1.deckSize() + " cards.\n" +
+							  "Player has " + player1HAND.handSize() + " cards in their hand.";
+				int duration = Toast.LENGTH_SHORT;
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.show();
+			}
+		});
+	}
+	
 
-		
-	// Adds an image to the scrollViews
-	private void addImageViewOriginal(LinearLayout layout){
+	/*
+	 * Adds an image to the horizontal Scroll View
+	 * Player Hand will be displayed Here
+	 * If Card is used
+	 * That Card will be moved into the Card Played Horizontal Viewed
+	 */
+	private void cardsUsed(LinearLayout layout, final Card handCard){
 		ImageView imageView = new ImageView(this);
-		imageView.setImageResource(R.drawable.ic_launcher);
-		/*
-		 * Testing clicking the image
-		 */
+		// Change ImageResource to the card that was played/drawn
+		imageView.setImageResource(R.drawable.test);
+		
+		imageView.setOnClickListener(new OnClickListener(){
+			
+			public void onClick(View v) {
+				// TODO 
+				final Dialog dialog = new Dialog(context);
+				dialog.setContentView(R.layout.bigimage);
+				
+				// Sets title to card
+				String title;
+				title = handCard.getName();//imageTitle[iterator];
+				dialog.setTitle(title);
+				
+				//set the custom dialog components - text, image and button
+				String imageDesc;
+				imageDesc = handCard.getName();//imageDescription[iterator];
+				TextView text = (TextView) dialog.findViewById(R.id.text);
+				text.setText(imageDesc);
+				ImageView image = (ImageView) dialog.findViewById(R.id.image);
+				//Using image from Assets
+				String imageName;
+				imageName = "ace_of_hearts.jpg";//imageFileName[iterator];
+				
+				try{
+					//get input stream
+					InputStream ims = getAssets().open("imgs/cards/" + imageName);
+					//load image as Drawable
+					Drawable d = Drawable.createFromStream(ims, null);
+					//set image to ImageView
+					image.setImageDrawable(d);
+					}
+				catch(IOException e){
+					//handle
+					image.setImageResource(R.drawable.test);
+					return;
+					}
+				Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+				dialogButton.setText("Cool Right");
+				dialogButton.setOnClickListener(new OnClickListener(){
+					public void onClick(View v){
+						//TODO
+						//Card in Player Hand will be used
+						//The card will then be moved to CardUsed
+						//Then it will appear in that horizontal View
+						
+						//START TESTING OF MOVING CARDS TO CARDS PLAYED
+						
+						//END TESTING OF MOVING CARDS TO CARDS PLAYED
+						
+						//TESTING TO USE AMMO CARD
+						dialog.dismiss();
+						}
+					});
+				
+				dialog.show();
+				}
+			});
 		layout.addView(imageView);
-
 	}
 	
 	/*
@@ -344,14 +521,6 @@ public class MainGameActivity extends Activity {
 		//It is being used to test drawing cards to Player Hand
 		//and moving cards to Used Cards
 		//then Discarding them
-		deck1.add(ammo.ammo10);
-		deck1.add(ammo.ammo10);
-		deck1.add(ammo.ammo10);
-		deck1.add(ammo.ammo10);
-		deck1.add(ammo.ammo10);
-		deck1.add(ammo.ammo10);
-		deck1.add(ammo.ammo10);
-		
 
 		for(ImageView img:image){
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,iterator,deck){

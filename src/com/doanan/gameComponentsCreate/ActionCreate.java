@@ -11,7 +11,7 @@ public class ActionCreate {
 	int action_11 = 30;
 	
 	
-	public Action action1 = new Action(action_1, action_11, -1);
+	public Action action1 = new Action(action_1, action_11, -1, 0,0);
 	
 	public ActionCreate(){
 		

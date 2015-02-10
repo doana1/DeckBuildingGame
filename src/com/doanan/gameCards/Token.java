@@ -12,8 +12,8 @@ public class Token extends Card{
 	public String NAME;
 	public int COST;
 
-	public Token(String name, int cost, int cardIndex) {
-		super(name, cost, cardIndex);
+	public Token(String name, int cost,int ammo,int cardIndex) {
+		super(name, cost, ammo, cardIndex);
 //		this.NAME = name;
 //		this.COST = cost;
 		// TODO Auto-generated constructor stub

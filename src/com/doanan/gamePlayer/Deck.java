@@ -117,26 +117,40 @@ public class Deck {
 		return null;
 	}
 	
-	/*
-	 * Returns Top Card Information
+	/**
+	 * Returns the name of the top card from the deck.
+	 * 
+	 * @return Name of the top card.
 	 */
-	
 	public String getCardTitle(){
 		Card card = deck.get(deck.size()-1);
 		return card.NAME;
 	}
 	
-	/*
-	 * Returns Image Description
+	/**
+	 * Returns the cost of the top card from the deck.
+	 * 
+	 * @return Cost of the top card.
 	 */
 	public int getCardDescription(){
 		return deck.remove(deck.size()).COST;
 	}
 	
 	/**
-	 * Removes the top card of the Deck
+	 * Returns the top card from the deck.
+	 * 
+	 * @return Top card from the deck.
 	 */
 	public Card removeCard(){
 		return deck.remove(deck.size()-1);
+	}
+	
+	/**
+	 * Returns the amount of cards in the deck.
+	 * 
+	 * @return Size of deck.
+	 */
+	public int deckSize(){
+		return deck.size();
 	}
 }

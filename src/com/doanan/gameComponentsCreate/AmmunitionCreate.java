@@ -35,6 +35,12 @@ public class AmmunitionCreate {
 	public Ammunition ammo20 = new Ammunition(ammo20Name, ammo20Cost, ammo20Ammo, ammo20Gold, -1);
 	public Ammunition ammo30 = new Ammunition(ammo30Name, ammo30Cost, ammo30Ammo, ammo30Gold, -1);
 	
+	/**
+	 * Constructor used to access local variables of the class.
+	 * <p>
+	 * These variables include.
+	 * ammo10, ammo20, ammo30
+	 */
 	public AmmunitionCreate(){
 		
 	}
