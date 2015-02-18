@@ -1,0 +1,5 @@
+C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\classes\debug
+C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-cda4a661889805d3b8e33ae5c50a91f8395aa169.jar
+C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d75d14d68c973d7f106db5bc8b5dca2e833e56d5.jar
+C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-949e1824db7e43a76a8587743e0ec824fd06014e.jar
+C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-5c0ae82a9e00a071991da5ac11d27bd6dea4bc74.jar
