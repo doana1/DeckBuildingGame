@@ -40,6 +40,7 @@ public class MainGameActivity extends Activity {
 	public enum Turn{
 		ACTION, BUY, EXPLORE
 	}
+    //Testing Commit to Repo
 	
 	// Number of Images
 	private final int imageNumber= 15; 
@@ -488,7 +489,7 @@ public class MainGameActivity extends Activity {
 		// Declare Ammo
 		AmmunitionCreate ammo1 = new AmmunitionCreate();
         WeaponCreate weapon1 = new WeaponCreate();
-		
+
 		// Assigned imageviews to variables
 		image1 = (ImageView) findViewById(R.id.imageView1);
 		image2 = (ImageView) findViewById(R.id.imageView2);
