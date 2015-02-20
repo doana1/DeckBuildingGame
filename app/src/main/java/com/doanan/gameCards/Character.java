@@ -12,8 +12,8 @@ public class Character extends Card{
 		public int AMMO;
 //		public String NAME;
 		
-		public Character(String name, int cost, int health, int ammo, int decorations, int level, int cardIndex){
-			super(name, cost, ammo,cardIndex);
+		public Character(String name, int cost, int health, int ammo, int ammorequirement, int damage,int decorations, int level, int cardIndex,int gold){
+			super(name, cost, ammo,ammorequirement,damage,cardIndex,gold);
 			
 			//Track Character Health, Ammo, and Decorations
 			//Characters don't have cost but required from inheritance

@@ -11,23 +11,26 @@ public class myOnClickListener implements OnClickListener{
 	String[] imageFileName;
 	String[] imageDescription;
 	String[] imageTitle;
+    int[] cardType;
 	int iterator;
 	Deck deck;
 	
-	public myOnClickListener(Context context, String[] imageFileName, String[] imageDescription, String[] imageTitle, int iterator, Deck deck){
+	public myOnClickListener(Context context, String[] imageFileName, String[] imageDescription, String[] imageTitle, int[] cardType,int iterator,Deck deck){
 		this.imageFileName = imageFileName;
 		this.imageDescription = imageDescription;
 		this.imageTitle = imageTitle;
 		this.iterator = iterator;
+        this.cardType = cardType;
 		
 		this.deck = deck;
 	}
 	
-	public void onClick(View v, String[] imageFileName,String[] imageDescription, String[] imageTitle, int iterator, Deck deck) {
+	public void onClick(View v, String[] imageFileName,String[] imageDescription, String[] imageTitle, int[] cardType,int iterator) {
 		imageFileName = this.imageFileName;
 		imageDescription = this.imageDescription;
 		imageTitle = this.imageTitle;
 		iterator = this.iterator;
+        cardType = this.cardType;
 		
 		deck = this.deck;
 

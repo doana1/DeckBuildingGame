@@ -1312,7 +1312,9 @@ containing a value of this type.
     }
     public static final class id {
         public static final int AMMO=0x7f080063;
+        public static final int DAMAGE=0x7f080064;
         public static final int Deck=0x7f08005d;
+        public static final int GOLD=0x7f080065;
         public static final int Mansion=0x7f08005c;
         public static final int OpenGL=0x7f080048;
         public static final int TurnEnd=0x7f080062;
@@ -1329,11 +1331,10 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f08002e;
         public static final int action_mode_bar_stub=0x7f08002d;
         public static final int action_mode_close_button=0x7f080020;
-        public static final int action_settings=0x7f08006a;
+        public static final int action_settings=0x7f08006b;
         public static final int activity_chooser_view_content=0x7f080021;
-        public static final int addinhorizontalscrollview=0x7f080066;
-        public static final int addinhorizontalscrollview1=0x7f080064;
-        public static final int addinscrollview=0x7f080068;
+        public static final int addinhorizontalscrollview=0x7f080067;
+        public static final int addinscrollview=0x7f080069;
         public static final int always=0x7f080016;
         public static final int beginning=0x7f080013;
         public static final int button1=0x7f080045;
@@ -1374,13 +1375,13 @@ containing a value of this type.
         public static final int imageView7=0x7f080052;
         public static final int imageView8=0x7f080053;
         public static final int imageView9=0x7f080054;
-        public static final int inhorizontalscrollview=0x7f080067;
+        public static final int inhorizontalscrollview=0x7f080068;
         public static final int inhorizontalscrollview1=0x7f08005f;
         public static final int inhorizontalscrollview2=0x7f080061;
-        public static final int inscrollview=0x7f080069;
-        public static final int item1=0x7f08006b;
-        public static final int item2=0x7f08006c;
-        public static final int item3=0x7f08006d;
+        public static final int inscrollview=0x7f08006a;
+        public static final int item1=0x7f08006c;
+        public static final int item2=0x7f08006d;
+        public static final int item3=0x7f08006e;
         public static final int layout1=0x7f08004a;
         public static final int layout2=0x7f080050;
         public static final int linearLayout3=0x7f080056;
@@ -1390,7 +1391,7 @@ containing a value of this type.
         public static final int never=0x7f080019;
         public static final int none=0x7f08000e;
         public static final int normal=0x7f08000a;
-        public static final int opengl=0x7f080065;
+        public static final int opengl=0x7f080066;
         public static final int progress_circular=0x7f080005;
         public static final int progress_horizontal=0x7f080006;
         public static final int radio=0x7f08002b;

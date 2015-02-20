@@ -9,11 +9,11 @@ public class Item extends Card{
 	 * Item Name
 	 * Effect
 	 */
-	String NAME;
-	int COST;
+	public String NAME;
+	public int COST;
 
-	public Item(String name, int cost, int ammo,int cardIndex) {
-		super(name, cost,ammo, cardIndex);
+	public Item(String name, int cost, int ammo,int ammorequirement,int damage,int cardIndex, int gold) {
+		super(name, cost,ammo,ammorequirement,damage, cardIndex, gold);
 		// TODO Auto-generated constructor stub
 //		this.NAME = name;
 //		this.COST = cost;

@@ -16,12 +16,9 @@ public class Weapon extends Card{
 	public int COST;
     public int DAMAGE;
 
-	public Weapon(String name, int cost,int ammoRequirement, int damage, boolean effect, int cardIndex) {
-		super(name,cost, ammoRequirement,cardIndex);
-//		this.NAME = name;
-//		this.COST = cost;
-        this.DAMAGE = damage;
-		
+	public Weapon(String name, int cost,int ammo,int ammoRequirement, int damage, boolean effect, int cardIndex, int gold) {
+		super(name,cost, ammo,ammoRequirement,damage,cardIndex, gold);
+
 		this.EFFECT = effect;	
 	}
 	

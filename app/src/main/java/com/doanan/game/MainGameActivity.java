@@ -16,9 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.doanan.gameCards.Card;
+import com.doanan.gameCards.Weapon;
 import com.doanan.gameComponentsCreate.ActionCreate;
 import com.doanan.gameComponentsCreate.AmmunitionCreate;
-import com.doanan.gameComponentsCreate.CharacterCreate;
 import com.doanan.gameComponentsCreate.ItemCreate;
 import com.doanan.gameComponentsCreate.WeaponCreate;
 import com.doanan.gamePlayer.Deck;
@@ -78,7 +78,7 @@ public class MainGameActivity extends Activity {
 	private Context context = this;
 	
 	Deck deck1 = new Deck();
-	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0);
+	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0,deck1);
 	PlayerHand player1HAND = new PlayerHand();
 	
 	// ScrollView
@@ -87,6 +87,9 @@ public class MainGameActivity extends Activity {
 
     // Check if card drawn
     private boolean drawn = false;
+
+    // Used to set image cardType
+    private int[] cardType = new int[imageNumber];
 
 	
 	@Override
@@ -113,7 +116,7 @@ public class MainGameActivity extends Activity {
 
             // Cards Implemented
             declareImages();
-            setImages(images,imageFileName,imageDescription,imageTitle,deck1);
+            setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.deck);
             Deck();
             Mansion();
 
@@ -251,10 +254,7 @@ public class MainGameActivity extends Activity {
 		ImageView imageDeck = (ImageView) findViewById(R.id.Deck);
 		imageDeck.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-                if(drawn){
-
-                }
-                else{
+                if(!drawn && !deck1.isEmpty()){
                     Draw();
                     displayDraw(inHorizontalScrollView2);
                     drawn = true;
@@ -273,11 +273,23 @@ public class MainGameActivity extends Activity {
 		player1HAND.useCard(player, card);
 
         setAmmoHUD();
+        setDamageHUD();
+        setGoldHUD();
 	}
 
     private void setAmmoHUD(){
         TextView ammo = (TextView)findViewById(R.id.AMMO);
         ammo.setText("Ammo: " + player.getPlayerAMMO());
+    }
+
+    private void setDamageHUD(){
+        TextView damage = (TextView)findViewById(R.id.DAMAGE);
+        damage.setText("Damage: " + player.getPlayerDAMAGE());
+    }
+
+    private void setGoldHUD(){
+        TextView gold = (TextView)findViewById(R.id.GOLD);
+        gold.setText("Gold: " + player.getPlayerGOLD());
     }
 
 
@@ -306,10 +318,13 @@ public class MainGameActivity extends Activity {
                 player.AMMO = 0;
                 player.GOLD = 0;
                 player.BUY = 0;
+                player.DAMAGE = 0;
                 player.EXPLORE = 0;
                 player.ACTION = 0;
                 drawn = false;
                 setAmmoHUD();
+                setGoldHUD();
+                setDamageHUD();
             }
         });
 
@@ -325,36 +340,36 @@ public class MainGameActivity extends Activity {
 		imageDeck.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				final AmmunitionCreate ammo = new AmmunitionCreate();
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
-				deck1.add(ammo.ammo10);
-				deck1.add(ammo.ammo20);
-				deck1.add(ammo.ammo30);
+				player.deck.add(ammo.ammo10);
+				player.deck.add(ammo.ammo20);
+				player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
+                player.deck.add(ammo.ammo10);
+                player.deck.add(ammo.ammo20);
+                player.deck.add(ammo.ammo30);
 				String text = "Deck has " + deck1.deckSize() + " cards.\n" +
 							  "Player has " + player1HAND.handSize() + " cards in their hand.";
 				int duration = Toast.LENGTH_SHORT;
@@ -478,14 +493,13 @@ public class MainGameActivity extends Activity {
 		dialog.show();
 	}
 
-    public void combat(){
+    public void combat(Weapon card){
         //Check if ammo requirement meets weapons demands
         //Check if damage is >= monster health
+
     }
 	
 	public void declareImages(){
-		// Declare Characters
-		CharacterCreate char1 = new CharacterCreate();
 		// Declare Ammo
 		AmmunitionCreate ammo1 = new AmmunitionCreate();
         WeaponCreate weapon1 = new WeaponCreate();
@@ -539,63 +553,75 @@ public class MainGameActivity extends Activity {
 		imageFileName[13] = "black_joker.jpg";
 		imageFileName[14] = "royalty.png";
 		// Description of image
-		imageDescription[0] = "ACE OF HEARTS";
+		imageDescription[0] = "It's a Pistol";
 		imageDescription[1] = "ACE OF SPADES";
 		imageDescription[2] = "ACE OF DIAMONDS";
 		imageDescription[3] = "ACE OF CLUBS";
-		imageDescription[4] = "A talented girl, Rebecca graduated college at the young age of 18.[7] Her expertise in chemistry and medicine earned her a position in the Special Tactics And Rescue Service, a Raccoon City Police Department branch handling specialist cases. She was assigned as Rear Security (RS) and Medic for the Bravo team.[7] She became the unit's youngest and most inexperienced member, which made her quite nervous around her teammates.[7] Because of this, she was eager to please and has been known to take on any task assigned to her without hesitation.";
-		imageDescription[5] = "KING OF SPADES";
-		imageDescription[6] = "KING OF DIAMONDS";
+		imageDescription[4] = "Gives 10 ammo";
+		imageDescription[5] = "It's a Knife";
+		imageDescription[6] = "dfsfdsf";
 		imageDescription[7] = "KING OF CLUBS";
 		imageDescription[8] = "QUEEN OF HEARTS";
-		imageDescription[9] = "Gives 10 ammo";
+		imageDescription[9] = "Gives 20 ammo";
 		imageDescription[10] = "QUEEN OF DIAMONDS";
 		imageDescription[11] = "QUEEN OF CLUBS";
 		imageDescription[12] = "RED JOKER";
 		imageDescription[13] = "BLACK JOKER";
-		imageDescription[14] = "ROYALTY";
+		imageDescription[14] = "Gives 30 ammo";
 		// Title of image
 		imageTitle[0] = weapon1.pistol.NAME;
 		imageTitle[1] = "ACE OF SPADES";
 		imageTitle[2] = "ACE OF DIAMONDS";
 		imageTitle[3] = "ACE OF CLUBS";
-		imageTitle[4] = char1.Rebecca.NAME;
-		imageTitle[5] = "KING OF SPADES";
-		imageTitle[6] = "KING OF DIAMONDS";
+		imageTitle[4] = ammo1.ammo10.NAME;
+		imageTitle[5] = weapon1.knife.NAME;
+		imageTitle[6] = "fsdfds";
 		imageTitle[7] = "KING OF CLUBS";
 		imageTitle[8] = "QUEEN OF HEARTS";
-		imageTitle[9] = ammo1.ammo10.NAME;
+		imageTitle[9] = ammo1.ammo20.NAME;
 		imageTitle[10] = "QUEEN OF DIAMONDS";
 		imageTitle[11] = "QUEEN OF CLUBS";
 		imageTitle[12] = "RED JOKER";
 		imageTitle[13] = "BLACK JOKER";
-		imageTitle[14] = "ROYALTY";
+		imageTitle[14] = ammo1.ammo30.NAME;
+        // Card Type
+        /*
+        0 = Weapon
+        1 = Action
+        2 = Ammunition
+        3 = Item
+         */
+        cardType[0] = 0;
+        cardType[1] = 0;
+        cardType[2] = 0;
+        cardType[3] = 1;
+        cardType[4] = 2;
+        cardType[5] = 0;
+        cardType[6] = 0;
+        cardType[7] = 1;
+        cardType[8] = 1;
+        cardType[9] = 2;
+        cardType[10] = 1;
+        cardType[11] = 1;
+        cardType[12] = 1;
+        cardType[13] = 1;
+        cardType[14] = 2;
 	}
 	
-	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, Deck deck){
-
-		
+	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, int[] cardType, Deck deck){
 
 		int iterator = 0;
-		final AmmunitionCreate ammo = new AmmunitionCreate();
-		final ActionCreate action = new ActionCreate();
-		final ItemCreate item = new ItemCreate();
-		final WeaponCreate weapon = new WeaponCreate();
-		//TODO
-		//Remove the adding cards to deck
-		//It is being used to test drawing cards to Player Hand
-		//and moving cards to Used Cards
-		//then Discarding them
+
 
 		for(ImageView img:image){
-			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,iterator,deck){
+			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,cardType,iterator,deck){
 				public void onClick(View v){
 					final Dialog dialog = new Dialog(context);
 					dialog.setContentView(R.layout.bigimage);
 					
 					
 					// Sets title to card
-					String title;
+					final String title;
 					title = imageTitle[iterator];
 					dialog.setTitle(title);
 					
@@ -633,69 +659,31 @@ public class MainGameActivity extends Activity {
 					
 					Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 					//if button is clicked, close the custom dialog
-					dialogButton.setOnClickListener(new cardAddOnClickListener(deck){
+
+                    final int type = cardType[iterator];
+
+					dialogButton.setOnClickListener(new cardAddOnClickListener(deck,type){
 						public void onClick(View v){
-							Context context = getApplicationContext();
-							CharSequence text = "Card Bought~~~";
-							int duration = Toast.LENGTH_SHORT;
-
-							String itemCard = "(.*)king(.*)";
-							String ammoCard = "(.*)queen(.*)";
-							String actionCard = "(.*)action(.*)";
-							String weaponCard = "(.*)weapon(.*)";
-							
-							if(cardName.matches(itemCard)){
-								/*
-								 * TODO
-								 * Call Functions Here
-								 * Functions determine which card to add to the Deck
-								 */
-								deck.add(item.item1);
-								text = deck.itemC();
-								Toast toast = Toast.makeText(context, text, duration);
-								toast.show();
-								/*
-								 * Separate function to assign what to do with each card
-								 */
-							}
-							
-							if(cardName.matches(ammoCard)){
-								deck.add(ammo.ammo10);
-								text = deck.ammoC();
-								Toast toast = Toast.makeText(context, text, duration);
-								toast.show();
-								/*
-								 * Separate function to assign what to do with each card
-								 */
-							}
-							
-							if(cardName.matches(actionCard)){
-								deck.add(action.action1);
-								text = "action Card";
-								Toast toast = Toast.makeText(context, text, duration);
-								toast.show();
-								/*
-								 * Separate function to assign what to do with each card
-								 */
-							}
-							
-							if(cardName.matches(weaponCard)){
-								deck.add(weapon.pistol);
-								text = "Testing";
-								Toast toast = Toast.makeText(context, text, duration);
-								toast.show();
-								/*
-								 * Separate function to assign what to do with each card
-								 */
-							}
-								
-
-							
-							/*
-							 * Check which card to add based on image
-							 * Card Types that can be bought
-							 * (Action, Ammunition, Item, Weapon)
-							 */
+                             /*
+                             0 = Weapon
+                             1 = Action
+                             2 = Ammunition
+                             3 = Item
+                             */
+                            switch (type){
+                                case 0:
+                                    addWeapon(deck, title);
+                                    break;
+                                case 1:
+                                    addAction(deck, title);
+                                    break;
+                                case 2:
+                                    addAmmunition(deck, title);
+                                    break;
+                                case 3:
+                                    addItem(deck, title);
+                                    break;
+                            }
 							dialog.dismiss();
 						}
 					});
@@ -706,5 +694,49 @@ public class MainGameActivity extends Activity {
 			iterator++;
 		}
 	}
+
+    public void addWeapon(Deck deck, String cardName){
+        WeaponCreate weapon = new WeaponCreate();
+
+        //TODO
+        // Add condition if cost is met
+        if (cardName.equals(weapon.pistol.NAME)){
+            deck.add(weapon.pistol);
+        }
+        else if (cardName.equals(weapon.knife.NAME)){
+            deck.add(weapon.knife);
+        }
+
+    }
+    public void addAction(Deck deck, String cardName){
+        ActionCreate action = new ActionCreate();
+
+        if (cardName.equals(action.action1.NAME)){
+            deck.add(action.action1);
+        }
+
+    }
+    public void addAmmunition(Deck deck, String cardName){
+        AmmunitionCreate ammo = new AmmunitionCreate();
+
+        if (cardName.equals(ammo.ammo10.NAME)){
+            deck.add(ammo.ammo10);
+        }
+        else if (cardName.equals(ammo.ammo20.NAME)){
+            deck.add(ammo.ammo20);
+        }
+
+        else if(cardName.equals(ammo.ammo30.NAME)){
+            deck.add(ammo.ammo30);
+        }
+    }
+    public void addItem(Deck deck, String cardName){
+        ItemCreate item = new ItemCreate();
+
+        if (cardName.equals(item.item1.NAME)){
+            deck.add(item.item1);
+
+        }
+    }
 
 }

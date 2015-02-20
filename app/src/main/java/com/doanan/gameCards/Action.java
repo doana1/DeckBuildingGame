@@ -23,8 +23,8 @@ public class Action extends Card{
 	 * @param ammo (AMMO IGNORE THIS)
 	 * @param action The number of action points the player has.
 	 */
-	public Action(String name, int cost, int cardIndex, int ammo,int action) {
-		super(name,cost,ammo,cardIndex);
+	public Action(String name, int cost, int ammorequirement, int damage,int cardIndex, int ammo,int action,int gold) {
+		super(name,cost,ammo,ammorequirement,damage,cardIndex,gold);
 //		this.NAME = name;
 //		this.COST = cost;
 		this.ACTION = action;

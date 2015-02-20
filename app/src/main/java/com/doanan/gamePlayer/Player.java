@@ -8,7 +8,8 @@ public class Player {
 	 * Counters to keep track of a players information
 	 */
 	public String NAME, CHARACTERNAME;
-	public int HEALTH, ACTION, BUY, EXPLORE, GOLD, AMMO;
+	public int HEALTH, ACTION, BUY, EXPLORE, GOLD, AMMO, DAMAGE;
+    public Deck deck;
 	
 	/**
 	 * Creates a Player.
@@ -24,7 +25,7 @@ public class Player {
 	 * @param gold Amount of gold the player has.
 	 * @param ammo Amount of ammo the player has.
 	 */
-	public Player(String name, String charactername, int health, int action, int buy, int explore, int gold, int ammo){
+	public Player(String name, String charactername, int health, int action, int buy, int explore, int gold, int ammo, Deck deck){
 		this.NAME = name;
 		this.CHARACTERNAME = charactername;
 		this.HEALTH = health;
@@ -33,6 +34,7 @@ public class Player {
 		this.EXPLORE = explore;
 		this.GOLD = gold;
 		this.AMMO = ammo;
+        this.deck = deck;
 	}
 	
 	/**
@@ -68,5 +70,15 @@ public class Player {
 	public int getPlayerAMMO(){
 		return AMMO;
 	}
+
+    /**
+     * Returns player damage.
+     * It is the amount of power they currently have to defeat monsters.
+     *
+     * @return Amount of DAMAGE power a player has.
+     */
+    public int getPlayerDAMAGE(){
+        return DAMAGE;
+    }
 	
 }

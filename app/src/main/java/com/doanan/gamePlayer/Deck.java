@@ -1,12 +1,12 @@
 package com.doanan.gamePlayer;
 
-import java.util.ArrayList;
-
 import com.doanan.gameCards.Action;
 import com.doanan.gameCards.Ammunition;
 import com.doanan.gameCards.Card;
 import com.doanan.gameCards.Item;
 import com.doanan.gameCards.Weapon;
+
+import java.util.ArrayList;
 
 public class Deck {
 	
@@ -44,6 +44,10 @@ public class Deck {
 	public void add(Item card){
 		deck.add(card);
 	}
+
+    public boolean isEmpty(){
+        return deck.isEmpty();
+    }
 	
 	public void add(Action card){
 		deck.add(card);

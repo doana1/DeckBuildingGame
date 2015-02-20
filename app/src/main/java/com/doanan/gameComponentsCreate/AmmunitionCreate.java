@@ -31,9 +31,9 @@ public class AmmunitionCreate {
 	int ammo30Ammo = 30;
 	int ammo30Gold = 30;
 	
-	public Ammunition ammo10 = new Ammunition(ammo10Name, ammo10Cost, ammo10Ammo, ammo10Gold, -1);
-	public Ammunition ammo20 = new Ammunition(ammo20Name, ammo20Cost, ammo20Ammo, ammo20Gold, -1);
-	public Ammunition ammo30 = new Ammunition(ammo30Name, ammo30Cost, ammo30Ammo, ammo30Gold, -1);
+	public Ammunition ammo10 = new Ammunition(ammo10Name, ammo10Cost, ammo10Ammo, 0,0,ammo10Gold, -1);
+	public Ammunition ammo20 = new Ammunition(ammo20Name, ammo20Cost, ammo20Ammo, 0,0,ammo20Gold, -1);
+	public Ammunition ammo30 = new Ammunition(ammo30Name, ammo30Cost, ammo30Ammo, 0,0,ammo30Gold, -1);
 	
 	/**
 	 * Constructor used to access local variables of the class.

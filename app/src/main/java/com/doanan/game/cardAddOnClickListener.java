@@ -8,9 +8,11 @@ import com.doanan.gamePlayer.Deck;
 public class cardAddOnClickListener implements OnClickListener {
 	
 	Deck Deck;
+    int cardType;
 	
-	public cardAddOnClickListener(Deck deck){
+	public cardAddOnClickListener(Deck deck, int cardType){
 		this.Deck = deck;
+        this.cardType = cardType;
 	}
 	
 	public void onClick(Deck deck) {

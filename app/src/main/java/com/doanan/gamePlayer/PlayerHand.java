@@ -1,9 +1,10 @@
 package com.doanan.gamePlayer;
 
-import java.util.ArrayList;
-
 import com.doanan.gameCards.Ammunition;
 import com.doanan.gameCards.Card;
+import com.doanan.gameCards.Weapon;
+
+import java.util.ArrayList;
 
 public class PlayerHand {
 	
@@ -84,7 +85,14 @@ public class PlayerHand {
 	public void useCard(Player player, Card card){
 		if(card.getClass().equals(Ammunition.class)){
 			player.AMMO += card.AMMO;
+            player.GOLD += card.GOLD;
 		}
+        else if(card.getClass().equals(Weapon.class)){
+            if(player.AMMO >= card.AMMOREQUIREMENT){
+                player.DAMAGE += card.DAMAGE;
+                player.AMMO -= card.AMMOREQUIREMENT;
+            }
+        }
 		//Once card is used, move it to the CardsUsed arraylist
 		play(card);
 	}
