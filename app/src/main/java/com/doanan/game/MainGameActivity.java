@@ -257,7 +257,7 @@ public class MainGameActivity extends Activity {
 		ImageView imageDeck = (ImageView) findViewById(R.id.Deck);
 		imageDeck.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-                if(!drawn && !deck1.isEmpty()){
+                if(!drawn){
                     Draw();
                     displayDraw(inHorizontalScrollView2);
                     drawn = true;

@@ -34,22 +34,24 @@ public class PlayerHand {
     // TODO
     // Card doesn't shuffle discard into deck when deck is empty completely
 	public void draw(Deck deck){
-        if(deck.isEmpty() || deck.deckSize() > 4 ){
-            Log.v("Drawn","Cards were drawn normally");
 
+        if(deck.deckSize() > 4 || deck.isEmpty()){
+            Log.e("IF","Cards were drawn normally");
+
+            if(!deck.isEmpty()){
+                Log.e("IF","Deck is not empty");
+            }
             if (deck.isEmpty()){
                 discardToDeck(deck);
                 deck.shuffle();
-                Log.v("SHUFFLE","SHUFFLED AND NEW DECK");
+                Log.e("SHUFFLE","SHUFFLED AND NEW DECK");
             }
 
             for(int i = 0; i < 5; i++){
                 Card temp;
-//			temp = playerDeck.deck.remove(i);
                 temp = deck.removeCard();
                 temp.CARDINDEX = i;
                 playerHand.add(temp);
-//			playerHand.add(playerDeck.removeCard());
 
             }
         }
@@ -61,6 +63,7 @@ public class PlayerHand {
             if(deck.isEmpty()){
                 Log.e("BET", "DECK IS EMPTY");
             }
+            Log.e("ELSE", "PASSED THIS AREA");
             int remainingDraw = 0;
             for(int i=0;i<deck.deckSize();i++){
                 Card temp;
