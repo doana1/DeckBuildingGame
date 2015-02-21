@@ -1,6 +1,5 @@
 package com.doanan.gamePlayer;
 
-import com.doanan.gameCards.Action;
 import com.doanan.gameCards.Ammunition;
 
 public class Player {
@@ -9,6 +8,7 @@ public class Player {
 	 */
 	public String NAME, CHARACTERNAME;
 	public int HEALTH, ACTION, BUY, EXPLORE, GOLD, AMMO, DAMAGE;
+    public int DRAWS;
     public Deck deck;
 	
 	/**
@@ -37,13 +37,7 @@ public class Player {
         this.deck = deck;
 	}
 	
-	/**
-	 * Adds an extra Action to the player.
-	 * Each Action allows the player to play another Action card.
-	 */
-	public void addAction(Action actionCard){
-		this.ACTION = actionCard.ACTION;
-	}
+
 	
 	/**
 	 * Adds GOLD to a PLAYER from an ammunition card.

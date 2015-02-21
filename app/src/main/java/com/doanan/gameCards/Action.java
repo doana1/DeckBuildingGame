@@ -10,10 +10,10 @@ public class Action extends Card{
 	 * Effect
 	 * Bonus Icons
 	 */
-	public String NAME;
-	public int COST;
-	public int ACTION;
-	public int AMMO;
+	public int EXTRA_ACTION;
+    public int EXTRA_EXPLORE;
+    public int EXTRA_BUY;
+    public int EXTRA_CARDS;
 
 	/**
 	 * Creates an ACTION Card.
@@ -23,11 +23,13 @@ public class Action extends Card{
 	 * @param ammo (AMMO IGNORE THIS)
 	 * @param action The number of action points the player has.
 	 */
-	public Action(String name, int cost, int ammorequirement, int damage,int cardIndex, int ammo,int action,int gold) {
-		super(name,cost,ammo,ammorequirement,damage,cardIndex,gold);
-//		this.NAME = name;
-//		this.COST = cost;
-		this.ACTION = action;
+
+	public Action(String name, int cost, int damage, int ammo,int gold,int extraAction,int extraBuys, int extraExplores,int extraCards) {
+		super(name,cost,ammo,0,damage,-1,gold);
+		this.EXTRA_ACTION = extraAction;
+        this.EXTRA_BUY = extraBuys;
+        this.EXTRA_CARDS = extraCards;
+        this.EXTRA_EXPLORE = extraExplores;
 	}
 
 }

@@ -1,8 +1,12 @@
 package com.doanan.gamePlayer;
 
+import android.util.Log;
+
 import com.doanan.gameCards.Ammunition;
 import com.doanan.gameCards.Card;
 import com.doanan.gameCards.Weapon;
+import com.doanan.gameCards.Action;
+import com.doanan.gameComponentsCreate.ActionCreate;
 
 import java.util.ArrayList;
 
@@ -11,6 +15,7 @@ public class PlayerHand {
 	public ArrayList<Card> playerHand = new ArrayList<Card>();
 	public ArrayList<Card> usedCards = new ArrayList<Card>();
 	public ArrayList<Card> discardCards = new ArrayList<Card>();
+    ActionCreate action = new ActionCreate();
 	
 	public PlayerHand(){
 		
@@ -26,16 +31,55 @@ public class PlayerHand {
 	 * Shuffle (Discard Deck)
 	 * Move Discarded Deck to DECK
 	 */
+    // TODO
+    // Card doesn't shuffle discard into deck when deck is empty completely
 	public void draw(Deck deck){
-		for(int i = 0; i < 5; i++){
-			Card temp;
+        if(deck.isEmpty() || deck.deckSize() > 4 ){
+            Log.v("Drawn","Cards were drawn normally");
+
+            if (deck.isEmpty()){
+                discardToDeck(deck);
+                deck.shuffle();
+                Log.v("SHUFFLE","SHUFFLED AND NEW DECK");
+            }
+
+            for(int i = 0; i < 5; i++){
+                Card temp;
 //			temp = playerDeck.deck.remove(i);
-			temp = deck.removeCard();
-			temp.CARDINDEX = i;
-			playerHand.add(temp);
+                temp = deck.removeCard();
+                temp.CARDINDEX = i;
+                playerHand.add(temp);
 //			playerHand.add(playerDeck.removeCard());
-			
-		}
+
+            }
+        }
+
+		else{
+            if(!deck.isEmpty()){
+                Log.e("BET", "DECK IS NOT EMPTY");
+            }
+            if(deck.isEmpty()){
+                Log.e("BET", "DECK IS EMPTY");
+            }
+            int remainingDraw = 0;
+            for(int i=0;i<deck.deckSize();i++){
+                Card temp;
+                temp = deck.removeCard();
+                temp.CARDINDEX = i;
+                playerHand.add(temp);
+                remainingDraw++;
+            }
+            discardToDeck(deck);
+            deck.shuffle();
+
+            while(remainingDraw < 5){
+                Card temp;
+                temp = deck.removeCard();
+                temp.CARDINDEX = remainingDraw;
+                playerHand.add(temp);
+                remainingDraw++;
+            }
+        }
 	}
 	
 	/**
@@ -64,6 +108,11 @@ public class PlayerHand {
         remainingCards.clear();
 
     }
+
+    public void discardToDeck(Deck deck){
+        deck.toDeck(discardCards);
+        discardCards.clear();
+    }
 	
 	public void use(){
 		/*
@@ -91,6 +140,45 @@ public class PlayerHand {
             if(player.AMMO >= card.AMMOREQUIREMENT){
                 player.DAMAGE += card.DAMAGE;
                 player.AMMO -= card.AMMOREQUIREMENT;
+            }
+        }
+        else if(card.getClass().equals(Action.class)){
+            if (card.NAME.equals(action.deadlyAim.NAME)){
+                player.AMMO += action.deadlyAim.AMMO;
+                // TODO
+                // Weapons get +10 Damage this turn
+            }
+            else if(card.NAME.equals(action.reload.NAME)){
+                player.AMMO += action.reload.AMMO;
+                player.ACTION += action.reload.EXTRA_ACTION;
+                // TODO
+                // Move 1 Wweapon from your discard pile to your hand
+            }
+            else if(card.NAME.equals(action.ominousBattle.NAME)){
+                player.GOLD += action.ominousBattle.GOLD;
+                player.DRAWS += action.ominousBattle.EXTRA_CARDS;
+                // TODO
+                // Trash 1 card from your Hand.
+            }
+            else if(card.NAME.equals(action.mansionFoyer.NAME)){
+                player.DRAWS += action.mansionFoyer.EXTRA_CARDS;
+            }
+            else if(card.NAME.equals(action.struggleForSurvival.NAME)){
+                player.ACTION += action.struggleForSurvival.EXTRA_ACTION;
+                player.EXPLORE += action.struggleForSurvival.EXTRA_EXPLORE;
+                // TODO
+                // You can discard this card from your hand to lower the damage of 1 weapon being used costing 40 Gold or less to 0
+            }
+            else if(card.NAME.equals(action.theMerchant.NAME)){
+                player.GOLD += action.theMerchant.GOLD;
+                player.DRAWS += action.theMerchant.EXTRA_CARDS;
+                player.BUY += action.theMerchant.EXTRA_BUY;
+            }
+            else if(card.NAME.equals(action.umbrellaCorporation.NAME)){
+                player.DRAWS += action.umbrellaCorporation.EXTRA_CARDS;
+                player.ACTION += action.umbrellaCorporation.EXTRA_ACTION;
+                // TODO
+                // Move 1 card from your Hand to the top of your inventory
             }
         }
 		//Once card is used, move it to the CardsUsed arraylist

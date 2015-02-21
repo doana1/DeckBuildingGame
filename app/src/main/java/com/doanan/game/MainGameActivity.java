@@ -43,7 +43,7 @@ public class MainGameActivity extends Activity {
     //Testing Commit to Repo
 	
 	// Number of Images
-	private final int imageNumber= 15; 
+	private final int imageNumber= 18;
 	
 	//Images
 	ImageView 	image1,
@@ -60,7 +60,10 @@ public class MainGameActivity extends Activity {
 				image12,
 				image13,
 				image14,
-				image15;
+				image15,
+                image16,
+                image17,
+                image18;
 		
 		
 	//Array of images to be shown
@@ -258,6 +261,8 @@ public class MainGameActivity extends Activity {
                     Draw();
                     displayDraw(inHorizontalScrollView2);
                     drawn = true;
+                    setDiscardHUD();
+                    setDeckHUD();
                 }
 			}
 		});
@@ -275,7 +280,19 @@ public class MainGameActivity extends Activity {
         setAmmoHUD();
         setDamageHUD();
         setGoldHUD();
+        setDiscardHUD();
+        setDeckHUD();
 	}
+
+    private void setDiscardHUD(){
+        TextView discard = (TextView)findViewById(R.id.Discard);
+        discard.setText("Discard: " + player1HAND.discardCards.size());
+    }
+
+    private void setDeckHUD(){
+        TextView deck = (TextView)findViewById(R.id.DeckSize);
+        deck.setText("Deck: " + deck1.deckSize());
+    }
 
     private void setAmmoHUD(){
         TextView ammo = (TextView)findViewById(R.id.AMMO);
@@ -325,6 +342,8 @@ public class MainGameActivity extends Activity {
                 setAmmoHUD();
                 setGoldHUD();
                 setDamageHUD();
+                setDiscardHUD();
+                setDeckHUD();
             }
         });
 
@@ -375,10 +394,13 @@ public class MainGameActivity extends Activity {
 				int duration = Toast.LENGTH_SHORT;
 				Toast toast = Toast.makeText(context, text, duration);
 				toast.show();
+                setDiscardHUD();
+                setDeckHUD();
 			}
 		});
 	}
-	
+
+
 
 	/*
 	 * Adds an image to the horizontal Scroll View
@@ -503,6 +525,7 @@ public class MainGameActivity extends Activity {
 		// Declare Ammo
 		AmmunitionCreate ammo1 = new AmmunitionCreate();
         WeaponCreate weapon1 = new WeaponCreate();
+        ActionCreate action1 = new ActionCreate();
 
 		// Assigned imageviews to variables
 		image1 = (ImageView) findViewById(R.id.imageView1);
@@ -520,6 +543,9 @@ public class MainGameActivity extends Activity {
 		image13 = (ImageView) findViewById(R.id.imageView13);
 		image14 = (ImageView) findViewById(R.id.imageView14);
 		image15 = (ImageView) findViewById(R.id.imageView15);
+        image16 = (ImageView) findViewById(R.id.imageView16);
+        image17 = (ImageView) findViewById(R.id.imageView17);
+        image18 = (ImageView) findViewById(R.id.imageView18);
 		//Assign to array
 		images[0] = image1;
 		images[1] = image2;
@@ -536,6 +562,9 @@ public class MainGameActivity extends Activity {
 		images[12] = image13;
 		images[13] = image14;
 		images[14] = image15;
+        images[15] = image16;
+        images[16] = image17;
+        images[17] = image18;
 		//Filename for each image
 		imageFileName[0] = "ace_of_hearts.jpg";
 		imageFileName[1] = "ace_of_spades.jpg";
@@ -552,38 +581,47 @@ public class MainGameActivity extends Activity {
 		imageFileName[12] = "red_joker.jpg";
 		imageFileName[13] = "black_joker.jpg";
 		imageFileName[14] = "royalty.png";
+        imageFileName[15] = "royalty.png";
+        imageFileName[16] = "royalty.png";
+        imageFileName[17] = "royalty.png";
 		// Description of image
 		imageDescription[0] = "It's a Pistol";
-		imageDescription[1] = "ACE OF SPADES";
-		imageDescription[2] = "ACE OF DIAMONDS";
-		imageDescription[3] = "ACE OF CLUBS";
-		imageDescription[4] = "Gives 10 ammo";
-		imageDescription[5] = "It's a Knife";
-		imageDescription[6] = "dfsfdsf";
-		imageDescription[7] = "KING OF CLUBS";
-		imageDescription[8] = "QUEEN OF HEARTS";
-		imageDescription[9] = "Gives 20 ammo";
-		imageDescription[10] = "QUEEN OF DIAMONDS";
-		imageDescription[11] = "QUEEN OF CLUBS";
-		imageDescription[12] = "RED JOKER";
-		imageDescription[13] = "BLACK JOKER";
-		imageDescription[14] = "Gives 30 ammo";
+		imageDescription[1] = "It's a Burst Pistol";
+		imageDescription[2] = "It's a Magnum";
+		imageDescription[3] = "All your Weapons get +10 Damage this turn";
+		imageDescription[4] = "Move 1 Weapon from your Discard Pile to Your Hand";
+		imageDescription[5] = "Gives 10 ammo and 10 Gold";
+		imageDescription[6] = "It's a Knife";
+		imageDescription[7] = "It's a Machine Gun";
+		imageDescription[8] = "It's a Shotgun";
+		imageDescription[9] = "Trash 1 card from your hand";
+		imageDescription[10] = "Mansion Foyer, draw 2 more cards";
+		imageDescription[11] = "Gives 20 ammo and 20 Gold";
+		imageDescription[12] = "Herb it heals you";
+		imageDescription[13] = "First Aid Spray";
+		imageDescription[14] = "You can Discard this card from your Hand to lower the Damage of 1 Weapon being used costing 40 Gold or less to 0";
+        imageDescription[15] = "What are you buying?";
+        imageDescription[16] = "Move 1 card from your Hand to the top of your Inventory";
+        imageDescription[17] = "Gives 30 ammo and 30 Gold";
 		// Title of image
 		imageTitle[0] = weapon1.pistol.NAME;
-		imageTitle[1] = "ACE OF SPADES";
-		imageTitle[2] = "ACE OF DIAMONDS";
-		imageTitle[3] = "ACE OF CLUBS";
-		imageTitle[4] = ammo1.ammo10.NAME;
-		imageTitle[5] = weapon1.knife.NAME;
-		imageTitle[6] = "fsdfds";
-		imageTitle[7] = "KING OF CLUBS";
-		imageTitle[8] = "QUEEN OF HEARTS";
-		imageTitle[9] = ammo1.ammo20.NAME;
-		imageTitle[10] = "QUEEN OF DIAMONDS";
-		imageTitle[11] = "QUEEN OF CLUBS";
-		imageTitle[12] = "RED JOKER";
-		imageTitle[13] = "BLACK JOKER";
-		imageTitle[14] = ammo1.ammo30.NAME;
+		imageTitle[1] = weapon1.burstPistol.NAME;
+		imageTitle[2] = weapon1.magnum.NAME;
+		imageTitle[3] = action1.deadlyAim.NAME;
+		imageTitle[4] = action1.reload.NAME;
+		imageTitle[5] = ammo1.ammo10.NAME;
+		imageTitle[6] = weapon1.knife.NAME;
+		imageTitle[7] = "Machine Gun";
+		imageTitle[8] = "Shotgun";
+		imageTitle[9] = action1.ominousBattle.NAME;
+		imageTitle[10] = action1.mansionFoyer.NAME;
+		imageTitle[11] = ammo1.ammo20.NAME;
+		imageTitle[12] = "Herb";
+		imageTitle[13] = "First Aid Spray";
+		imageTitle[14] = action1.struggleForSurvival.NAME;
+        imageTitle[15] = action1.theMerchant.NAME;
+        imageTitle[16] = action1.umbrellaCorporation.NAME;
+        imageTitle[17] = ammo1.ammo30.NAME;
         // Card Type
         /*
         0 = Weapon
@@ -595,17 +633,21 @@ public class MainGameActivity extends Activity {
         cardType[1] = 0;
         cardType[2] = 0;
         cardType[3] = 1;
-        cardType[4] = 2;
-        cardType[5] = 0;
+        cardType[4] = 1;
+        cardType[5] = 2;
         cardType[6] = 0;
-        cardType[7] = 1;
-        cardType[8] = 1;
-        cardType[9] = 2;
+        cardType[7] = 0;
+        cardType[8] = 0;
+        cardType[9] = 1;
         cardType[10] = 1;
-        cardType[11] = 1;
-        cardType[12] = 1;
-        cardType[13] = 1;
-        cardType[14] = 2;
+        cardType[11] = 2;
+        cardType[12] = 3;
+        cardType[13] = 3;
+        cardType[14] = 1;
+        cardType[15] = 1;
+        cardType[16] = 1;
+        cardType[17] = 2;
+
 	}
 	
 	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, int[] cardType, Deck deck){
@@ -706,14 +748,39 @@ public class MainGameActivity extends Activity {
         else if (cardName.equals(weapon.knife.NAME)){
             deck.add(weapon.knife);
         }
+        else if(cardName.equals(weapon.burstPistol.NAME)){
+            deck.add(weapon.burstPistol);
+        }
+        else if(cardName.equals(weapon.magnum.NAME)){
+            deck.add(weapon.magnum);
+        }
 
     }
     public void addAction(Deck deck, String cardName){
         ActionCreate action = new ActionCreate();
 
-        if (cardName.equals(action.action1.NAME)){
-            deck.add(action.action1);
+        if (cardName.equals(action.deadlyAim.NAME)){
+            deck.add(action.deadlyAim);
         }
+        else if(cardName.equals(action.reload.NAME)){
+            deck.add(action.reload);
+        }
+        else if(cardName.equals(action.ominousBattle.NAME)){
+            deck.add(action.ominousBattle);
+        }
+        else if(cardName.equals(action.mansionFoyer.NAME)){
+            deck.add(action.mansionFoyer);
+        }
+        else if(cardName.equals(action.struggleForSurvival.NAME)){
+            deck.add(action.struggleForSurvival);
+        }
+        else if(cardName.equals(action.theMerchant.NAME)){
+            deck.add(action.theMerchant);
+        }
+        else if(cardName.equals(action.umbrellaCorporation.NAME)){
+            deck.add(action.umbrellaCorporation);
+        }
+
 
     }
     public void addAmmunition(Deck deck, String cardName){

@@ -7,6 +7,8 @@ import com.doanan.gameCards.Item;
 import com.doanan.gameCards.Weapon;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Deck {
 	
@@ -157,4 +159,15 @@ public class Deck {
 	public int deckSize(){
 		return deck.size();
 	}
+
+    public void shuffle(){
+        long seed = System.nanoTime();
+        Collections.shuffle(deck, new Random(seed));
+    }
+
+    public void toDeck(ArrayList<Card> discardDeck){
+        deck.addAll(discardDeck);
+    }
+
+
 }
