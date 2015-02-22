@@ -186,7 +186,7 @@ public class MainGameActivity extends Activity {
         AssetManager assetManager = getAssets();
         InputStream istr;
         try{
-            istr = assetManager.open("imgs/cards/ace_of_hearts.jpg");
+            istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
             Bitmap bitmap = BitmapFactory.decodeStream(istr);
             imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
             istr.close();
@@ -433,7 +433,18 @@ public class MainGameActivity extends Activity {
 	private void cardsUsed(LinearLayout layout, final Card handCard){
 		ImageView imageView = new ImageView(this);
 		// Change ImageResource to the card that was played/drawn
-		imageView.setImageResource(R.drawable.test);
+
+        AssetManager assetManager = getAssets();
+        InputStream istr;
+        try{
+            istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
+            Bitmap bitmap = BitmapFactory.decodeStream(istr);
+            imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+            istr.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        imageView.setPadding(10,5,10,5);
 		
 		imageView.setOnClickListener(new OnClickListener(){
 			
@@ -453,17 +464,15 @@ public class MainGameActivity extends Activity {
 				TextView text = (TextView) dialog.findViewById(R.id.text);
 				text.setText(imageDesc);
 				ImageView image = (ImageView) dialog.findViewById(R.id.image);
-				//Using image from Assets
-				String imageName;
-				imageName = "ace_of_hearts.jpg";//imageFileName[iterator];
-				
+
 				try{
-					//get input stream
-					InputStream ims = getAssets().open("imgs/cards/" + imageName);
-					//load image as Drawable
-					Drawable d = Drawable.createFromStream(ims, null);
-					//set image to ImageView
-					image.setImageDrawable(d);
+                    AssetManager assetManager = getAssets();
+                    InputStream istr;
+
+                    istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
+                    Bitmap bitmap = BitmapFactory.decodeStream(istr);
+                    image.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+                    istr.close();
 					}
 				catch(IOException e){
 					//handle
@@ -690,6 +699,18 @@ public class MainGameActivity extends Activity {
 
 
 		for(ImageView img:image){
+            AssetManager assetManager = getAssets();
+            InputStream istr;
+            try{
+                istr = assetManager.open("imgs/cards/"+ imageFileName[iterator]);
+                Bitmap bitmap = BitmapFactory.decodeStream(istr);
+                img.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+                istr.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            img.setPadding(10,5,10,5);
+
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,cardType,iterator,deck){
 				public void onClick(View v){
 					final Dialog dialog = new Dialog(context);
@@ -715,17 +736,15 @@ public class MainGameActivity extends Activity {
 					final String cardName = imageName;
 					
 					try{
-						/*
-						 * TODO
-						 * Still deciding if I want to store images in the 
-						 * assets folder
-						 */
-						//get input stream
-						InputStream ims = getAssets().open("imgs/cards/" + imageName);
-						//load image as Drawable
-						Drawable d = Drawable.createFromStream(ims, null);
-						//set image to ImageView
-						image.setImageDrawable(d);
+                        AssetManager assetManager = getAssets();
+                        InputStream istr;
+
+                            istr = assetManager.open("imgs/cards/"+ imageName);
+                            Bitmap bitmap = BitmapFactory.decodeStream(istr);
+                            image.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+                            istr.close();
+
+                        image.setPadding(10,5,10,5);
 					}
 					catch(IOException e){
 						//handle

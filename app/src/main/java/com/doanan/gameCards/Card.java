@@ -10,7 +10,7 @@ public class Card{
     public int DAMAGE;
     public int AMMOREQUIREMENT;
     public int GOLD;
-    public String filePath;
+    public String FILEPATH;
 
     public int deadlyAims = 0;
 	
@@ -25,7 +25,7 @@ public class Card{
 	 * @param cardIndex Used to determine where the card is located in a Player's Hand.
      * @param gold Amount of gold card gives to the player.
 	 */
-	public Card(String name, int cost, int ammo, int ammoRequirement, int damage, int cardIndex,int gold){
+	public Card(String name, int cost, int ammo, int ammoRequirement, int damage, int cardIndex,int gold,String filePath){
 		this.NAME = name;
 		this.COST = cost;
 		this.AMMO = ammo;
@@ -33,6 +33,7 @@ public class Card{
         this.DAMAGE = damage;
 		this.CARDINDEX = cardIndex;
         this.GOLD = gold;
+        this.FILEPATH = filePath;
 	}
 
 	public void getCurrentTurn() {

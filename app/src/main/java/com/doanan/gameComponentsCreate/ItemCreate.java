@@ -11,7 +11,7 @@ public class ItemCreate {
 	int itemCost = 20;
 	
 	
-	public Item item1 = new Item(item,itemCost,0,0,0, -1,0);
+	public Item item1 = new Item(item,itemCost,0,0,0, -1,0,"royalty.png");
 	
 	
 	public ItemCreate(){

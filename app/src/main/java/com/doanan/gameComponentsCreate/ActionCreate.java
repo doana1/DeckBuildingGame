@@ -23,6 +23,7 @@ public class ActionCreate {
 	String deadlyAimName = "Deadly Aim";
 	int deadlyAimCost = 50;
     int deadlyAimAmmo = 20;
+    String deadlyAimFilePath = "ace_of_clubs.jpg";
 
     /*
      * Reload
@@ -32,6 +33,7 @@ public class ActionCreate {
     int reloadCost = 50;
     int reloadAmmo = 20;
     int reloadActions = 2;
+    String reloadFilePath = "king_of_hearts2.jpg";
 
     /*
      * Ominous Battle
@@ -41,6 +43,7 @@ public class ActionCreate {
     int ominousBattleCost = 60;
     int ominousBattleGold = 10;
     int ominousBattleCards = 3;
+    String ominousBattleFilePath = "queen_of_spades2.jpg";
 
     /*
      * Mansion Foyer
@@ -48,6 +51,7 @@ public class ActionCreate {
     String mansionFoyerName = "Mansion Foyer";
     int mansionFoyerCost = 30;
     int mansionFoyerCards = 2;
+    String mansionFoyerFilePath = "queen_of_diamonds2.jpg";
 
     /*
      * Struggle for Survival
@@ -58,6 +62,7 @@ public class ActionCreate {
     int struggleForSurvivalCost = 30;
     int struggleForSurvivalActions = 1;
     int struggleForSurvivalExplores = 1;
+    String struggleForSurvivalFilePath = "royalty.png";
 
     /*
      * The Merchant
@@ -67,6 +72,7 @@ public class ActionCreate {
     int merchantCards = 1;
     int merchantGold = 20;
     int merchantBuys = 1;
+    String merchantFilePath = "royalty.png";
 
     /*
      * Umbrella Corporation
@@ -76,17 +82,18 @@ public class ActionCreate {
     int umbrellaCost = 50;
     int umbrellaCards = 2;
     int umbrellaActions = 1;
+    String umbrellaFilePath = "royalty.png";
 
 
     //public Action(String name, int cost, int damage, int ammo,int gold,int extraAction,int extraBuys, int extraExplores,int extraCards) {
 	
-	public Action deadlyAim = new Action(deadlyAimName,deadlyAimCost,0,deadlyAimAmmo,0,0,0,0,0);
-    public Action reload = new Action(reloadName,reloadCost,0,reloadAmmo,0,reloadActions,0,0,0);
-    public Action ominousBattle = new Action(ominousBattleName,ominousBattleCost,0,0,ominousBattleGold,0,0,0,ominousBattleCards);
-    public Action mansionFoyer = new Action(mansionFoyerName,mansionFoyerCost,0,0,0,0,0,0,mansionFoyerCards);
-    public Action struggleForSurvival = new Action(struggleForSurvivalName,struggleForSurvivalCost,0,0,0,struggleForSurvivalActions,0,struggleForSurvivalExplores,0);
-    public Action theMerchant = new Action(merchantName,merchantCost,0,0,merchantGold,0,merchantBuys,0,merchantCards);
-    public Action umbrellaCorporation = new Action(umbrellaName,umbrellaCost,0,0,0,umbrellaActions,0,0,umbrellaCards);
+	public Action deadlyAim = new Action(deadlyAimName,deadlyAimCost,0,deadlyAimAmmo,0,0,0,0,0,deadlyAimFilePath);
+    public Action reload = new Action(reloadName,reloadCost,0,reloadAmmo,0,reloadActions,0,0,0,reloadFilePath);
+    public Action ominousBattle = new Action(ominousBattleName,ominousBattleCost,0,0,ominousBattleGold,0,0,0,ominousBattleCards,ominousBattleFilePath);
+    public Action mansionFoyer = new Action(mansionFoyerName,mansionFoyerCost,0,0,0,0,0,0,mansionFoyerCards,mansionFoyerFilePath);
+    public Action struggleForSurvival = new Action(struggleForSurvivalName,struggleForSurvivalCost,0,0,0,struggleForSurvivalActions,0,struggleForSurvivalExplores,0,struggleForSurvivalFilePath);
+    public Action theMerchant = new Action(merchantName,merchantCost,0,0,merchantGold,0,merchantBuys,0,merchantCards,merchantFilePath);
+    public Action umbrellaCorporation = new Action(umbrellaName,umbrellaCost,0,0,0,umbrellaActions,0,0,umbrellaCards,umbrellaFilePath);
 	
 	public ActionCreate(){
 		

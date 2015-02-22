@@ -27,8 +27,8 @@ public class Action extends Card{
 	 * @param action The number of action points the player has.
 	 */
 
-	public Action(String name, int cost, int damage, int ammo,int gold,int extraAction,int extraBuys, int extraExplores,int extraCards) {
-		super(name,cost,ammo,0,damage,-1,gold);
+	public Action(String name, int cost, int damage, int ammo,int gold,int extraAction,int extraBuys, int extraExplores,int extraCards,String filePath) {
+		super(name,cost,ammo,0,damage,-1,gold,filePath);
 		this.EXTRA_ACTION = extraAction;
         this.EXTRA_BUY = extraBuys;
         this.EXTRA_CARDS = extraCards;

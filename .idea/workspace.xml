@@ -25,13 +25,21 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.firstgame" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
+    <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="Fixing Deadly Aim Effect&#10;Applying pictures to all icons&#10;Adding image filepath parameter to Cards&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeckBuildingGame.iml" afterPath="$PROJECT_DIR$/DeckBuildingGame.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DeckBuildingGame.iws" />
@@ -58,11 +66,33 @@
       <file leaf-file-name="MainGameActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60830325" vertical-offset="5375" max-vertical-offset="14008">
-              <caret line="353" column="48" selection-start-line="353" selection-start-column="48" selection-end-line="353" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.4169675" vertical-offset="11465" max-vertical-offset="14382">
+              <caret line="710" column="13" selection-start-line="710" selection-start-column="13" selection-end-line="710" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#13486#15196#0" expanded="true" />
+                <element signature="e#15190#15191#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmmunitionCreate.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1003">
+              <caret line="38" column="116" selection-start-line="38" selection-start-column="116" selection-end-line="38" selection-end-column="116" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CharacterCreate.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+              <caret line="24" column="142" selection-start-line="24" selection-start-column="142" selection-end-line="24" selection-end-column="142" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,8 +110,8 @@
       <file leaf-file-name="Action.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="969">
-              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="969">
+              <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -103,8 +133,8 @@
       <file leaf-file-name="Card.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="952">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -113,38 +143,8 @@
       <file leaf-file-name="ActionCreate.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1118" max-vertical-offset="1700">
-              <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Weapon.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="680">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Deck.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2822" max-vertical-offset="3060">
-              <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1428">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="1819">
+              <caret line="95" column="133" selection-start-line="95" selection-start-column="133" selection-end-line="95" selection-end-column="133" />
               <folding />
             </state>
           </provider>
@@ -153,8 +153,8 @@
       <file leaf-file-name="WeaponCreate.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="295" max-vertical-offset="1071">
-              <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="448" max-vertical-offset="1139">
+              <caret line="54" column="130" selection-start-line="54" selection-start-column="130" selection-end-line="54" selection-end-column="130" />
               <folding />
             </state>
           </provider>
@@ -848,23 +848,23 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/cardAddOnClickListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/myOnClickListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main_game.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
       </list>
     </option>
@@ -1135,6 +1135,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="07ac702fd5ef9544" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/AnBan_000/Documents/GitHub/DeckBuildingGame/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1324,7 +1325,11 @@
       <created>1424604253216</created>
       <updated>1424604253216</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixing Deadly Aim Effect&#10;Applying pictures to all icons&#10;Adding image filepath parameter to Cards&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat">
+      <created>1424606237846</created>
+      <updated>1424606237846</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1441,17 +1446,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3406" max-vertical-offset="3995">
-          <caret line="225" column="42" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1700" max-vertical-offset="2023">
@@ -1474,6 +1468,8 @@
           <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13486#15196#0" expanded="true" />
+            <element signature="e#15190#15191#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1513,6 +1509,8 @@
           <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13486#15196#0" expanded="true" />
+            <element signature="e#15190#15191#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1552,6 +1550,8 @@
           <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13486#15196#0" expanded="true" />
+            <element signature="e#15190#15191#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1663,73 +1663,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="629">
-          <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52577317" vertical-offset="17" max-vertical-offset="612">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5154639" vertical-offset="6" max-vertical-offset="697">
-          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
-          <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7010309" vertical-offset="0" max-vertical-offset="612">
-          <caret line="24" column="129" selection-start-line="24" selection-start-column="129" selection-end-line="24" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3797251" vertical-offset="0" max-vertical-offset="582">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/MonsterCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.058419243" vertical-offset="0" max-vertical-offset="582">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/TokenCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.058419243" vertical-offset="0" max-vertical-offset="582">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52577317" vertical-offset="323" max-vertical-offset="952">
-          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1766,22 +1703,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="319" max-vertical-offset="1071">
-          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-77.81481" vertical-offset="1367" max-vertical-offset="4624">
@@ -1793,30 +1714,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1700">
-          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="969">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="3706">
@@ -1825,12 +1722,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31348">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46735394" vertical-offset="17" max-vertical-offset="612">
+          <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="629">
+          <caret line="15" column="81" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
+          <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
+          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="969">
+          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4450172" vertical-offset="64" max-vertical-offset="646">
+          <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="1819">
+          <caret line="95" column="133" selection-start-line="95" selection-start-column="133" selection-end-line="95" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3797251" vertical-offset="0" max-vertical-offset="582">
+          <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/MonsterCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.058419243" vertical-offset="0" max-vertical-offset="582">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="448" max-vertical-offset="1139">
+          <caret line="54" column="130" selection-start-line="54" selection-start-column="130" selection-end-line="54" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <caret line="24" column="142" selection-start-line="24" selection-start-column="142" selection-end-line="24" selection-end-column="142" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="952">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52577317" vertical-offset="0" max-vertical-offset="697">
+          <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1003">
+          <caret line="38" column="116" selection-start-line="38" selection-start-column="116" selection-end-line="38" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60830325" vertical-offset="5375" max-vertical-offset="14008">
-          <caret line="353" column="48" selection-start-line="353" selection-start-column="48" selection-end-line="353" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.4169675" vertical-offset="11465" max-vertical-offset="14382">
+          <caret line="710" column="13" selection-start-line="710" selection-start-column="13" selection-end-line="710" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13486#15196#0" expanded="true" />
+            <element signature="e#15190#15191#0" expanded="true" />
           </folding>
         </state>
       </provider>

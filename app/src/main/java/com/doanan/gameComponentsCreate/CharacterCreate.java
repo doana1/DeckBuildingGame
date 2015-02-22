@@ -22,7 +22,7 @@ public class CharacterCreate{
 	int rebeccaDecorations = 0;
 	int rebeccaLevel = 0;
 	
-	public Character Rebecca = new Character(rebeccaName, rebeccaCost,rebeccaHealth, 0, 0,0,rebeccaDecorations,rebeccaLevel, -1,0);
+	public Character Rebecca = new Character(rebeccaName, rebeccaCost,rebeccaHealth, 0, 0,0,rebeccaDecorations,rebeccaLevel, -1,0,"royalty.png");
 
 	public CharacterCreate(){
 		//Constructor used simply to create Characters
