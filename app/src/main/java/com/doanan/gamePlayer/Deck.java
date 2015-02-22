@@ -165,6 +165,7 @@ public class Deck {
         Collections.shuffle(deck, new Random(seed));
     }
 
+
     public void toDeck(ArrayList<Card> discardDeck){
         deck.addAll(discardDeck);
     }

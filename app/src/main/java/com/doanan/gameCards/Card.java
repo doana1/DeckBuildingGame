@@ -10,6 +10,9 @@ public class Card{
     public int DAMAGE;
     public int AMMOREQUIREMENT;
     public int GOLD;
+    public String filePath;
+
+    public boolean deadlyAim = false;
 	
 	/**
 	 * Creates a CARD.

@@ -3,6 +3,9 @@ package com.doanan.game;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -118,11 +121,11 @@ public class MainGameActivity extends Activity {
 
 
             // Cards Implemented
+            startingCards(player.deck);
             declareImages();
             setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.deck);
             Deck();
             Mansion();
-
 		    /*
 		     * Scroll View
 		    */
@@ -176,11 +179,22 @@ public class MainGameActivity extends Activity {
 	 * Card that moves will vanish from this area.
 	 */
 	private void displayDraws(final LinearLayout layout, int index){
-		final Card handCard = player1HAND.playerHand.get(index);
-		final ImageView imageView = new ImageView(this);
-		// Change ImageResource to the card that was played/drawn
-		imageView.setImageResource(R.drawable.test);
-		
+        final Card handCard = player1HAND.playerHand.get(index);
+        final ImageView imageView = new ImageView(this);
+        // Change ImageResource to the card that was played/drawn
+//        imageView.setImageResource(R.drawable.test);
+        AssetManager assetManager = getAssets();
+        InputStream istr;
+        try{
+            istr = assetManager.open("imgs/cards/ace_of_hearts.jpg");
+            Bitmap bitmap = BitmapFactory.decodeStream(istr);
+            imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+            istr.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        imageView.setPadding(10,5,10,5);
+
 		imageView.setOnClickListener(new OnClickListener(){
 			
 			public void onClick(View v) {
@@ -282,6 +296,7 @@ public class MainGameActivity extends Activity {
         setGoldHUD();
         setDiscardHUD();
         setDeckHUD();
+        setDamageHUD();
 	}
 
     private void setDiscardHUD(){
@@ -322,16 +337,21 @@ public class MainGameActivity extends Activity {
             public void onClick(View v) {
                 //TODO
                 //Check if player still has BUY, EXPLORE, and ACTION
+
                 if (player1HAND != null){
                     player1HAND.discardAll(player1HAND.playerHand);
-                    player1HAND.discardAll(player1HAND.usedCards);
                     if (inHorizontalScrollView2 != null){
                         inHorizontalScrollView2.removeAllViewsInLayout();
                     }
-                    if (inHorizontalScrollView1 != null){
-                        inHorizontalScrollView1.removeAllViewsInLayout();
-                    }
                 }
+
+                player1HAND.discardAll(player1HAND.usedCards);
+                if (inHorizontalScrollView1 != null){
+                    inHorizontalScrollView1.removeAllViewsInLayout();
+                }
+
+                player1HAND.removeEffects();
+
                 player.AMMO = 0;
                 player.GOLD = 0;
                 player.BUY = 0;
@@ -359,36 +379,36 @@ public class MainGameActivity extends Activity {
 		imageDeck.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				final AmmunitionCreate ammo = new AmmunitionCreate();
-				player.deck.add(ammo.ammo10);
-				player.deck.add(ammo.ammo20);
-				player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
-                player.deck.add(ammo.ammo10);
-                player.deck.add(ammo.ammo20);
-                player.deck.add(ammo.ammo30);
+//				player.deck.add(ammo.ammo10);
+//				player.deck.add(ammo.ammo20);
+//				player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
+//                player.deck.add(ammo.ammo10);
+//                player.deck.add(ammo.ammo20);
+//                player.deck.add(ammo.ammo30);
 				String text = "Deck has " + deck1.deckSize() + " cards.\n" +
 							  "Player has " + player1HAND.handSize() + " cards in their hand.";
 				int duration = Toast.LENGTH_SHORT;
@@ -519,6 +539,18 @@ public class MainGameActivity extends Activity {
         //Check if ammo requirement meets weapons demands
         //Check if damage is >= monster health
 
+    }
+
+    public void startingCards(Deck deck){
+        WeaponCreate weapon = new WeaponCreate();
+        AmmunitionCreate ammo = new AmmunitionCreate();
+        for (int i=0; i < 7;i++){
+            deck.add(ammo.ammo10);
+        }
+        deck.add(weapon.pistol);
+        deck.add(weapon.knife);
+        deck.add(weapon.knife);
+        deck.shuffle();
     }
 	
 	public void declareImages(){

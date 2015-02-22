@@ -25,14 +25,7 @@ public class PlayerHand {
 	 * Draws 5 cards from the DECK to the PLAYER's HAND.
 	 * 
 	 * @param deck The player's deck that is used during the game.
-	 * 
-	 * Need to add cases such as if(DECK %5 != 0)
-	 * Then draw remaining cards
-	 * Shuffle (Discard Deck)
-	 * Move Discarded Deck to DECK
 	 */
-    // TODO
-    // Card doesn't shuffle discard into deck when deck is empty completely
 	public void draw(Deck deck){
 
         if(deck.deckSize() > 4 || deck.isEmpty()){
@@ -148,14 +141,23 @@ public class PlayerHand {
         else if(card.getClass().equals(Action.class)){
             if (card.NAME.equals(action.deadlyAim.NAME)){
                 player.AMMO += action.deadlyAim.AMMO;
-                // TODO
+
                 // Weapons get +10 Damage this turn
+                for (Card m: playerHand){
+                    action.deadlyAim.addDamage(m);
+                }
+                for (Card m: usedCards){
+                    action.deadlyAim.addDamage(m);
+                    if (m.getClass().equals(Weapon.class)){
+                        player.DAMAGE += 10;
+                    }
+                }
             }
             else if(card.NAME.equals(action.reload.NAME)){
                 player.AMMO += action.reload.AMMO;
                 player.ACTION += action.reload.EXTRA_ACTION;
                 // TODO
-                // Move 1 Wweapon from your discard pile to your hand
+                // Move 1 Weapon from your discard pile to your hand
             }
             else if(card.NAME.equals(action.ominousBattle.NAME)){
                 player.GOLD += action.ominousBattle.GOLD;
@@ -187,6 +189,15 @@ public class PlayerHand {
 		//Once card is used, move it to the CardsUsed arraylist
 		play(card);
 	}
+
+    public void removeEffects(){
+        for(Card m: discardCards){
+            if (m.getClass().equals(Weapon.class) && m.deadlyAim == true){
+                action.deadlyAim.decreaseDamage(m);
+            }
+        }
+
+    }
 	
 	public String cardName(Card card){
 		return card.NAME;

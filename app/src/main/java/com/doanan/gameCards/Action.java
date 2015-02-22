@@ -1,5 +1,8 @@
 package com.doanan.gameCards;
 
+import com.doanan.gameComponentsCreate.ActionCreate;
+import com.doanan.gamePlayer.PlayerHand;
+
 public class Action extends Card{
 	
 	/*
@@ -31,5 +34,19 @@ public class Action extends Card{
         this.EXTRA_CARDS = extraCards;
         this.EXTRA_EXPLORE = extraExplores;
 	}
+
+    public void addDamage(Card card){
+        if (card.getClass().equals(Weapon.class)) {
+            card.DAMAGE += 10;
+            card.deadlyAim = true;
+        }
+    }
+
+    public void decreaseDamage(Card card){
+            card.DAMAGE -= 10;
+            card.deadlyAim = false;
+    }
+
+
 
 }
