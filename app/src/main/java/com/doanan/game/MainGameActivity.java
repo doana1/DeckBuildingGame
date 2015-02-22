@@ -350,6 +350,8 @@ public class MainGameActivity extends Activity {
                     inHorizontalScrollView1.removeAllViewsInLayout();
                 }
 
+
+                player1HAND.discardEverything();
                 player1HAND.removeEffects();
 
                 player.AMMO = 0;

@@ -26,17 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\.idea\libraries\appcompat_v7_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\.idea\libraries\support_annotations_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\.idea\libraries\support_v4_21_0_3.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeckBuildingGame.iml" afterPath="$PROJECT_DIR$/DeckBuildingGame.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DeckBuildingGame.iws" />
@@ -63,26 +58,8 @@
       <file leaf-file-name="MainGameActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4879725" vertical-offset="2878" max-vertical-offset="14076">
-              <caret line="192" column="30" selection-start-line="192" selection-start-column="30" selection-end-line="193" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4081#4082#0" expanded="true" />
-                <element signature="e#4111#4112#0" expanded="true" />
-                <element signature="e#6493#7331#0" expanded="true" />
-                <element signature="e#7323#7324#0" expanded="true" />
-                <element signature="e#7628#7929#0" expanded="true" />
-                <element signature="e#7924#7925#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Action.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="986">
-              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.60830325" vertical-offset="5375" max-vertical-offset="14008">
+              <caret line="353" column="48" selection-start-line="353" selection-start-column="48" selection-end-line="353" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,27 +70,33 @@
       <file leaf-file-name="PlayerHand.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2937" max-vertical-offset="3553">
-              <caret line="194" column="53" selection-start-line="194" selection-start-column="53" selection-end-line="194" selection-end-column="53" />
-              <folding>
-                <element signature="e#365#371#0" expanded="true" />
-                <element signature="e#424#430#0" expanded="true" />
-                <element signature="e#486#492#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="3706">
+              <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Action.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="969">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="main_game.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-77.81481" vertical-offset="1367" max-vertical-offset="4624">
               <caret line="204" column="45" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -121,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -140,7 +123,7 @@
       <file leaf-file-name="Weapon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="680">
               <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
               <folding />
             </state>
@@ -150,7 +133,7 @@
       <file leaf-file-name="Deck.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2104" max-vertical-offset="2686">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2822" max-vertical-offset="3060">
               <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding />
             </state>
@@ -160,7 +143,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1428">
               <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding />
             </state>
@@ -878,10 +861,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main_game.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
       </list>
     </option>
@@ -921,6 +904,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
       <pane id="AndroidView">
@@ -1133,7 +1117,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1337,7 +1320,11 @@
       <created>1424516281183</created>
       <updated>1424516281183</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixing Deadly Aim Effect&#10;Applying pictures to all icons&#10;Adding image filepath parameter to Cards&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat">
+      <created>1424604253216</created>
+      <updated>1424604253216</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1445,7 +1432,8 @@
     <MESSAGE value="- Checks to see if deck is empty before drawing.&#10;- Added ability to use Weapon Cards&#10;- HUD to see Ammo, Damage, and Gold&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat&#10;- Add 3 more cards to the market" />
     <MESSAGE value="Drawing fixed*&#10;- Deck won't reshuffle when empty completely&#10;&#10;Added Action Cards&#10;Added 3 Extra Cards to UI&#10;Added Weapon Cards&#10;Added Discard and Deck HUD&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat" />
     <MESSAGE value="Drawing Fixed Entirely&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Drawing Fixed Entirely&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat" />
+    <MESSAGE value="Fixing Deadly Aim Effect&#10;Applying pictures to all icons&#10;Adding image filepath parameter to Cards&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing Deadly Aim Effect&#10;Applying pictures to all icons&#10;Adding image filepath parameter to Cards&#10;&#10;TODO&#10;- Add monsters&#10;- Add combat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1454,25 +1442,21 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3406" max-vertical-offset="3995">
           <caret line="225" column="42" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1700" max-vertical-offset="2023">
           <caret line="100" column="10" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
-          <folding>
-            <element signature="e#365#371#0" expanded="true" />
-            <element signature="e#424#430#0" expanded="true" />
-            <element signature="e#486#492#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1490,12 +1474,6 @@
           <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4081#4082#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
-            <element signature="e#6493#7331#0" expanded="true" />
-            <element signature="e#7323#7324#0" expanded="true" />
-            <element signature="e#7628#7929#0" expanded="true" />
-            <element signature="e#7924#7925#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1535,12 +1513,6 @@
           <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4081#4082#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
-            <element signature="e#6493#7331#0" expanded="true" />
-            <element signature="e#7323#7324#0" expanded="true" />
-            <element signature="e#7628#7929#0" expanded="true" />
-            <element signature="e#7924#7925#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1580,12 +1552,6 @@
           <caret line="481" column="46" selection-start-line="481" selection-start-column="46" selection-end-line="481" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4081#4082#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
-            <element signature="e#6493#7331#0" expanded="true" />
-            <element signature="e#7323#7324#0" expanded="true" />
-            <element signature="e#7628#7929#0" expanded="true" />
-            <element signature="e#7924#7925#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1648,14 +1614,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_2.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/firstgame/MainActivity.java">
@@ -1666,14 +1632,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_1.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/import-summary.txt">
@@ -1774,14 +1740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1700">
-          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2104" max-vertical-offset="2686">
@@ -1808,39 +1766,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-77.81481" vertical-offset="1367" max-vertical-offset="4624">
-          <caret line="204" column="45" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2937" max-vertical-offset="3553">
-          <caret line="194" column="53" selection-start-line="194" selection-start-column="53" selection-end-line="194" selection-end-column="53" />
-          <folding>
-            <element signature="e#365#371#0" expanded="true" />
-            <element signature="e#424#430#0" expanded="true" />
-            <element signature="e#486#492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="986">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
@@ -1857,26 +1782,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-77.81481" vertical-offset="1367" max-vertical-offset="4624">
+          <caret line="204" column="45" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1700">
+          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="969">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="3706">
+          <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4879725" vertical-offset="2878" max-vertical-offset="14076">
-          <caret line="192" column="30" selection-start-line="192" selection-start-column="30" selection-end-line="193" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.60830325" vertical-offset="5375" max-vertical-offset="14008">
+          <caret line="353" column="48" selection-start-line="353" selection-start-column="48" selection-end-line="353" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4081#4082#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
-            <element signature="e#6493#7331#0" expanded="true" />
-            <element signature="e#7323#7324#0" expanded="true" />
-            <element signature="e#7628#7929#0" expanded="true" />
-            <element signature="e#7924#7925#0" expanded="true" />
           </folding>
         </state>
       </provider>

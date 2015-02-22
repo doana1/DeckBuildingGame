@@ -38,13 +38,13 @@ public class Action extends Card{
     public void addDamage(Card card){
         if (card.getClass().equals(Weapon.class)) {
             card.DAMAGE += 10;
-            card.deadlyAim = true;
+            card.deadlyAims++;
         }
     }
 
     public void decreaseDamage(Card card){
             card.DAMAGE -= 10;
-            card.deadlyAim = false;
+            card.deadlyAims--;
     }
 
 

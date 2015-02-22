@@ -105,6 +105,13 @@ public class PlayerHand {
 
     }
 
+    public void discardEverything(){
+        discardCards.addAll(playerHand);
+        discardCards.addAll(usedCards);
+        playerHand.clear();
+        usedCards.clear();
+    }
+
     public void discardToDeck(Deck deck){
         deck.toDeck(discardCards);
         discardCards.clear();
@@ -192,8 +199,10 @@ public class PlayerHand {
 
     public void removeEffects(){
         for(Card m: discardCards){
-            if (m.getClass().equals(Weapon.class) && m.deadlyAim == true){
-                action.deadlyAim.decreaseDamage(m);
+            if (m.getClass().equals(Weapon.class)){
+                while(m.deadlyAims > 0) {
+                    action.deadlyAim.decreaseDamage(m);
+                }
             }
         }
 

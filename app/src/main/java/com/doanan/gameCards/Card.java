@@ -12,7 +12,7 @@ public class Card{
     public int GOLD;
     public String filePath;
 
-    public boolean deadlyAim = false;
+    public int deadlyAims = 0;
 	
 	/**
 	 * Creates a CARD.
