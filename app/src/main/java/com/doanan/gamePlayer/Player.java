@@ -9,7 +9,7 @@ public class Player {
 	public String NAME, CHARACTERNAME;
 	public int HEALTH, ACTION, BUY, EXPLORE, GOLD, AMMO, DAMAGE;
     public int DRAWS;
-    public Deck deck;
+    public Deck DECK;
 	
 	/**
 	 * Creates a Player.
@@ -25,7 +25,7 @@ public class Player {
 	 * @param gold Amount of gold the player has.
 	 * @param ammo Amount of ammo the player has.
 	 */
-	public Player(String name, String charactername, int health, int action, int buy, int explore, int gold, int ammo, Deck deck){
+	public Player(String name, String charactername, int health, int action, int buy, int explore, int gold, int ammo){
 		this.NAME = name;
 		this.CHARACTERNAME = charactername;
 		this.HEALTH = health;
@@ -34,7 +34,7 @@ public class Player {
 		this.EXPLORE = explore;
 		this.GOLD = gold;
 		this.AMMO = ammo;
-        this.deck = deck;
+        this.DECK = new Deck();
 	}
 	
 

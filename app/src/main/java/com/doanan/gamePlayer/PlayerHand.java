@@ -15,6 +15,9 @@ public class PlayerHand {
 	public ArrayList<Card> playerHand = new ArrayList<Card>();
 	public ArrayList<Card> usedCards = new ArrayList<Card>();
 	public ArrayList<Card> discardCards = new ArrayList<Card>();
+
+    public ArrayList<Card> extra = new ArrayList<Card>();
+
     ActionCreate action = new ActionCreate();
 	
 	public PlayerHand(){
@@ -41,11 +44,11 @@ public class PlayerHand {
             }
 
             for(int i = 0; i < 5; i++){
-                Card temp;
-                temp = deck.removeCard();
-                temp.CARDINDEX = i;
-                playerHand.add(temp);
-
+//                Card temp;
+//                temp = deck.removeCard();
+//                temp.CARDINDEX = i;
+//                playerHand.add(temp);
+                playerHand.add(deck.removeCard());
             }
         }
 
@@ -59,24 +62,46 @@ public class PlayerHand {
             Log.e("ELSE", "PASSED THIS AREA");
             int remainingDraw = 0;
             for(int i=0;i<deck.deckSize();i++){
-                Card temp;
-                temp = deck.removeCard();
-                temp.CARDINDEX = i;
-                playerHand.add(temp);
+//                Card temp;
+//                temp = deck.removeCard();
+//                temp.CARDINDEX = i;
+//                playerHand.add(temp);
+                playerHand.add(deck.removeCard());
                 remainingDraw++;
             }
             discardToDeck(deck);
             deck.shuffle();
 
             while(remainingDraw < 5){
-                Card temp;
-                temp = deck.removeCard();
-                temp.CARDINDEX = remainingDraw;
-                playerHand.add(temp);
+//                Card temp;
+//                temp = deck.removeCard();
+//                temp.CARDINDEX = remainingDraw;
+//                playerHand.add(temp);
+                playerHand.add(deck.removeCard());
                 remainingDraw++;
             }
         }
 	}
+
+    public void drawExtra(Player player,int extraDraw){
+
+        for(int i = 0; i < extraDraw; i++){
+            if (player.DECK.isEmpty()){
+                discardToDeck(player.DECK);
+                player.DECK.shuffle();
+                Log.e("SHUFFLE","SHUFFLED AND NEW DECK");
+                extra.add(player.DECK.removeCard());
+            }
+//            Card temp;
+//            temp = player.DECK.removeCard();
+//            temp.CARDINDEX = i;
+//            playerHand.add(temp);
+            else{
+                extra.add(player.DECK.removeCard());
+            }
+
+        }
+    }
 	
 	/**
 	 * Play function
@@ -98,7 +123,7 @@ public class PlayerHand {
 		//All elements shift to the left and the size of the arraylist shrinks
 	}
 
-    public void discardAll(ArrayList<Card> remainingCards){
+    public void discardPile(ArrayList<Card> remainingCards){
 
         discardCards.addAll(remainingCards);
         remainingCards.clear();
@@ -116,17 +141,7 @@ public class PlayerHand {
         deck.toDeck(discardCards);
         discardCards.clear();
     }
-	
-	public void use(){
-		/*
-		 * Each card will be used differently
-		 * Check type first
-		 * Keep track of counters
-		 * 
-		 */
-//		int index = 3;
-//		playerHand.remove(index);
-	}
+
 		
 	/**
 	 * Use a card from the PLAYER's HAND.
@@ -174,6 +189,7 @@ public class PlayerHand {
             }
             else if(card.NAME.equals(action.mansionFoyer.NAME)){
                 player.DRAWS += action.mansionFoyer.EXTRA_CARDS;
+                drawExtra(player,player.DRAWS);
             }
             else if(card.NAME.equals(action.struggleForSurvival.NAME)){
                 player.ACTION += action.struggleForSurvival.EXTRA_ACTION;
@@ -205,6 +221,7 @@ public class PlayerHand {
                 }
             }
         }
+
 
     }
 	

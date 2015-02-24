@@ -8,6 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -31,6 +34,7 @@ import com.example.firstgame.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class MainGameActivity extends Activity {
 	//Card Types
@@ -82,9 +86,8 @@ public class MainGameActivity extends Activity {
 	String imageTitle[] = new String[imageNumber];
 	
 	private Context context = this;
-	
-	Deck deck1 = new Deck();
-	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0,deck1);
+
+	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0);
 	PlayerHand player1HAND = new PlayerHand();
 	
 	// ScrollView
@@ -97,6 +100,7 @@ public class MainGameActivity extends Activity {
     // Used to set image cardType
     private int[] cardType = new int[imageNumber];
 
+    public Card[] card = new Card[imageNumber];
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,9 +125,9 @@ public class MainGameActivity extends Activity {
 
 
             // Cards Implemented
-            startingCards(player.deck);
+            startingCards(player.DECK);
             declareImages();
-            setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.deck);
+            setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.DECK);
             Deck();
             Mansion();
 		    /*
@@ -160,15 +164,15 @@ public class MainGameActivity extends Activity {
 	 * Draws cards from the player's deck.
 	 */
 	private void Draw(){
-		player1HAND.draw(deck1);
+		player1HAND.draw(player.DECK);
 	}
 	
 	/**
 	 * Displays the cards drawn in the horizontal view.
 	 */
-	private void displayDraw(LinearLayout layout){
+	private void displayDraw(LinearLayout layout, ArrayList<Card> playerDeck){
 		for(int i = 0; i < 5;i++){
-			displayDraws(layout, i);
+			displayDraws(layout, playerDeck,i);
 		}
 	}
 	
@@ -178,21 +182,16 @@ public class MainGameActivity extends Activity {
 	 * Cards move to Cards played area once played
 	 * Card that moves will vanish from this area.
 	 */
-	private void displayDraws(final LinearLayout layout, int index){
-        final Card handCard = player1HAND.playerHand.get(index);
+	private void displayDraws(final LinearLayout layout, ArrayList<Card> playerDeck,int index){
+
+//        final Card handCard = player1HAND.playerHand.get(index);
+
+        final Card handCard = playerDeck.get(index);
+
         final ImageView imageView = new ImageView(this);
         // Change ImageResource to the card that was played/drawn
 //        imageView.setImageResource(R.drawable.test);
-        AssetManager assetManager = getAssets();
-        InputStream istr;
-        try{
-            istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
-            Bitmap bitmap = BitmapFactory.decodeStream(istr);
-            imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
-            istr.close();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        imageAssets(imageView,handCard);
         imageView.setPadding(10,5,10,5);
 
 		imageView.setOnClickListener(new OnClickListener(){
@@ -203,7 +202,7 @@ public class MainGameActivity extends Activity {
 				
 				// Sets title to card
 				String title;
-//				title = deck1.getCardTitle();//imageTitle[iterator];
+//				title = player.DECK.getCardTitle();//imageTitle[iterator];
 				title = handCard.getName();
 				dialog.setTitle(title);
 				
@@ -214,22 +213,10 @@ public class MainGameActivity extends Activity {
 				text.setText(imageDesc);
 				ImageView image = (ImageView) dialog.findViewById(R.id.image);
 				//Using image from Assets
-				String imageName;
-				imageName = "ace_of_hearts.jpg";//imageFileName[iterator];
-				
-				try{
-					//get input stream
-					InputStream ims = getAssets().open("imgs/cards/" + imageName);
-					//load image as Drawable
-					Drawable d = Drawable.createFromStream(ims, null);
-					//set image to ImageView
-					image.setImageDrawable(d);
-					}
-				catch(IOException e){
-					//handle
-					image.setImageResource(R.drawable.test);
-					return;
-					}
+
+                imageAssets(image,handCard);
+
+
 				Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 				dialogButton.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
@@ -273,7 +260,7 @@ public class MainGameActivity extends Activity {
 			public void onClick(View v) {
                 if(!drawn){
                     Draw();
-                    displayDraw(inHorizontalScrollView2);
+                    displayDraw(inHorizontalScrollView2, player1HAND.playerHand);
                     drawn = true;
                     setDiscardHUD();
                     setDeckHUD();
@@ -281,6 +268,20 @@ public class MainGameActivity extends Activity {
 			}
 		});
 	}
+
+    public void imageAssets(ImageView image,Card handCard){
+        AssetManager assetManager = getAssets();
+        InputStream istr;
+        try{
+            istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
+            Bitmap bitmap = BitmapFactory.decodeStream(istr);
+            image.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+            istr.close();
+        }catch(IOException e){
+            e.printStackTrace();
+            image.setImageResource(R.drawable.test);
+        }
+    }
 	
 	/**
 	 * If an ammo card is used call this function.
@@ -290,6 +291,12 @@ public class MainGameActivity extends Activity {
 
 	private void useCard(Card card){
 		player1HAND.useCard(player, card);
+        if(player.DRAWS != 0){
+            for (int i=0; i < player.DRAWS;i++){
+                displayDraws(inHorizontalScrollView2,player1HAND.extra,i);
+            }
+            player.DRAWS = 0;
+        }
 
         setAmmoHUD();
         setDamageHUD();
@@ -299,6 +306,11 @@ public class MainGameActivity extends Activity {
         setDamageHUD();
 	}
 
+    // Move a card from PlayerHand to Discard
+    private void trashCard(){
+
+    }
+
     private void setDiscardHUD(){
         TextView discard = (TextView)findViewById(R.id.Discard);
         discard.setText("Discard: " + player1HAND.discardCards.size());
@@ -306,7 +318,7 @@ public class MainGameActivity extends Activity {
 
     private void setDeckHUD(){
         TextView deck = (TextView)findViewById(R.id.DeckSize);
-        deck.setText("Deck: " + deck1.deckSize());
+        deck.setText("Deck: " + player.DECK.deckSize());
     }
 
     private void setAmmoHUD(){
@@ -339,13 +351,11 @@ public class MainGameActivity extends Activity {
                 //Check if player still has BUY, EXPLORE, and ACTION
 
                 if (player1HAND != null){
-                    player1HAND.discardAll(player1HAND.playerHand);
                     if (inHorizontalScrollView2 != null){
                         inHorizontalScrollView2.removeAllViewsInLayout();
                     }
                 }
 
-                player1HAND.discardAll(player1HAND.usedCards);
                 if (inHorizontalScrollView1 != null){
                     inHorizontalScrollView1.removeAllViewsInLayout();
                 }
@@ -411,7 +421,7 @@ public class MainGameActivity extends Activity {
 //                player.deck.add(ammo.ammo10);
 //                player.deck.add(ammo.ammo20);
 //                player.deck.add(ammo.ammo30);
-				String text = "Deck has " + deck1.deckSize() + " cards.\n" +
+				String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
 							  "Player has " + player1HAND.handSize() + " cards in their hand.";
 				int duration = Toast.LENGTH_SHORT;
 				Toast toast = Toast.makeText(context, text, duration);
@@ -627,6 +637,25 @@ public class MainGameActivity extends Activity {
         imageFileName[15] = "royalty.png";
         imageFileName[16] = "royalty.png";
         imageFileName[17] = "royalty.png";
+
+        card[0] = weapon1.pistol;
+        card[1] = weapon1.burstPistol;
+        card[2] = weapon1.magnum;
+        card[3] = action1.deadlyAim;
+        card[4] = action1.reload;
+        card[5] = ammo1.ammo10;
+        card[6] = weapon1.knife;
+        card[7] = weapon1.knife; // Macine Gun
+        card[8] = weapon1.knife; // Shotgun
+        card[9] = action1.ominousBattle;
+        card[10] = action1.mansionFoyer;
+        card[11] = ammo1.ammo20;
+        card[12] = weapon1.knife; // Herb
+        card[13] = weapon1.knife; // First Aid Spray
+        card[14] = action1.struggleForSurvival;
+        card[15] = action1.theMerchant;
+        card[16] = action1.umbrellaCorporation;
+        card[17] = ammo1.ammo30;
 		// Description of image
 		imageDescription[0] = "It's a Pistol";
 		imageDescription[1] = "It's a Burst Pistol";
@@ -692,13 +721,17 @@ public class MainGameActivity extends Activity {
         cardType[17] = 2;
 
 	}
-	
+
+    // TODO
+    // Change parameters to take in Card array
+    // Will access member variables of each card
 	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, int[] cardType, Deck deck){
 
 		int iterator = 0;
 
 
 		for(ImageView img:image){
+
             AssetManager assetManager = getAssets();
             InputStream istr;
             try{
@@ -709,7 +742,16 @@ public class MainGameActivity extends Activity {
             }catch(IOException e){
                 e.printStackTrace();
             }
-            img.setPadding(10,5,10,5);
+            img.setPadding(10, 5, 10, 5);
+
+            img.setOnTouchListener(new View.OnTouchListener() {
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    setDeckHUD();
+                    return false;
+                }
+            });
 
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,cardType,iterator,deck){
 				public void onClick(View v){
@@ -859,4 +901,22 @@ public class MainGameActivity extends Activity {
         }
     }
 
+    public class GestureListener extends GestureDetector.SimpleOnGestureListener{
+
+        @Override
+        public boolean onDown(MotionEvent e){
+            return true;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent e){
+            float x = e.getX();
+            float y = e.getY();
+
+            Log.d("Double Tap", "Tapped at: (" + x + "," + y + ")");
+
+            return true;
+        }
+
+    }
 }
