@@ -38,10 +38,10 @@ import java.util.ArrayList;
 
 public class MainGameActivity extends Activity {
 	//Card Types
-	String Character, Ammunition, Weapon, Infected, Token, Item, Action;
+	//String Character, Ammunition, Weapon, Infected, Token, Item, Action;
 	
 	//Card Attributes
-	String Name, Cost, Health, Effect, Gold, Ammo, Damage, Decorations;
+	//String Name, Cost, Health, Effect, Gold, Ammo, Damage, Decorations;
 	
 	//Turns
 	public enum Turn{
@@ -293,7 +293,7 @@ public class MainGameActivity extends Activity {
 		player1HAND.useCard(player, card);
         if(player.DRAWS != 0){
             for (int i=0; i < player.DRAWS;i++){
-                displayDraws(inHorizontalScrollView2,player1HAND.extra,i);
+                displayDraws(inHorizontalScrollView2,player1HAND.playerHand,i);
             }
             player.DRAWS = 0;
         }
@@ -390,37 +390,7 @@ public class MainGameActivity extends Activity {
 		ImageView imageDeck = (ImageView) findViewById(R.id.Mansion);
 		imageDeck.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-				final AmmunitionCreate ammo = new AmmunitionCreate();
-//				player.deck.add(ammo.ammo10);
-//				player.deck.add(ammo.ammo20);
-//				player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
-//                player.deck.add(ammo.ammo10);
-//                player.deck.add(ammo.ammo20);
-//                player.deck.add(ammo.ammo30);
+
 				String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
 							  "Player has " + player1HAND.handSize() + " cards in their hand.";
 				int duration = Toast.LENGTH_SHORT;

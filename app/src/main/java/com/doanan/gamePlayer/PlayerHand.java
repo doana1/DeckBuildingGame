@@ -16,8 +16,6 @@ public class PlayerHand {
 	public ArrayList<Card> usedCards = new ArrayList<Card>();
 	public ArrayList<Card> discardCards = new ArrayList<Card>();
 
-    public ArrayList<Card> extra = new ArrayList<Card>();
-
     ActionCreate action = new ActionCreate();
 	
 	public PlayerHand(){
@@ -32,7 +30,7 @@ public class PlayerHand {
 	public void draw(Deck deck){
 
         if(deck.deckSize() > 4 || deck.isEmpty()){
-            Log.e("IF","Cards were drawn normally");
+            Log.e("DRAW_IF","Cards were drawn normally");
 
             if(!deck.isEmpty()){
                 Log.e("IF","Deck is not empty");
@@ -53,13 +51,7 @@ public class PlayerHand {
         }
 
 		else{
-            if(!deck.isEmpty()){
-                Log.e("BET", "DECK IS NOT EMPTY");
-            }
-            if(deck.isEmpty()){
-                Log.e("BET", "DECK IS EMPTY");
-            }
-            Log.e("ELSE", "PASSED THIS AREA");
+            Log.e("DRAW_ELSE", "Drawn remaining cards in Deck, Shuffled, Drawn");
             int remainingDraw = 0;
             for(int i=0;i<deck.deckSize();i++){
 //                Card temp;
@@ -89,15 +81,16 @@ public class PlayerHand {
             if (player.DECK.isEmpty()){
                 discardToDeck(player.DECK);
                 player.DECK.shuffle();
-                Log.e("SHUFFLE","SHUFFLED AND NEW DECK");
-                extra.add(player.DECK.removeCard());
+                Log.e("DRAW_EXTRA","SHUFFLED AND NEW DECK");
+                Log.e("Size of Deck: ", " player.DECK.deckSize()");
+                playerHand.add(player.DECK.removeCard());
             }
 //            Card temp;
 //            temp = player.DECK.removeCard();
 //            temp.CARDINDEX = i;
 //            playerHand.add(temp);
             else{
-                extra.add(player.DECK.removeCard());
+                playerHand.add(player.DECK.removeCard());
             }
 
         }
@@ -188,6 +181,7 @@ public class PlayerHand {
                 // Trash 1 card from your Hand.
             }
             else if(card.NAME.equals(action.mansionFoyer.NAME)){
+                // Draw 2 cards from player.Deck
                 player.DRAWS += action.mansionFoyer.EXTRA_CARDS;
                 drawExtra(player,player.DRAWS);
             }
