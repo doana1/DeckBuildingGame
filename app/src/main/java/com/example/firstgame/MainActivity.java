@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.doanan.game.MainGameActivity;
-import com.doanan.opengl.OpenGLES20Activity;
 
 public class MainActivity extends ActionBarActivity {
 	public final static String EXTRA_MESSAGE = "com.example.firstgame.MESSAGE";
@@ -57,24 +56,8 @@ public class MainActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void sendMessage(View view){
-//		Intent intent = new Intent(this, MessageReceived.class);
-//		EditText editText = (EditText) findViewById(R.id.edit_message);
-//		String message = editText.getText().toString();
-//		intent.putExtra(EXTRA_MESSAGE, message);
-//		startActivity(intent);
-		
-		Intent intent = new Intent(this, scrollView.class);
-		startActivity(intent);
-	}
-	
 	public void startGame(View view){
 		Intent intent = new Intent(this, MainGameActivity.class);
-		startActivity(intent);
-	}
-	
-	public void OpenGL(View view){
-		Intent intent = new Intent(this, OpenGLES20Activity.class);
 		startActivity(intent);
 	}
 }

@@ -1,18 +1,22 @@
 package com.doanan.game;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.DragEvent;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -35,6 +39,7 @@ import com.example.firstgame.R;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainGameActivity extends Activity {
 	//Card Types
@@ -91,7 +96,7 @@ public class MainGameActivity extends Activity {
 	PlayerHand player1HAND = new PlayerHand();
 	
 	// ScrollView
-	Button addinHorizontalScrollView1, TurnEnd;
+	Button addinHorizontalScrollView1, TurnEnd, Trash;
 	LinearLayout inHorizontalScrollView1, inHorizontalScrollView2, inScrollView1;
 
     // Check if card drawn
@@ -101,6 +106,9 @@ public class MainGameActivity extends Activity {
     private int[] cardType = new int[imageNumber];
 
     public Card[] card = new Card[imageNumber];
+
+    // Gesture Stuff
+    private GestureDetector gestureDetector;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +117,6 @@ public class MainGameActivity extends Activity {
         // Check to restore or create new activity
         if(savedInstanceState != null){
             // Restore value of members from saved state
-
         }
         else{
             /*
@@ -123,6 +130,7 @@ public class MainGameActivity extends Activity {
             // textView2.setText(chris.NAME);
             // textView2.setText(Integer.toString(chris.DECORATIONS));
 
+            gestureDetector = new GestureDetector(this,new GestureListener());
 
             // Cards Implemented
             startingCards(player.DECK);
@@ -137,6 +145,7 @@ public class MainGameActivity extends Activity {
 
             inHorizontalScrollView2 = (LinearLayout)findViewById(R.id.inhorizontalscrollview2);
             TurnEnd = (Button)findViewById(R.id.TurnEnd);
+            Trash = (Button)findViewById(R.id.trash);
             turnEnd();
         }
 
@@ -182,30 +191,37 @@ public class MainGameActivity extends Activity {
 	 * Cards move to Cards played area once played
 	 * Card that moves will vanish from this area.
 	 */
+
+    int cardIndex = 0;
 	private void displayDraws(final LinearLayout layout, ArrayList<Card> playerDeck,int index){
 
 //        final Card handCard = player1HAND.playerHand.get(index);
 
         final Card handCard = playerDeck.get(index);
+        //TODO
+        //does not work for cards being drawn during turn
+        handCard.CARDINDEX = cardIndex;
+
+        cardIndex++;
 
         final ImageView imageView = new ImageView(this);
         // Change ImageResource to the card that was played/drawn
 //        imageView.setImageResource(R.drawable.test);
         imageAssets(imageView,handCard);
         imageView.setPadding(10,5,10,5);
+        imageView.setTag(cardIndex);
 
 		imageView.setOnClickListener(new OnClickListener(){
-			
+
 			public void onClick(View v) {
 				final Dialog dialog = new Dialog(context);
 				dialog.setContentView(R.layout.bigimage);
-				
 				// Sets title to card
 				String title;
 //				title = player.DECK.getCardTitle();//imageTitle[iterator];
 				title = handCard.getName();
 				dialog.setTitle(title);
-				
+
 				//set the custom dialog components - text, image and button
 				String imageDesc;
 				imageDesc = handCard.getName();//imageDescription[iterator];
@@ -224,26 +240,36 @@ public class MainGameActivity extends Activity {
 						//Card in Player Hand will be used
 						//The card will then be moved to CardUsed
 						//Then it will appear in that horizontal View
-						
+
 						//START TESTING OF MOVING CARDS TO CARDS PLAYED
-						
+
 						inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
 						cardsUsed(inHorizontalScrollView1,handCard);
 						//END TESTING OF MOVING CARDS TO CARDS PLAYED
 
-						useCard(handCard);
-//						
+                        if (handCard.NAME == "Ominous Battle"){
+                            player1HAND.play(handCard);
+
+                            trashHandCard(cardIndex);
+
+                        }
+                        else{
+                            useCard(handCard);
+                        }
+
+//
 						String text = player.NAME + " has " + player.AMMO + "  bullets.\n" +
 									  "Player Hand: " + player1HAND.handSize();
 						int duration = Toast.LENGTH_SHORT;
 						Toast toast = Toast.makeText(context, text, duration);
 						toast.show();
-						
-						layout.removeView(imageView);
+
+//						layout.removeView(imageView);
+                        imageView.setVisibility(View.GONE);
 						dialog.dismiss();
 						}
 					});
-				
+
 				dialog.show();
 				}
 			});
@@ -291,6 +317,7 @@ public class MainGameActivity extends Activity {
 
 	private void useCard(Card card){
 		player1HAND.useCard(player, card);
+
         if(player.DRAWS != 0){
             for (int i=0; i < player.DRAWS;i++){
                 displayDraws(inHorizontalScrollView2,player1HAND.playerHand,i);
@@ -306,10 +333,68 @@ public class MainGameActivity extends Activity {
         setDamageHUD();
 	}
 
+    private void trashCard(int cardIndex){
+
+        Card card;
+        View v = inHorizontalScrollView2.getChildAt(cardIndex+1);
+        v.setVisibility(View.GONE);
+
+        for (Card m: player1HAND.playerHand){
+            if (m.CARDINDEX == cardIndex){
+                card = m;
+
+                player1HAND.trash(card);
+                break;
+            }
+        }
+
+        setAmmoHUD();
+        setDamageHUD();
+        setGoldHUD();
+        setDiscardHUD();
+        setDeckHUD();
+        setDamageHUD();
+    }
+
     // Move a card from PlayerHand to Discard
-    private void trashCard(){
+    int trashCounter = 1;
+    public void trashHandCard(final int cardNumber){
+//        Dialog dialog = new Dialog(context, R.layout.bigimage);
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select a Card to Trash")
+                .setItems(playerHandCardNames(), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                        Log.e("TRASHHANDCARD","Index "+ which);
+                        if (which >= cardNumber){
+                            trashCard(which);
+                        }
+                        else {
+                            trashCard(which);
+                        }
+
+
+                    }
+                });
+        builder.setCancelable(false);
+        builder.create();
+        builder.show();
 
     }
+
+    public CharSequence[] playerHandCardNames(){
+        List<String> cards = new ArrayList<String>();
+        for (Card m: player1HAND.playerHand){
+            cards.add(m.NAME);
+        }
+        CharSequence[] cardNames = cards.toArray(new CharSequence[cards.size()]);
+        return cardNames;
+    }
+
+
 
     private void setDiscardHUD(){
         TextView discard = (TextView)findViewById(R.id.Discard);
@@ -376,6 +461,8 @@ public class MainGameActivity extends Activity {
                 setDamageHUD();
                 setDiscardHUD();
                 setDeckHUD();
+                cardIndex = 0;
+                trashCounter=0;
             }
         });
 
@@ -388,18 +475,18 @@ public class MainGameActivity extends Activity {
 	 */
 	private void Mansion(){
 		ImageView imageDeck = (ImageView) findViewById(R.id.Mansion);
-		imageDeck.setOnClickListener(new OnClickListener(){
-			public void onClick(View v) {
+		imageDeck.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
 
-				String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
-							  "Player has " + player1HAND.handSize() + " cards in their hand.";
-				int duration = Toast.LENGTH_SHORT;
-				Toast toast = Toast.makeText(context, text, duration);
-				toast.show();
+                String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
+                        "Player has " + player1HAND.handSize() + " cards in their hand.";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
                 setDiscardHUD();
                 setDeckHUD();
-			}
-		});
+            }
+        });
 	}
 
 
@@ -481,49 +568,6 @@ public class MainGameActivity extends Activity {
 				}
 			});
 		layout.addView(imageView);
-	}
-	
-	/*
-	 * Function to add onClick event to view cards in different piles
-	 * Parameters should include information to indicate which card was played or drawn
-	 */
-	public void onClick(Deck deck){
-		final Dialog dialog = new Dialog(context);
-		dialog.setContentView(R.layout.bigimage);
-		
-		
-		// Sets title to card
-		String title;
-		title = deck.getCardTitle();//imageTitle[iterator];
-		dialog.setTitle(title);
-		
-		//set the custom dialog components - text, image and button
-		String imageDesc;
-		imageDesc = deck.getCardTitle();//imageDescription[iterator];
-		TextView text = (TextView) dialog.findViewById(R.id.text);
-		text.setText(imageDesc);
-		ImageView image = (ImageView) dialog.findViewById(R.id.image);
-		//Using image from Assets
-		
-		String imageName;
-		imageName = "What";//imageFileName[iterator];
-		
-		try{
-			//get input stream
-			InputStream ims = getAssets().open("imgs/cards/" + imageName);
-			//load image as Drawable
-			Drawable d = Drawable.createFromStream(ims, null);
-			//set image to ImageView
-			image.setImageDrawable(d);
-			image.setImageResource(R.drawable.test);
-		}
-		catch(IOException e){
-			//handle
-			image.setImageResource(R.drawable.test);
-			return;
-		}
-		
-		dialog.show();
 	}
 
     public void combat(Weapon card){
@@ -702,6 +746,7 @@ public class MainGameActivity extends Activity {
 
 		for(ImageView img:image){
 
+
             AssetManager assetManager = getAssets();
             InputStream istr;
             try{
@@ -714,26 +759,26 @@ public class MainGameActivity extends Activity {
             }
             img.setPadding(10, 5, 10, 5);
 
-            img.setOnTouchListener(new View.OnTouchListener() {
-
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    setDeckHUD();
-                    return false;
-                }
-            });
+//            img.setOnTouchListener(new MyTouchListener());
+//            img.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    gestureDetector.onTouchEvent(event);
+//                    return true;
+//                }
+//            });
 
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,cardType,iterator,deck){
 				public void onClick(View v){
 					final Dialog dialog = new Dialog(context);
 					dialog.setContentView(R.layout.bigimage);
-					
-					
+
+
 					// Sets title to card
 					final String title;
 					title = imageTitle[iterator];
 					dialog.setTitle(title);
-					
+
 					//set the custom dialog components - text, image and button
 					String imageDesc;
 					imageDesc = imageDescription[iterator];
@@ -741,12 +786,12 @@ public class MainGameActivity extends Activity {
 					text.setText(imageDesc);
 					ImageView image = (ImageView) dialog.findViewById(R.id.image);
 					//Using image from Assets
-					
+
 					String imageName;
 					imageName = imageFileName[iterator];
-					
+
 					final String cardName = imageName;
-					
+
 					try{
                         AssetManager assetManager = getAssets();
                         InputStream istr;
@@ -763,7 +808,7 @@ public class MainGameActivity extends Activity {
 						image.setImageResource(R.drawable.ic_launcher);
 						return;
 					}
-					
+
 					Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 					//if button is clicked, close the custom dialog
 
@@ -794,7 +839,7 @@ public class MainGameActivity extends Activity {
 							dialog.dismiss();
 						}
 					});
-					
+
 					dialog.show();
 				}
 			});
@@ -871,22 +916,89 @@ public class MainGameActivity extends Activity {
         }
     }
 
+    private final class MyTouchListener implements View.OnTouchListener {
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                view.startDrag(data, shadowBuilder, view, 0);
+//                view.setVisibility(View.INVISIBLE);
+                gestureDetector.onTouchEvent(motionEvent);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    class MyDragListener implements View.OnDragListener {
+//        Drawable enterShape = getResources().getDrawable(R.drawable.shape_droptarget);
+//        Drawable normalShape = getResources().getDrawable(R.drawable.shape);
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            int action = event.getAction();
+            switch (event.getAction()) {
+                case DragEvent.ACTION_DRAG_STARTED:
+                    // do nothing
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+//                    v.setBackgroundDrawable(enterShape);
+                    break;
+                case DragEvent.ACTION_DRAG_EXITED:
+//                    v.setBackgroundDrawable(normalShape);
+                    break;
+                case DragEvent.ACTION_DROP:
+                    // Dropped, reassign View to ViewGroup
+                    View view = (View) event.getLocalState();
+                    ViewGroup owner = (ViewGroup) view.getParent();
+//                    owner.removeView(view);
+                    LinearLayout container = (LinearLayout) v;
+                    container.addView(view);
+                    view.setVisibility(View.VISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENDED:
+//                    v.setBackgroundDrawable(normalShape);
+                default:
+                    break;
+            }
+            return true;
+        }
+    }
+
     public class GestureListener extends GestureDetector.SimpleOnGestureListener{
 
+
         @Override
-        public boolean onDown(MotionEvent e){
+        public boolean onSingleTapUp(MotionEvent ev) {
+            Log.e("GESTURE_LISTENER", "onSingleTapUp");
+
             return true;
         }
 
         @Override
-        public boolean onDoubleTap(MotionEvent e){
-            float x = e.getX();
-            float y = e.getY();
-
-            Log.d("Double Tap", "Tapped at: (" + x + "," + y + ")");
-
+        public boolean onDown(MotionEvent event) {
+            Log.e("GESTURE_LISTENER", "onDOWN");
             return true;
         }
 
+        @Override
+        public void onLongPress(MotionEvent event){
+            Log.e("GESTURE_LISTENER", "onLongPress");
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent event){
+            Log.e("GESTURE_LISTENER","onDoubleTap");
+            setAmmoHUD();
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            //determine what happens on fling events
+            return false;
+        }
     }
 }

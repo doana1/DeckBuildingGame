@@ -274,4 +274,15 @@
         android:layout_toRightOf="@+id/TurnEnd"
         android:layout_toEndOf="@+id/TurnEnd" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trash"
+        android:id="@+id/trash"
+        android:layout_above="@+id/AMMO"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/TurnEnd"
+        android:layout_alignEnd="@+id/TurnEnd" />
+
 </RelativeLayout>

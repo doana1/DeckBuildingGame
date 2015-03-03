@@ -2,10 +2,10 @@ package com.doanan.gamePlayer;
 
 import android.util.Log;
 
+import com.doanan.gameCards.Action;
 import com.doanan.gameCards.Ammunition;
 import com.doanan.gameCards.Card;
 import com.doanan.gameCards.Weapon;
-import com.doanan.gameCards.Action;
 import com.doanan.gameComponentsCreate.ActionCreate;
 
 import java.util.ArrayList;
@@ -21,6 +21,10 @@ public class PlayerHand {
 	public PlayerHand(){
 		
 	}
+
+    public void trash(Card card){
+        playerHand.remove(card);
+    }
 
 	/**
 	 * Draws 5 cards from the DECK to the PLAYER's HAND.
@@ -173,12 +177,21 @@ public class PlayerHand {
                 player.ACTION += action.reload.EXTRA_ACTION;
                 // TODO
                 // Move 1 Weapon from your discard pile to your hand
+                // Players need to be able to view discard pile first
+                // Afterwards select card
+                // Add it to player hand
             }
             else if(card.NAME.equals(action.ominousBattle.NAME)){
                 player.GOLD += action.ominousBattle.GOLD;
                 player.DRAWS += action.ominousBattle.EXTRA_CARDS;
+                drawExtra(player,player.DRAWS);
+
                 // TODO
                 // Trash 1 card from your Hand.
+                // Select Card
+                // Press button to trash the card
+                // Separate activity, shows list of cards in hand and removes one
+
             }
             else if(card.NAME.equals(action.mansionFoyer.NAME)){
                 // Draw 2 cards from player.Deck
@@ -190,6 +203,8 @@ public class PlayerHand {
                 player.EXPLORE += action.struggleForSurvival.EXTRA_EXPLORE;
                 // TODO
                 // You can discard this card from your hand to lower the damage of 1 weapon being used costing 40 Gold or less to 0
+                // Open another dialog
+                // Use regular or discard from hand
             }
             else if(card.NAME.equals(action.theMerchant.NAME)){
                 player.GOLD += action.theMerchant.GOLD;
@@ -201,6 +216,8 @@ public class PlayerHand {
                 player.ACTION += action.umbrellaCorporation.EXTRA_ACTION;
                 // TODO
                 // Move 1 card from your Hand to the top of your inventory
+                // return selected card in player's hand
+                // button to move it to top of deck
             }
         }
 		//Once card is used, move it to the CardsUsed arraylist

@@ -24,15 +24,6 @@
         android:layout_marginTop="22dp"
         android:text="@string/test_string_1" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="sendMessage"
-        android:text="@string/sendMessage" />
-
     <EditText
         android:id="@+id/edit_message"
         android:layout_width="wrap_content"
@@ -50,19 +41,10 @@
         android:id="@+id/start_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignRight="@+id/textView2"
         android:onClick="startGame"
-        android:text="Start Game" />
-
-    <Button
-        android:id="@+id/OpenGL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/start_game"
-        android:layout_alignRight="@+id/button1"
-        android:layout_marginBottom="20dp"
-        android:onClick="OpenGL"
-        android:text="OpenGL" />
+        android:text="Start Game"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
