@@ -3,7 +3,6 @@ package com.doanan.game;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
@@ -11,12 +10,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.DragEvent;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -47,12 +43,6 @@ public class MainGameActivity extends Activity {
 	
 	//Card Attributes
 	//String Name, Cost, Health, Effect, Gold, Ammo, Damage, Decorations;
-	
-	//Turns
-	public enum Turn{
-		ACTION, BUY, EXPLORE
-	}
-    //Testing Commit to Repo
 	
 	// Number of Images
 	private final int imageNumber= 18;
@@ -109,6 +99,11 @@ public class MainGameActivity extends Activity {
 
     // Gesture Stuff
     private GestureDetector gestureDetector;
+
+    // Card Creations
+    WeaponCreate weapon = new WeaponCreate();
+    AmmunitionCreate ammo = new AmmunitionCreate();
+    ActionCreate action = new ActionCreate();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +111,7 @@ public class MainGameActivity extends Activity {
 
         // Check to restore or create new activity
         if(savedInstanceState != null){
-            // Restore value of members from saved state
+        // Restore value of members from saved state
         }
         else{
             /*
@@ -127,10 +122,7 @@ public class MainGameActivity extends Activity {
 
             setContentView(R.layout.main_game);
 
-            // textView2.setText(chris.NAME);
-            // textView2.setText(Integer.toString(chris.DECORATIONS));
-
-            gestureDetector = new GestureDetector(this,new GestureListener());
+//            gestureDetector = new GestureDetector(this,new GestureListener());
 
             // Cards Implemented
             startingCards(player.DECK);
@@ -169,37 +161,37 @@ public class MainGameActivity extends Activity {
         super.onDestroy();
     }
 
-	/**
-	 * Draws cards from the player's deck.
-	 */
+    /**
+     * Draws a 5 cards from the player's deck.
+     */
 	private void Draw(){
 		player1HAND.draw(player.DECK);
 	}
 	
 	/**
-	 * Displays the cards drawn in the horizontal view.
+	 * Displays the 5 cards drawn in the horizontal view.
 	 */
 	private void displayDraw(LinearLayout layout, ArrayList<Card> playerDeck){
 		for(int i = 0; i < 5;i++){
 			displayDraws(layout, playerDeck,i);
 		}
 	}
-	
-	/*TODO
-	 * Display cards by drawing them
-	 * Cards function when used properly
-	 * Cards move to Cards played area once played
-	 * Card that moves will vanish from this area.
-	 */
 
     int cardIndex = 0;
+
+    /**
+     * Displays one card that is in the player's hand.
+     *
+     * @param layout The area to display cards that the player can use.
+     * @param playerDeck The player's deck.
+     * @param index Used to drawn a consecutive amount of cards.
+     */
 	private void displayDraws(final LinearLayout layout, ArrayList<Card> playerDeck,int index){
 
 //        final Card handCard = player1HAND.playerHand.get(index);
 
         final Card handCard = playerDeck.get(index);
-        //TODO
-        //does not work for cards being drawn during turn
+
         handCard.CARDINDEX = cardIndex;
 
         cardIndex++;
@@ -209,7 +201,6 @@ public class MainGameActivity extends Activity {
 //        imageView.setImageResource(R.drawable.test);
         imageAssets(imageView,handCard);
         imageView.setPadding(10,5,10,5);
-        imageView.setTag(cardIndex);
 
 		imageView.setOnClickListener(new OnClickListener(){
 
@@ -248,9 +239,9 @@ public class MainGameActivity extends Activity {
 						//END TESTING OF MOVING CARDS TO CARDS PLAYED
 
                         if (handCard.NAME == "Ominous Battle"){
-                            player1HAND.play(handCard);
+                            useCard(handCard);
 
-                            trashHandCard(cardIndex);
+                            trashHandCard();
 
                         }
                         else{
@@ -264,8 +255,8 @@ public class MainGameActivity extends Activity {
 						Toast toast = Toast.makeText(context, text, duration);
 						toast.show();
 
-//						layout.removeView(imageView);
-                        imageView.setVisibility(View.GONE);
+						layout.removeView(imageView);
+//                        imageView.setVisibility(View.GONE);
 						dialog.dismiss();
 						}
 					});
@@ -295,6 +286,12 @@ public class MainGameActivity extends Activity {
 		});
 	}
 
+    /**
+     * Binds a card to an image from assets.
+     *
+     * @param image The image view to use a card.
+     * @param handCard The card to be binded to the image.
+     */
     public void imageAssets(ImageView image,Card handCard){
         AssetManager assetManager = getAssets();
         InputStream istr;
@@ -315,14 +312,20 @@ public class MainGameActivity extends Activity {
 	 * It allows an ammunition card to be used.
 	 */
 
+    /**
+     * Checks the type of card and name of the card.
+     * Then activates a specific function pertaining to the card type and name.
+     *
+     * @param card The card being used.
+     */
 	private void useCard(Card card){
 		player1HAND.useCard(player, card);
 
         if(player.DRAWS != 0){
-            for (int i=0; i < player.DRAWS;i++){
+            for (int i=player1HAND.handSize()-player.DRAWS; player.DRAWS > 0; i++){
                 displayDraws(inHorizontalScrollView2,player1HAND.playerHand,i);
+                player.DRAWS--;
             }
-            player.DRAWS = 0;
         }
 
         setAmmoHUD();
@@ -333,48 +336,21 @@ public class MainGameActivity extends Activity {
         setDamageHUD();
 	}
 
-    private void trashCard(int cardIndex){
-
-        Card card;
-        View v = inHorizontalScrollView2.getChildAt(cardIndex+1);
-        v.setVisibility(View.GONE);
-
-        for (Card m: player1HAND.playerHand){
-            if (m.CARDINDEX == cardIndex){
-                card = m;
-
-                player1HAND.trash(card);
-                break;
-            }
-        }
-
-        setAmmoHUD();
-        setDamageHUD();
-        setGoldHUD();
-        setDiscardHUD();
-        setDeckHUD();
-        setDamageHUD();
-    }
-
-    // Move a card from PlayerHand to Discard
-    int trashCounter = 1;
-    public void trashHandCard(final int cardNumber){
-//        Dialog dialog = new Dialog(context, R.layout.bigimage);
-
-
+    /**
+     * Move a card from PlayerHand to Discard.
+     */
+    public void trashHandCard(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select a Card to Trash")
                 .setItems(playerHandCardNames(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position
-                        // of the selected item
+
                         Log.e("TRASHHANDCARD","Index "+ which);
-                        if (which >= cardNumber){
-                            trashCard(which);
-                        }
-                        else {
-                            trashCard(which);
-                        }
+
+                        reorderCardIndex(which);
+                        trashCard(which);
+
+
 
 
                     }
@@ -385,6 +361,72 @@ public class MainGameActivity extends Activity {
 
     }
 
+
+    /**
+     * Removes a card from the player's hand.
+     *
+     * @param cardIndex The card to remove from the player's hand.
+     */
+    private void trashCard(int cardIndex){
+
+        Card card;
+
+        for (Card m: player1HAND.playerHand){
+            Log.e("TrashedCard","Current card: " + m.NAME);
+            Log.e("TrashedCard","Current cardIndex: " + m.CARDINDEX);
+            if (m.CARDINDEX == cardIndex){
+                card = m;
+
+                Log.e("TrashedCard",card.NAME);
+
+                player1HAND.trash(card);
+                break;
+            }
+        }
+        removeCardView(cardIndex);
+
+        setAmmoHUD();
+        setDamageHUD();
+        setGoldHUD();
+        setDiscardHUD();
+        setDeckHUD();
+        setDamageHUD();
+    }
+
+
+    /**
+     * All cards in player hands have their CARD INDEX instance variable re-assigned new values.
+     * Cards get get reassigned after a card was removed.
+     *
+     * @param cardUsed Card being trashed.
+     */
+    public void reorderCardIndex(int cardUsed){
+        int i = 0;
+        for(Card m: player1HAND.playerHand){
+            // Works but is bad
+            // Changes the instance of AMMOx10 etc. CardIndex
+                m.CARDINDEX = i;
+            i++;
+        }
+    }
+
+    /**
+     * Removes the imageView of the card being trashed.
+     * imageView is removed from playerHand layout.
+     *
+     * @param card Card being removed.
+     */
+    public void removeCardView(int card){
+
+        View v = inHorizontalScrollView2.getChildAt(card);
+        v.setVisibility(View.GONE);
+    }
+
+    /**
+     * Used to display all player card names in a dialog.
+     *
+     * @return Array of card names from player's hand.
+     */
     public CharSequence[] playerHandCardNames(){
         List<String> cards = new ArrayList<String>();
         for (Card m: player1HAND.playerHand){
@@ -396,11 +438,20 @@ public class MainGameActivity extends Activity {
 
 
 
+
+    /**
+     * Sets up the Discard HUD.
+     * Displays the amount of cards in Discard pile.
+     */
     private void setDiscardHUD(){
         TextView discard = (TextView)findViewById(R.id.Discard);
         discard.setText("Discard: " + player1HAND.discardCards.size());
     }
 
+    /**
+     * Sets up the Deck HUD.
+     * Displays teh amount of cards in the Deck pile.
+     */
     private void setDeckHUD(){
         TextView deck = (TextView)findViewById(R.id.DeckSize);
         deck.setText("Deck: " + player.DECK.deckSize());
@@ -411,11 +462,19 @@ public class MainGameActivity extends Activity {
         ammo.setText("Ammo: " + player.getPlayerAMMO());
     }
 
+    /**
+     * Sets up the Damage HUD.
+     * Displays the amount of damage a player can inflict.
+     */
     private void setDamageHUD(){
         TextView damage = (TextView)findViewById(R.id.DAMAGE);
         damage.setText("Damage: " + player.getPlayerDAMAGE());
     }
 
+    /**
+     * Sets up the Gold HUD.
+     * Displays the amount of gold a player has.
+     */
     private void setGoldHUD(){
         TextView gold = (TextView)findViewById(R.id.GOLD);
         gold.setText("Gold: " + player.getPlayerGOLD());
@@ -423,7 +482,9 @@ public class MainGameActivity extends Activity {
 
 
     /**
-    Cleans everything up and starts a new turn
+     * Cleans everything up and starts a new turn.
+     * All counters will be set back to their default values.
+     * All views will be emptied.
      */
     private void turnEnd(){
         //Move all player hand cards to discard pile
@@ -462,7 +523,6 @@ public class MainGameActivity extends Activity {
                 setDiscardHUD();
                 setDeckHUD();
                 cardIndex = 0;
-                trashCounter=0;
             }
         });
 
@@ -471,7 +531,9 @@ public class MainGameActivity extends Activity {
 	/**
 	 * TODO
 	 * Change this to fight monsters later.
-	 * Currently used to add Cards to the Deck quickly.
+     * All monsters will be generated in MonsterCreate
+     * Then there will be a pile of monsters generated.
+     * Monsters are drawn randomly.
 	 */
 	private void Mansion(){
 		ImageView imageDeck = (ImageView) findViewById(R.id.Mansion);
@@ -489,14 +551,12 @@ public class MainGameActivity extends Activity {
         });
 	}
 
-
-
-	/*
-	 * Adds an image to the horizontal Scroll View
-	 * Player Hand will be displayed Here
-	 * If Card is used
-	 * That Card will be moved into the Card Played Horizontal Viewed
-	 */
+    /**
+     * Displays a card that was used here for viewing purposes.
+     *
+     * @param layout The layout where used cards will be displayed.
+     * @param handCard The last card that was used.
+     */
 	private void cardsUsed(LinearLayout layout, final Card handCard){
 		ImageView imageView = new ImageView(this);
 		// Change ImageResource to the card that was played/drawn
@@ -570,15 +630,28 @@ public class MainGameActivity extends Activity {
 		layout.addView(imageView);
 	}
 
+    /**
+     * TODO
+     * Will compare a monster's damage/health to a player's damage.
+     *
+     * @param card The weapon card being used.
+     */
     public void combat(Weapon card){
         //Check if ammo requirement meets weapons demands
         //Check if damage is >= monster health
 
     }
 
+    /**
+     * Sets up starting cards for the player.
+     * The cards include the following:
+     * 7 Ammo x 10
+     * 1 Pistol
+     * 2 Knife
+     *
+     * @param deck The player's deck.
+     */
     public void startingCards(Deck deck){
-        WeaponCreate weapon = new WeaponCreate();
-        AmmunitionCreate ammo = new AmmunitionCreate();
         for (int i=0; i < 7;i++){
             deck.add(ammo.ammo10);
         }
@@ -587,14 +660,14 @@ public class MainGameActivity extends Activity {
         deck.add(weapon.knife);
         deck.shuffle();
     }
-	
-	public void declareImages(){
-		// Declare Ammo
-		AmmunitionCreate ammo1 = new AmmunitionCreate();
-        WeaponCreate weapon1 = new WeaponCreate();
-        ActionCreate action1 = new ActionCreate();
 
-		// Assigned imageviews to variables
+    /**
+     * Sets up the imageViews to become a market.
+     * All images will be clickable with text information and an image.
+     */
+	public void declareImages(){
+
+		// Assigned imageViews to variables
 		image1 = (ImageView) findViewById(R.id.imageView1);
 		image2 = (ImageView) findViewById(R.id.imageView2);
 		image3 = (ImageView) findViewById(R.id.imageView3);
@@ -652,24 +725,24 @@ public class MainGameActivity extends Activity {
         imageFileName[16] = "royalty.png";
         imageFileName[17] = "royalty.png";
 
-        card[0] = weapon1.pistol;
-        card[1] = weapon1.burstPistol;
-        card[2] = weapon1.magnum;
-        card[3] = action1.deadlyAim;
-        card[4] = action1.reload;
-        card[5] = ammo1.ammo10;
-        card[6] = weapon1.knife;
-        card[7] = weapon1.knife; // Macine Gun
-        card[8] = weapon1.knife; // Shotgun
-        card[9] = action1.ominousBattle;
-        card[10] = action1.mansionFoyer;
-        card[11] = ammo1.ammo20;
-        card[12] = weapon1.knife; // Herb
-        card[13] = weapon1.knife; // First Aid Spray
-        card[14] = action1.struggleForSurvival;
-        card[15] = action1.theMerchant;
-        card[16] = action1.umbrellaCorporation;
-        card[17] = ammo1.ammo30;
+        card[0] = weapon.pistol;
+        card[1] = weapon.burstPistol;
+        card[2] = weapon.magnum;
+        card[3] = action.deadlyAim;
+        card[4] = action.reload;
+        card[5] = ammo.ammo10;
+        card[6] = weapon.knife;
+        card[7] = weapon.knife; // Macine Gun
+        card[8] = weapon.knife; // Shotgun
+        card[9] = action.ominousBattle;
+        card[10] = action.mansionFoyer;
+        card[11] = ammo.ammo20;
+        card[12] = weapon.knife; // Herb
+        card[13] = weapon.knife; // First Aid Spray
+        card[14] = action.struggleForSurvival;
+        card[15] = action.theMerchant;
+        card[16] = action.umbrellaCorporation;
+        card[17] = ammo.ammo30;
 		// Description of image
 		imageDescription[0] = "It's a Pistol";
 		imageDescription[1] = "It's a Burst Pistol";
@@ -690,24 +763,24 @@ public class MainGameActivity extends Activity {
         imageDescription[16] = "Move 1 card from your Hand to the top of your Inventory";
         imageDescription[17] = "Gives 30 ammo and 30 Gold";
 		// Title of image
-		imageTitle[0] = weapon1.pistol.NAME;
-		imageTitle[1] = weapon1.burstPistol.NAME;
-		imageTitle[2] = weapon1.magnum.NAME;
-		imageTitle[3] = action1.deadlyAim.NAME;
-		imageTitle[4] = action1.reload.NAME;
-		imageTitle[5] = ammo1.ammo10.NAME;
-		imageTitle[6] = weapon1.knife.NAME;
+		imageTitle[0] = weapon.pistol.NAME;
+		imageTitle[1] = weapon.burstPistol.NAME;
+		imageTitle[2] = weapon.magnum.NAME;
+		imageTitle[3] = action.deadlyAim.NAME;
+		imageTitle[4] = action.reload.NAME;
+		imageTitle[5] = ammo.ammo10.NAME;
+		imageTitle[6] = weapon.knife.NAME;
 		imageTitle[7] = "Machine Gun";
 		imageTitle[8] = "Shotgun";
-		imageTitle[9] = action1.ominousBattle.NAME;
-		imageTitle[10] = action1.mansionFoyer.NAME;
-		imageTitle[11] = ammo1.ammo20.NAME;
+		imageTitle[9] = action.ominousBattle.NAME;
+		imageTitle[10] = action.mansionFoyer.NAME;
+		imageTitle[11] = ammo.ammo20.NAME;
 		imageTitle[12] = "Herb";
 		imageTitle[13] = "First Aid Spray";
-		imageTitle[14] = action1.struggleForSurvival.NAME;
-        imageTitle[15] = action1.theMerchant.NAME;
-        imageTitle[16] = action1.umbrellaCorporation.NAME;
-        imageTitle[17] = ammo1.ammo30.NAME;
+		imageTitle[14] = action.struggleForSurvival.NAME;
+        imageTitle[15] = action.theMerchant.NAME;
+        imageTitle[16] = action.umbrellaCorporation.NAME;
+        imageTitle[17] = ammo.ammo30.NAME;
         // Card Type
         /*
         0 = Weapon
@@ -736,9 +809,23 @@ public class MainGameActivity extends Activity {
 
 	}
 
-    // TODO
-    // Change parameters to take in Card array
-    // Will access member variables of each card
+
+    /**
+     * TODO
+     * Change parameters to take in Card Array.
+     * Will access member variables of each card.
+     *
+     * Makes all images in the market clickable.
+     * All clickable images will allow players to purchase cards in the market.
+     * Once purchased, the card will be added to the player's deck.
+     *
+     * @param image ImageView array of image Views.
+     * @param imageFileName String array of image filenames.
+     * @param imageDescription String array of description of images.
+     * @param imageTitle String array of image titles.
+     * @param cardType Array of all card types.
+     * @param deck The deck of the player
+     */
 	public void setImages(ImageView[] image,String[] imageFileName, String[] imageDescription, String[] imageTitle, int[] cardType, Deck deck){
 
 		int iterator = 0;
@@ -758,15 +845,6 @@ public class MainGameActivity extends Activity {
                 e.printStackTrace();
             }
             img.setPadding(10, 5, 10, 5);
-
-//            img.setOnTouchListener(new MyTouchListener());
-//            img.setOnTouchListener(new View.OnTouchListener() {
-//                @Override
-//                public boolean onTouch(View v, MotionEvent event) {
-//                    gestureDetector.onTouchEvent(event);
-//                    return true;
-//                }
-//            });
 
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,cardType,iterator,deck){
 				public void onClick(View v){
@@ -847,6 +925,12 @@ public class MainGameActivity extends Activity {
 		}
 	}
 
+    /**
+     * Adds a weapon card to the player's deck.
+     *
+     * @param deck Player's deck.
+     * @param cardName The card's name that will be added to the player's deck.
+     */
     public void addWeapon(Deck deck, String cardName){
         WeaponCreate weapon = new WeaponCreate();
 
@@ -916,6 +1000,7 @@ public class MainGameActivity extends Activity {
         }
     }
 
+    /*
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -930,6 +1015,8 @@ public class MainGameActivity extends Activity {
             }
         }
     }
+
+
 
     class MyDragListener implements View.OnDragListener {
 //        Drawable enterShape = getResources().getDrawable(R.drawable.shape_droptarget);
@@ -1001,4 +1088,5 @@ public class MainGameActivity extends Activity {
             return false;
         }
     }
+    */
 }

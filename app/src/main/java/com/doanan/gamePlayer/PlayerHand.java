@@ -77,6 +77,7 @@ public class PlayerHand {
                 remainingDraw++;
             }
         }
+        Log.e("PLAYERDECK","Size of deck: "+deck.deckSize());
 	}
 
     public void drawExtra(Player player,int extraDraw){
@@ -86,15 +87,17 @@ public class PlayerHand {
                 discardToDeck(player.DECK);
                 player.DECK.shuffle();
                 Log.e("DRAW_EXTRA","SHUFFLED AND NEW DECK");
-                Log.e("Size of Deck: ", " player.DECK.deckSize()");
+                Log.e("Size of Deck: ", ""+ player.DECK.deckSize());
+                Log.e("EXTRA DECK", "Size of deck: " + player.DECK.deckSize());
+
                 playerHand.add(player.DECK.removeCard());
             }
-//            Card temp;
-//            temp = player.DECK.removeCard();
-//            temp.CARDINDEX = i;
-//            playerHand.add(temp);
+
             else{
                 playerHand.add(player.DECK.removeCard());
+                Log.e("Size of Deck: ", ""+ player.DECK.deckSize());
+                Log.e("EXTRA DECK", "Size of deck: " + player.DECK.deckSize());
+
             }
 
         }
@@ -182,16 +185,11 @@ public class PlayerHand {
                 // Add it to player hand
             }
             else if(card.NAME.equals(action.ominousBattle.NAME)){
+                // Draws 3 card from player.Deck
+                // Trash one card in hand
                 player.GOLD += action.ominousBattle.GOLD;
                 player.DRAWS += action.ominousBattle.EXTRA_CARDS;
                 drawExtra(player,player.DRAWS);
-
-                // TODO
-                // Trash 1 card from your Hand.
-                // Select Card
-                // Press button to trash the card
-                // Separate activity, shows list of cards in hand and removes one
-
             }
             else if(card.NAME.equals(action.mansionFoyer.NAME)){
                 // Draw 2 cards from player.Deck
@@ -232,8 +230,6 @@ public class PlayerHand {
                 }
             }
         }
-
-
     }
 	
 	public String cardName(Card card){
