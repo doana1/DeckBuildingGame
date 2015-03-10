@@ -100,6 +100,9 @@ public class MainGameActivity extends Activity {
     // Gesture Stuff
     private GestureDetector gestureDetector;
 
+    // Discarded
+    ImageView Discard;
+
     // Card Creations
     WeaponCreate weapon = new WeaponCreate();
     AmmunitionCreate ammo = new AmmunitionCreate();
@@ -130,6 +133,7 @@ public class MainGameActivity extends Activity {
             setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.DECK);
             Deck();
             Mansion();
+            viewDiscardDialog();
 		    /*
 		     * Scroll View
 		    */
@@ -139,6 +143,7 @@ public class MainGameActivity extends Activity {
             TurnEnd = (Button)findViewById(R.id.TurnEnd);
             Trash = (Button)findViewById(R.id.trash);
             turnEnd();
+
         }
 
 
@@ -187,9 +192,6 @@ public class MainGameActivity extends Activity {
      * @param index Used to drawn a consecutive amount of cards.
      */
 	private void displayDraws(final LinearLayout layout, ArrayList<Card> playerDeck,int index){
-
-//        final Card handCard = player1HAND.playerHand.get(index);
-
         final Card handCard = playerDeck.get(index);
 
         handCard.CARDINDEX = cardIndex;
@@ -227,16 +229,8 @@ public class MainGameActivity extends Activity {
 				Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 				dialogButton.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
-						//TODO
-						//Card in Player Hand will be used
-						//The card will then be moved to CardUsed
-						//Then it will appear in that horizontal View
-
-						//START TESTING OF MOVING CARDS TO CARDS PLAYED
-
 						inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
 						cardsUsed(inHorizontalScrollView1,handCard);
-						//END TESTING OF MOVING CARDS TO CARDS PLAYED
 
                         if (handCard.NAME == "Ominous Battle"){
                             useCard(handCard);
@@ -244,11 +238,13 @@ public class MainGameActivity extends Activity {
                             trashHandCard();
 
                         }
+                        else if(handCard.NAME == "Reload"){
+                            weaponInDiscard();
+                        }
                         else{
                             useCard(handCard);
                         }
 
-//
 						String text = player.NAME + " has " + player.AMMO + "  bullets.\n" +
 									  "Player Hand: " + player1HAND.handSize();
 						int duration = Toast.LENGTH_SHORT;
@@ -256,7 +252,7 @@ public class MainGameActivity extends Activity {
 						toast.show();
 
 						layout.removeView(imageView);
-//                        imageView.setVisibility(View.GONE);
+
 						dialog.dismiss();
 						}
 					});
@@ -344,14 +340,9 @@ public class MainGameActivity extends Activity {
         builder.setTitle("Select a Card to Trash")
                 .setItems(playerHandCardNames(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
                         Log.e("TRASHHANDCARD","Index "+ which);
-
-                        reorderCardIndex(which);
+                        reorderCardIndex(player1HAND.playerHand,0);
                         trashCard(which);
-
-
-
 
                     }
                 });
@@ -398,15 +389,21 @@ public class MainGameActivity extends Activity {
      * All cards in player hands have their CARD INDEX instance variable re-assigned new values.
      * Cards get get reassigned after a card was removed.
      *
-     * @param cardUsed Card being trashed.
+     * @param cardPile Card pile being used.
      */
-    public void reorderCardIndex(int cardUsed){
+    public void reorderCardIndex(ArrayList<Card> cardPile, int weaponFlag){
         int i = 0;
-        for(Card m: player1HAND.playerHand){
+        for(Card m: cardPile){
             // Works but is bad
             // Changes the instance of AMMOx10 etc. CardIndex
+            if (weaponFlag == 1 && m.getClass().equals(Weapon.class)){
+                m.CARDINDEX=i;
+                i++;
+            }
+            else if(weaponFlag == 0){
                 m.CARDINDEX = i;
-            i++;
+                i++;
+            }
         }
     }
 
@@ -436,7 +433,85 @@ public class MainGameActivity extends Activity {
         return cardNames;
     }
 
+    public CharSequence[] discardPileCardNames(){
+        List<String> cards = new ArrayList<String>();
+        for (Card m: player1HAND.discardCards){
+            cards.add(m.NAME);
+        }
+        CharSequence[] cardNames = cards.toArray(new CharSequence[cards.size()]);
+        return cardNames;
+    }
 
+    public void viewDiscardDialog(){
+        Discard = (ImageView)findViewById(R.id.DiscardDeck);
+        Discard.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                discardDialog();
+            }
+        });
+    }
+
+    public void discardDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Discard Pile")
+                .setItems(discardPileCardNames(), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.e("DISCARD DECK","Index "+ which);
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
+
+    public CharSequence[] discardedWeapons(){
+        List<String> cards = new ArrayList<String>();
+        for (Card m: player1HAND.discardCards){
+            if(m.getClass().equals(Weapon.class)){
+                cards.add(m.NAME);
+                Log.e("TAG",""+m.getClass());
+            }
+        }
+        CharSequence[] cardNames = cards.toArray(new CharSequence[cards.size()]);
+        return cardNames;
+    }
+
+    public void weaponInDiscard(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("WEAPONS IN DISCARD")
+                .setItems(discardedWeapons(), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Log.e(" WEAPONSinDISCARD","Index "+ which);
+                        reload(which);
+
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
+
+    public void reload(int cardIndex){
+        reorderCardIndex(player1HAND.discardCards,1);
+
+
+        Card card;
+
+        for (Card m: player1HAND.discardCards){
+            Log.e("RELOAD","Current card: " + m.NAME);
+            Log.e("RELOAD","Current cardIndex: " + m.CARDINDEX);
+            if (m.CARDINDEX == cardIndex){
+                card = m;
+
+                Log.e("RELOAD",card.NAME);
+
+                player1HAND.discardToHand(card);
+                displayDraws(inHorizontalScrollView2,player1HAND.playerHand,player1HAND.handSize()-1);
+
+                break;
+            }
+        }
+    }
 
 
     /**

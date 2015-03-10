@@ -123,6 +123,11 @@ public class PlayerHand {
 		//All elements shift to the left and the size of the arraylist shrinks
 	}
 
+    public void discardToHand(Card card){
+        discardCards.remove(card);
+        playerHand.add(card);
+    }
+
     public void discardPile(ArrayList<Card> remainingCards){
 
         discardCards.addAll(remainingCards);
@@ -178,7 +183,6 @@ public class PlayerHand {
             else if(card.NAME.equals(action.reload.NAME)){
                 player.AMMO += action.reload.AMMO;
                 player.ACTION += action.reload.EXTRA_ACTION;
-                // TODO
                 // Move 1 Weapon from your discard pile to your hand
                 // Players need to be able to view discard pile first
                 // Afterwards select card
