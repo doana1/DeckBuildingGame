@@ -128,6 +128,12 @@ public class PlayerHand {
         playerHand.add(card);
     }
 
+    public void handToDeck(Deck deck,Card card){
+        playerHand.remove(card);
+        deck.add(card);
+
+    }
+
     public void discardPile(ArrayList<Card> remainingCards){
 
         discardCards.addAll(remainingCards);
@@ -212,14 +218,12 @@ public class PlayerHand {
                 player.GOLD += action.theMerchant.GOLD;
                 player.DRAWS += action.theMerchant.EXTRA_CARDS;
                 player.BUY += action.theMerchant.EXTRA_BUY;
+                drawExtra(player,player.DRAWS);
             }
             else if(card.NAME.equals(action.umbrellaCorporation.NAME)){
                 player.DRAWS += action.umbrellaCorporation.EXTRA_CARDS;
                 player.ACTION += action.umbrellaCorporation.EXTRA_ACTION;
-                // TODO
-                // Move 1 card from your Hand to the top of your inventory
-                // return selected card in player's hand
-                // button to move it to top of deck
+                drawExtra(player,player.DRAWS);
             }
         }
 		//Once card is used, move it to the CardsUsed arraylist

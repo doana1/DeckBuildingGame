@@ -2,53 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\AnBan_000\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-c822c4109c294f8be2b33b48a886503e243f2686.jar" />
+    </item>
+    <item
+        jar="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-a5770a1e73b9ff8c49f539ad4ccdd0b9e1895118.jar" />
+    </item>
+    <item
+        jar="C:\Users\anban_000\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-cda4a661889805d3b8e33ae5c50a91f8395aa169.jar" />
+        <dex dex="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-c174daad3b3fd1a9f9054cbfdf533988aa74a647.jar" />
     </item>
     <item
-        jar="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-c643e5692bdc4b74344df5a6ffd25342d6bbf8b2.jar" />
-    </item>
-    <item
-        jar="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-32ad8bc1ee2fc4fb08148495e5b597534e812a95.jar" />
-    </item>
-    <item
-        jar="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-5c0ae82a9e00a071991da5ac11d27bd6dea4bc74.jar" />
-    </item>
-    <item
-        jar="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-e8bd83921a46dd86792b94be85f57d7ed62e7194.jar" />
-    </item>
-    <item
-        jar="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-949e1824db7e43a76a8587743e0ec824fd06014e.jar" />
-    </item>
-    <item
-        jar="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\AnBan_000\AndroidStudioProjects\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d75d14d68c973d7f106db5bc8b5dca2e833e56d5.jar" />
+        <dex dex="C:\Users\anban_000\Documents\GitHub\DeckBuildingGame\app\build\intermediates\pre-dexed\debug\classes-2aa94df50ba0dbf4a5ec447f1ed474ffbb8e411e.jar" />
     </item>
 
 </items>

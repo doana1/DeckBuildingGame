@@ -53,23 +53,15 @@ public class Deck {
 	
 	public void add(Action card){
 		deck.add(card);
-//		for(int i=0;i<deck.length;i++){
-//			if(deck[i] == null){
-//				deck[i] = card;
-//				break;
-//			}
-//		}
 	}
 	
 	public void add(Ammunition card){
 		deck.add(card);
-//		for(int i=0;i<deck.length;i++){
-//			if(deck[i] == null){
-//				deck[i] = card;
-//				break;
-//			}
-//		}
 	}
+
+    public void add(Card card){
+        deck.add(card);
+    }
 	
 	/*
 	 * Checks if object in deck is an item

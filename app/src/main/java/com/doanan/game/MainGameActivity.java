@@ -241,6 +241,11 @@ public class MainGameActivity extends Activity {
                         else if(handCard.NAME == "Reload"){
                             weaponInDiscard();
                         }
+                        else if(handCard.NAME == "Umbrella Corporation"){
+                            useCard(handCard);
+
+                            umbrellaCorporation();
+                        }
                         else{
                             useCard(handCard);
                         }
@@ -511,6 +516,57 @@ public class MainGameActivity extends Activity {
                 break;
             }
         }
+    }
+
+    //TODO
+
+    public void umbrellaCorporation(){
+        // Move 1 card from your Hand to the top of your inventory
+        // return selected card in player's hand
+        // button to move it to top of deck
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select Card to Move To Top of Deck")
+                .setItems(playerHandCardNames(), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.e("UMBRELLA_CORPORATION","Index "+ which);
+                        reorderCardIndex(player1HAND.playerHand,0);
+
+                        umbrella(which);
+                    }
+                });
+        builder.setCancelable(false);
+        builder.create();
+        builder.show();
+
+
+    }
+
+    public void umbrella(int cardIndex){
+        Card card;
+
+        for (Card m: player1HAND.playerHand){
+            Log.e("UMBRELLA_CORP","Current card: " + m.NAME);
+            Log.e("UMBRELLA_CORP","Current cardIndex: " + m.CARDINDEX);
+            if (m.CARDINDEX == cardIndex){
+                card = m;
+
+                Log.e("TrashedCard",card.NAME);
+
+                player1HAND.handToDeck(player.DECK,card);
+
+//                player1HAND.trash(card);
+                break;
+            }
+        }
+        removeCardView(cardIndex);
+
+        setAmmoHUD();
+        setDamageHUD();
+        setGoldHUD();
+        setDiscardHUD();
+        setDeckHUD();
+        setDamageHUD();
     }
 
 
