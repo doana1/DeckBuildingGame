@@ -23,9 +23,9 @@ import com.example.firstgame.R;
 /**
  * Created by An Doan on 3/25/2015.
  */
-public class MainGameInterface extends Activity {
+public class MainGameInterface extends android.support.v4.app.FragmentActivity {
 
-    static final int NUM_ITEMS = 10;
+    static final int NUM_ITEMS = 3;
 
     MyAdapter mAdapter;
 
@@ -36,7 +36,7 @@ public class MainGameInterface extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_pager);
 
-        mAdapter = new MyAdapter(getFragmentManager());
+        mAdapter = new MyAdapter(getSupportFragmentManager());
 
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
@@ -72,7 +72,7 @@ public class MainGameInterface extends Activity {
         }
     }
 
-    public static class ArrayListFragment extends ListFragment {
+    public static class ArrayListFragment extends android.support.v4.app.ListFragment {
         int mNum;
 
         /**
@@ -112,11 +112,14 @@ public class MainGameInterface extends Activity {
             return v;
         }
 
+
+        private static String[] cheeses = {"American", "Cheddar", "Jack", "Gamonedo", "Lancashire", "Limburger", "Pepperjack", "Skyr", "Feta", "Asiago"};
+
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             setListAdapter(new ArrayAdapter<String>(getActivity(),
-                    android.R.layout.simple_list_item_1, Cheeses.sCheeseStrings));
+                    android.R.layout.simple_list_item_1, cheeses));
         }
 
         @Override

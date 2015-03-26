@@ -13,5 +13,6 @@
     <string name="Fragment_3">Fragment 3</string><string name="title_activity_message_received">MessageReceived</string>
     <string name="title_activity_main_game">MainActivity</string>
     <string name="title_activity_opengl">OpenGL</string>
+    <string name="title_activity_main_game_interface">Main Game Interface</string>
 
 </resources>

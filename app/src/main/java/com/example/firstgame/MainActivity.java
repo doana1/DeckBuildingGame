@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.doanan.game.MainGameActivity;
+import com.doanan.game.MainGameInterface;
 
 public class MainActivity extends ActionBarActivity {
 	public final static String EXTRA_MESSAGE = "com.example.firstgame.MESSAGE";
@@ -57,7 +58,8 @@ public class MainActivity extends ActionBarActivity {
 	}
 	
 	public void startGame(View view){
-		Intent intent = new Intent(this, MainGameActivity.class);
+//		Intent intent = new Intent(this, MainGameActivity.class);
+        Intent intent = new Intent(this, MainGameInterface.class);
 		startActivity(intent);
 	}
 }

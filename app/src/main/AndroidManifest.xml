@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="13"
         android:targetSdkVersion="21" />
     
     <uses-feature android:glEsVersion="0x00020000" 
@@ -33,12 +33,13 @@
             android:name=".MessageReceived"
             android:label="@string/title_activity_message_received" >
         </activity>
-        
+
         <activity
-            android:name="com.doanan.opengl.OpenGLES20Activity"
-            android:label="@string/title_activity_opengl">
+            android:name="com.doanan.game.MainGameInterface"
+            android:label="@string/title_activity_main_game_interface"
+            android:screenOrientation="landscape">
         </activity>
-        
+
         <activity
             android:name="com.doanan.game.MainGameActivity"
             android:label="@string/title_activity_main_game"
