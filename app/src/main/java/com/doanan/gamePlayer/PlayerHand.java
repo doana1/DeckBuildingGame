@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class PlayerHand {
 	
-	public ArrayList<Card> playerHand = new ArrayList<Card>();
-	public ArrayList<Card> usedCards = new ArrayList<Card>();
-	public ArrayList<Card> discardCards = new ArrayList<Card>();
+	public ArrayList<Card> playerHand = new ArrayList<>();
+	public ArrayList<Card> usedCards = new ArrayList<>();
+	public ArrayList<Card> discardCards = new ArrayList<>();
 
     ActionCreate action = new ActionCreate();
 	
@@ -209,7 +209,10 @@ public class PlayerHand {
             else if(card.NAME.equals(action.struggleForSurvival.NAME)){
                 player.ACTION += action.struggleForSurvival.EXTRA_ACTION;
                 player.EXPLORE += action.struggleForSurvival.EXTRA_EXPLORE;
-                // TODO
+
+                // Just gives players an additional ACTION to use and EXPLORE to use
+
+                // NOTE "Original Card Ability"
                 // You can discard this card from your hand to lower the damage of 1 weapon being used costing 40 Gold or less to 0
                 // Open another dialog
                 // Use regular or discard from hand

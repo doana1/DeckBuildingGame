@@ -9,6 +9,7 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.View;
@@ -22,10 +23,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.doanan.gameCards.Card;
+import com.doanan.gameCards.Monster;
 import com.doanan.gameCards.Weapon;
 import com.doanan.gameComponentsCreate.ActionCreate;
 import com.doanan.gameComponentsCreate.AmmunitionCreate;
 import com.doanan.gameComponentsCreate.ItemCreate;
+import com.doanan.gameComponentsCreate.MonsterCreate;
 import com.doanan.gameComponentsCreate.WeaponCreate;
 import com.doanan.gamePlayer.Deck;
 import com.doanan.gamePlayer.Player;
@@ -37,7 +40,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainGameActivity extends Activity {
+public class MainGameActivity extends FragmentActivity {
 	//Card Types
 	//String Character, Ammunition, Weapon, Infected, Token, Item, Action;
 	
@@ -82,7 +85,7 @@ public class MainGameActivity extends Activity {
 	
 	private Context context = this;
 
-	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0);
+	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0,0);
 	PlayerHand player1HAND = new PlayerHand();
 	
 	// ScrollView
@@ -97,16 +100,18 @@ public class MainGameActivity extends Activity {
 
     public Card[] card = new Card[imageNumber];
 
-    // Gesture Stuff
-    private GestureDetector gestureDetector;
-
     // Discarded
     ImageView Discard;
+
+    // Checks if battle was won
+    private boolean battleResult;
 
     // Card Creations
     WeaponCreate weapon = new WeaponCreate();
     AmmunitionCreate ammo = new AmmunitionCreate();
     ActionCreate action = new ActionCreate();
+
+    MonsterCreate Mansion = new MonsterCreate();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -518,8 +523,6 @@ public class MainGameActivity extends Activity {
         }
     }
 
-    //TODO
-
     public void umbrellaCorporation(){
         // Move 1 card from your Hand to the top of your inventory
         // return selected card in player's hand
@@ -671,16 +674,49 @@ public class MainGameActivity extends Activity {
 		imageDeck.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
-                        "Player has " + player1HAND.handSize() + " cards in their hand.";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+//                String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
+//                        "Player has " + player1HAND.handSize() + " cards in their hand.";
+//                int duration = Toast.LENGTH_SHORT;
+//                Toast toast = Toast.makeText(context, text, duration);
+//                toast.show();
+
+                // TODO
+                // MANSION Combat
+                // Draw a monster from the monster deck
+                // Compare Damage Values
+
+                Mansion.EXPLORE();
+                combat(Mansion.getCurrentMonster());
+
+                if (battleResult){
+                    // Get Rewards
+                    player.DECORATIONS += Mansion.getDecoration();
+                }
+                else{
+                    player.HEALTH -= Mansion.getDamage();
+                }
+
                 setDiscardHUD();
                 setDeckHUD();
             }
         });
 	}
+
+    /**
+     * Will compare a monster's damage/health to a player's damage.
+     *
+     * @param monster The monster being fought at the moment.
+     */
+    public void combat(Monster monster){
+        //Check if ammo requirement meets weapons demands
+        //Check if damage is >= monster health
+        if (player.DAMAGE >= monster.HEALTH){
+            battleResult = true;
+        }
+        else{
+            battleResult = false;
+        }
+    }
 
     /**
      * Displays a card that was used here for viewing purposes.
@@ -707,7 +743,7 @@ public class MainGameActivity extends Activity {
 		imageView.setOnClickListener(new OnClickListener(){
 			
 			public void onClick(View v) {
-				// TODO 
+
 				final Dialog dialog = new Dialog(context);
 				dialog.setContentView(R.layout.bigimage);
 				
@@ -741,16 +777,6 @@ public class MainGameActivity extends Activity {
 				dialogButton.setText("Cool Right");
 				dialogButton.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
-						//TODO
-						//Card in Player Hand will be used
-						//The card will then be moved to CardUsed
-						//Then it will appear in that horizontal View
-						
-						//START TESTING OF MOVING CARDS TO CARDS PLAYED
-						
-						//END TESTING OF MOVING CARDS TO CARDS PLAYED
-						
-						//TESTING TO USE AMMO CARD
 						dialog.dismiss();
 						}
 					});
@@ -761,17 +787,7 @@ public class MainGameActivity extends Activity {
 		layout.addView(imageView);
 	}
 
-    /**
-     * TODO
-     * Will compare a monster's damage/health to a player's damage.
-     *
-     * @param card The weapon card being used.
-     */
-    public void combat(Weapon card){
-        //Check if ammo requirement meets weapons demands
-        //Check if damage is >= monster health
 
-    }
 
     /**
      * Sets up starting cards for the player.
@@ -1130,94 +1146,4 @@ public class MainGameActivity extends Activity {
 
         }
     }
-
-    /*
-    private final class MyTouchListener implements View.OnTouchListener {
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                ClipData data = ClipData.newPlainText("", "");
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                view.startDrag(data, shadowBuilder, view, 0);
-//                view.setVisibility(View.INVISIBLE);
-                gestureDetector.onTouchEvent(motionEvent);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-
-
-    class MyDragListener implements View.OnDragListener {
-//        Drawable enterShape = getResources().getDrawable(R.drawable.shape_droptarget);
-//        Drawable normalShape = getResources().getDrawable(R.drawable.shape);
-
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            int action = event.getAction();
-            switch (event.getAction()) {
-                case DragEvent.ACTION_DRAG_STARTED:
-                    // do nothing
-                    break;
-                case DragEvent.ACTION_DRAG_ENTERED:
-//                    v.setBackgroundDrawable(enterShape);
-                    break;
-                case DragEvent.ACTION_DRAG_EXITED:
-//                    v.setBackgroundDrawable(normalShape);
-                    break;
-                case DragEvent.ACTION_DROP:
-                    // Dropped, reassign View to ViewGroup
-                    View view = (View) event.getLocalState();
-                    ViewGroup owner = (ViewGroup) view.getParent();
-//                    owner.removeView(view);
-                    LinearLayout container = (LinearLayout) v;
-                    container.addView(view);
-                    view.setVisibility(View.VISIBLE);
-                    break;
-                case DragEvent.ACTION_DRAG_ENDED:
-//                    v.setBackgroundDrawable(normalShape);
-                default:
-                    break;
-            }
-            return true;
-        }
-    }
-
-    public class GestureListener extends GestureDetector.SimpleOnGestureListener{
-
-
-        @Override
-        public boolean onSingleTapUp(MotionEvent ev) {
-            Log.e("GESTURE_LISTENER", "onSingleTapUp");
-
-            return true;
-        }
-
-        @Override
-        public boolean onDown(MotionEvent event) {
-            Log.e("GESTURE_LISTENER", "onDOWN");
-            return true;
-        }
-
-        @Override
-        public void onLongPress(MotionEvent event){
-            Log.e("GESTURE_LISTENER", "onLongPress");
-        }
-
-        @Override
-        public boolean onDoubleTap(MotionEvent event){
-            Log.e("GESTURE_LISTENER","onDoubleTap");
-            setAmmoHUD();
-            return true;
-        }
-
-        @Override
-        public boolean onFling(MotionEvent event1, MotionEvent event2,
-                               float velocityX, float velocityY) {
-            //determine what happens on fling events
-            return false;
-        }
-    }
-    */
 }
