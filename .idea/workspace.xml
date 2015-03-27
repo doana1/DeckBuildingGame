@@ -53,17 +53,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.firstgame" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/AnBan_000.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/CharacterScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/character_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/firstgame/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/firstgame/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pager.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" />
+    <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="-Now to add image of character and information on character&#10;-Health, Ammo, Damage, Decorations, Skills&#10;Swipe View Implemented&#10;&#10;&#10;TODO&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DeckBuildingGame.iws" />
@@ -1957,7 +1947,11 @@
       <created>1427343746963</created>
       <updated>1427343746963</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="-Now to add image of character and information on character&#10;-Health, Ammo, Damage, Decorations, Skills&#10;Swipe View Implemented&#10;&#10;&#10;TODO&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface">
+      <created>1427427470159</created>
+      <updated>1427427470159</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2072,7 +2066,8 @@
     <MESSAGE value="Mansion Foyer Fixed&#10;Ominous Battle Fixed&#10;&#10;TODO&#10;- Finish implementing all Actions, Items, and Weapons&#10;- 3 Actions left&#10;- Add monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
     <MESSAGE value="Umbrella Corporation Finished&#10;&#10;TODO&#10;- Finish implementing all Actions, Items, and Weapons&#10;-1 Action Left (Replace with Weapon?)&#10;- Add monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
     <MESSAGE value="Currently working on swipe views&#10;&#10;TODO&#10;- Swipe Views&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Currently working on swipe views&#10;&#10;TODO&#10;- Swipe Views&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
+    <MESSAGE value="-Now to add image of character and information on character&#10;-Health, Ammo, Damage, Decorations, Skills&#10;Swipe View Implemented&#10;&#10;&#10;TODO&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Now to add image of character and information on character&#10;-Health, Ammo, Damage, Decorations, Skills&#10;Swipe View Implemented&#10;&#10;&#10;TODO&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
