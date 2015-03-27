@@ -1,9 +1,5 @@
 package com.doanan.game;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +20,7 @@ import com.example.firstgame.R;
  */
 public class MainGameInterface extends android.support.v4.app.FragmentActivity {
 
-    static final int NUM_ITEMS = 3;
+    static final int NUM_ITEMS = 2;
 
     MyAdapter mAdapter;
 
@@ -42,18 +37,18 @@ public class MainGameInterface extends android.support.v4.app.FragmentActivity {
         mPager.setAdapter(mAdapter);
 
         // Watch for button clicks.
-        Button button = (Button)findViewById(R.id.goto_first);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mPager.setCurrentItem(0);
-            }
-        });
-        button = (Button)findViewById(R.id.goto_last);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mPager.setCurrentItem(NUM_ITEMS-1);
-            }
-        });
+//        Button button = (Button)findViewById(R.id.goto_first);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                mPager.setCurrentItem(0);
+//            }
+//        });
+//        button = (Button)findViewById(R.id.goto_last);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                mPager.setCurrentItem(NUM_ITEMS-1);
+//            }
+//        });
     }
 
     public static class MyAdapter extends FragmentPagerAdapter {
@@ -68,8 +63,16 @@ public class MainGameInterface extends android.support.v4.app.FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return ArrayListFragment.newInstance(position);
+            switch(position){
+
+                case 0: return CharacterScreen.newInstance("CharacterScreen");
+                case 1: return MainGameActivity.newInstance("Main Game Activity");
+
+                default: return CharacterScreen.newInstance("CharacterScreen, Default");
+            }
+//            return ArrayListFragment.newInstance(position);
         }
+
     }
 
     public static class ArrayListFragment extends android.support.v4.app.ListFragment {

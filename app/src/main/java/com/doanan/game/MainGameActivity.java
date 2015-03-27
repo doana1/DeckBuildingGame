@@ -1,6 +1,5 @@
 package com.doanan.game;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,13 +8,12 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -40,7 +38,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainGameActivity extends FragmentActivity {
+public class MainGameActivity extends Fragment {
 	//Card Types
 	//String Character, Ammunition, Weapon, Infected, Token, Item, Action;
 	
@@ -69,7 +67,8 @@ public class MainGameActivity extends FragmentActivity {
                 image16,
                 image17,
                 image18;
-		
+
+    View mainView;
 		
 	//Array of images to be shown
 	ImageView[] images = new ImageView[imageNumber];
@@ -83,7 +82,7 @@ public class MainGameActivity extends FragmentActivity {
 	// Image Title
 	String imageTitle[] = new String[imageNumber];
 	
-	private Context context = this;
+	private Context context = getActivity();
 
 	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0,0);
 	PlayerHand player1HAND = new PlayerHand();
@@ -112,49 +111,73 @@ public class MainGameActivity extends FragmentActivity {
     ActionCreate action = new ActionCreate();
 
     MonsterCreate Mansion = new MonsterCreate();
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 
-        // Check to restore or create new activity
-        if(savedInstanceState != null){
-        // Restore value of members from saved state
-        }
-        else{
-            /*
-             Used to remove actionbar in this activity
-             */
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    public static MainGameActivity newInstance(String text) {
 
-            setContentView(R.layout.main_game);
+        MainGameActivity f = new MainGameActivity();
+        Bundle b = new Bundle();
+        b.putString("msg", text);
+
+        f.setArguments(b);
+
+        return f;
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.main_game, container, false);
+
+        TextView tv = (TextView) v.findViewById(R.id.Discard);
+        tv.setText(getArguments().getString("msg"));
+
+        mainView = inflater.inflate(R.layout.main_game, container, false);
+        init();
+
+
+        return mainView;
+    }
+//
+//	@Override
+//	public void onCreate(Bundle savedInstanceState) {
+//		super.onCreate(savedInstanceState);
+//
+//        // Check to restore or create new activity
+//        if(savedInstanceState != null){
+//        // Restore value of members from saved state
+//        }
+//        else{
+//            init();
+//        }
+//	}
+
+    public void init(){
+        /*
+            Used to remove actionbar in this activity
+        */
+//        getActivity().requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//
+//        getActivity().setContentView(R.layout.main_game);
 
 //            gestureDetector = new GestureDetector(this,new GestureListener());
 
-            // Cards Implemented
-            startingCards(player.DECK);
-            declareImages();
-            setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.DECK);
-            Deck();
-            Mansion();
-            viewDiscardDialog();
+        // Cards Implemented
+        startingCards(player.DECK);
+        declareImages();
+        setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.DECK);
+        Deck();
+        Mansion();
+        viewDiscardDialog();
 		    /*
 		     * Scroll View
 		    */
-            // inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
+        // inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
 
-            inHorizontalScrollView2 = (LinearLayout)findViewById(R.id.inhorizontalscrollview2);
-            TurnEnd = (Button)findViewById(R.id.TurnEnd);
-            Trash = (Button)findViewById(R.id.trash);
-            turnEnd();
+        inHorizontalScrollView2 = (LinearLayout)mainView.findViewById(R.id.inhorizontalscrollview2);
+        TurnEnd = (Button)mainView.findViewById(R.id.TurnEnd);
+        Trash = (Button)mainView.findViewById(R.id.trash);
+        turnEnd();
+    }
 
-        }
-
-
-
-
-	}
 
     @Override
     public void onPause(){
@@ -203,7 +226,7 @@ public class MainGameActivity extends FragmentActivity {
 
         cardIndex++;
 
-        final ImageView imageView = new ImageView(this);
+        final ImageView imageView = new ImageView(mainView.getContext());
         // Change ImageResource to the card that was played/drawn
 //        imageView.setImageResource(R.drawable.test);
         imageAssets(imageView,handCard);
@@ -212,7 +235,7 @@ public class MainGameActivity extends FragmentActivity {
 		imageView.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				final Dialog dialog = new Dialog(context);
+				final Dialog dialog = new Dialog(mainView.getContext());
 				dialog.setContentView(R.layout.bigimage);
 				// Sets title to card
 				String title;
@@ -234,7 +257,7 @@ public class MainGameActivity extends FragmentActivity {
 				Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 				dialogButton.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
-						inHorizontalScrollView1 = (LinearLayout)findViewById(R.id.inhorizontalscrollview1);
+						inHorizontalScrollView1 = (LinearLayout)mainView.findViewById(R.id.inhorizontalscrollview1);
 						cardsUsed(inHorizontalScrollView1,handCard);
 
                         if (handCard.NAME == "Ominous Battle"){
@@ -258,7 +281,7 @@ public class MainGameActivity extends FragmentActivity {
 						String text = player.NAME + " has " + player.AMMO + "  bullets.\n" +
 									  "Player Hand: " + player1HAND.handSize();
 						int duration = Toast.LENGTH_SHORT;
-						Toast toast = Toast.makeText(context, text, duration);
+						Toast toast = Toast.makeText(mainView.getContext(), text, duration);
 						toast.show();
 
 						layout.removeView(imageView);
@@ -278,7 +301,7 @@ public class MainGameActivity extends FragmentActivity {
 	 * Five cards will me moved from the Deck to PlayerHand.
 	 */
 	private void Deck(){
-		ImageView imageDeck = (ImageView) findViewById(R.id.Deck);
+		ImageView imageDeck = (ImageView) mainView.findViewById(R.id.Deck);
 		imageDeck.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
                 if(!drawn){
@@ -299,7 +322,7 @@ public class MainGameActivity extends FragmentActivity {
      * @param handCard The card to be binded to the image.
      */
     public void imageAssets(ImageView image,Card handCard){
-        AssetManager assetManager = getAssets();
+        AssetManager assetManager = getActivity().getAssets();
         InputStream istr;
         try{
             istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
@@ -346,7 +369,7 @@ public class MainGameActivity extends FragmentActivity {
      * Move a card from PlayerHand to Discard.
      */
     public void trashHandCard(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainView.getContext());
         builder.setTitle("Select a Card to Trash")
                 .setItems(playerHandCardNames(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -453,7 +476,7 @@ public class MainGameActivity extends FragmentActivity {
     }
 
     public void viewDiscardDialog(){
-        Discard = (ImageView)findViewById(R.id.DiscardDeck);
+        Discard = (ImageView)mainView.findViewById(R.id.DiscardDeck);
         Discard.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -463,7 +486,7 @@ public class MainGameActivity extends FragmentActivity {
     }
 
     public void discardDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Discard Pile")
                 .setItems(discardPileCardNames(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -487,7 +510,7 @@ public class MainGameActivity extends FragmentActivity {
     }
 
     public void weaponInDiscard(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainView.getContext());
         builder.setTitle("WEAPONS IN DISCARD")
                 .setItems(discardedWeapons(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -528,7 +551,7 @@ public class MainGameActivity extends FragmentActivity {
         // return selected card in player's hand
         // button to move it to top of deck
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainView.getContext());
         builder.setTitle("Select Card to Move To Top of Deck")
                 .setItems(playerHandCardNames(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -578,7 +601,7 @@ public class MainGameActivity extends FragmentActivity {
      * Displays the amount of cards in Discard pile.
      */
     private void setDiscardHUD(){
-        TextView discard = (TextView)findViewById(R.id.Discard);
+        TextView discard = (TextView)mainView.findViewById(R.id.Discard);
         discard.setText("Discard: " + player1HAND.discardCards.size());
     }
 
@@ -587,12 +610,12 @@ public class MainGameActivity extends FragmentActivity {
      * Displays teh amount of cards in the Deck pile.
      */
     private void setDeckHUD(){
-        TextView deck = (TextView)findViewById(R.id.DeckSize);
+        TextView deck = (TextView)mainView.findViewById(R.id.DeckSize);
         deck.setText("Deck: " + player.DECK.deckSize());
     }
 
     private void setAmmoHUD(){
-        TextView ammo = (TextView)findViewById(R.id.AMMO);
+        TextView ammo = (TextView)mainView.findViewById(R.id.AMMO);
         ammo.setText("Ammo: " + player.getPlayerAMMO());
     }
 
@@ -601,7 +624,7 @@ public class MainGameActivity extends FragmentActivity {
      * Displays the amount of damage a player can inflict.
      */
     private void setDamageHUD(){
-        TextView damage = (TextView)findViewById(R.id.DAMAGE);
+        TextView damage = (TextView)mainView.findViewById(R.id.DAMAGE);
         damage.setText("Damage: " + player.getPlayerDAMAGE());
     }
 
@@ -610,7 +633,7 @@ public class MainGameActivity extends FragmentActivity {
      * Displays the amount of gold a player has.
      */
     private void setGoldHUD(){
-        TextView gold = (TextView)findViewById(R.id.GOLD);
+        TextView gold = (TextView)mainView.findViewById(R.id.GOLD);
         gold.setText("Gold: " + player.getPlayerGOLD());
     }
 
@@ -670,7 +693,7 @@ public class MainGameActivity extends FragmentActivity {
      * Monsters are drawn randomly.
 	 */
 	private void Mansion(){
-		ImageView imageDeck = (ImageView) findViewById(R.id.Mansion);
+		ImageView imageDeck = (ImageView) mainView.findViewById(R.id.Mansion);
 		imageDeck.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
@@ -725,10 +748,10 @@ public class MainGameActivity extends FragmentActivity {
      * @param handCard The last card that was used.
      */
 	private void cardsUsed(LinearLayout layout, final Card handCard){
-		ImageView imageView = new ImageView(this);
+		ImageView imageView = new ImageView(mainView.getContext());
 		// Change ImageResource to the card that was played/drawn
 
-        AssetManager assetManager = getAssets();
+        AssetManager assetManager = getActivity().getAssets();
         InputStream istr;
         try{
             istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
@@ -744,7 +767,7 @@ public class MainGameActivity extends FragmentActivity {
 			
 			public void onClick(View v) {
 
-				final Dialog dialog = new Dialog(context);
+				final Dialog dialog = new Dialog(mainView.getContext());
 				dialog.setContentView(R.layout.bigimage);
 				
 				// Sets title to card
@@ -760,7 +783,7 @@ public class MainGameActivity extends FragmentActivity {
 				ImageView image = (ImageView) dialog.findViewById(R.id.image);
 
 				try{
-                    AssetManager assetManager = getAssets();
+                    AssetManager assetManager = getActivity().getAssets();
                     InputStream istr;
 
                     istr = assetManager.open("imgs/cards/"+ handCard.FILEPATH);
@@ -815,24 +838,24 @@ public class MainGameActivity extends FragmentActivity {
 	public void declareImages(){
 
 		// Assigned imageViews to variables
-		image1 = (ImageView) findViewById(R.id.imageView1);
-		image2 = (ImageView) findViewById(R.id.imageView2);
-		image3 = (ImageView) findViewById(R.id.imageView3);
-		image4 = (ImageView) findViewById(R.id.imageView4);
-		image5 = (ImageView) findViewById(R.id.imageView5);
-		image6 = (ImageView) findViewById(R.id.imageView6);
-		image7 = (ImageView) findViewById(R.id.imageView7);
-		image8 = (ImageView) findViewById(R.id.imageView8);
-		image9 = (ImageView) findViewById(R.id.imageView9);
-		image10 = (ImageView) findViewById(R.id.imageView10);
-		image11 = (ImageView) findViewById(R.id.imageView11);
-		image12 = (ImageView) findViewById(R.id.imageView12);
-		image13 = (ImageView) findViewById(R.id.imageView13);
-		image14 = (ImageView) findViewById(R.id.imageView14);
-		image15 = (ImageView) findViewById(R.id.imageView15);
-        image16 = (ImageView) findViewById(R.id.imageView16);
-        image17 = (ImageView) findViewById(R.id.imageView17);
-        image18 = (ImageView) findViewById(R.id.imageView18);
+		image1 = (ImageView) mainView.findViewById(R.id.imageView1);
+		image2 = (ImageView) mainView.findViewById(R.id.imageView2);
+		image3 = (ImageView) mainView.findViewById(R.id.imageView3);
+		image4 = (ImageView) mainView.findViewById(R.id.imageView4);
+		image5 = (ImageView) mainView.findViewById(R.id.imageView5);
+		image6 = (ImageView) mainView.findViewById(R.id.imageView6);
+		image7 = (ImageView) mainView.findViewById(R.id.imageView7);
+		image8 = (ImageView) mainView.findViewById(R.id.imageView8);
+		image9 = (ImageView) mainView.findViewById(R.id.imageView9);
+		image10 = (ImageView) mainView.findViewById(R.id.imageView10);
+		image11 = (ImageView) mainView.findViewById(R.id.imageView11);
+		image12 = (ImageView) mainView.findViewById(R.id.imageView12);
+		image13 = (ImageView) mainView.findViewById(R.id.imageView13);
+		image14 = (ImageView) mainView.findViewById(R.id.imageView14);
+		image15 = (ImageView) mainView.findViewById(R.id.imageView15);
+        image16 = (ImageView) mainView.findViewById(R.id.imageView16);
+        image17 = (ImageView) mainView.findViewById(R.id.imageView17);
+        image18 = (ImageView) mainView.findViewById(R.id.imageView18);
 		//Assign to array
 		images[0] = image1;
 		images[1] = image2;
@@ -981,7 +1004,7 @@ public class MainGameActivity extends FragmentActivity {
 		for(ImageView img:image){
 
 
-            AssetManager assetManager = getAssets();
+            AssetManager assetManager = getActivity().getAssets();
             InputStream istr;
             try{
                 istr = assetManager.open("imgs/cards/"+ imageFileName[iterator]);
@@ -995,7 +1018,7 @@ public class MainGameActivity extends FragmentActivity {
 
 			img.setOnClickListener(new myOnClickListener(context,imageFileName,imageDescription,imageTitle,cardType,iterator,deck){
 				public void onClick(View v){
-					final Dialog dialog = new Dialog(context);
+					final Dialog dialog = new Dialog(mainView.getContext());
 					dialog.setContentView(R.layout.bigimage);
 
 
@@ -1018,7 +1041,7 @@ public class MainGameActivity extends FragmentActivity {
 					final String cardName = imageName;
 
 					try{
-                        AssetManager assetManager = getAssets();
+                        AssetManager assetManager = getActivity().getAssets();
                         InputStream istr;
 
                             istr = assetManager.open("imgs/cards/"+ imageName);
