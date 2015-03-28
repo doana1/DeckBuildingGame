@@ -13,15 +13,24 @@ import com.example.firstgame.R;
  * Created by An Doan on 3/26/2015.
  */
 public class CharacterScreen extends Fragment {
+
+    View characterView;
+    TextView characterName, characterHealth, characterDecorations;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.character_screen, container, false);
+        characterView = inflater.inflate(R.layout.character_screen, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.character_name);
-    tv.setText(getArguments().getString("msg"));
+        TextView tv = (TextView) characterView.findViewById(R.id.character_name);
+        tv.setText(getArguments().getString("msg"));
 
-    return v;
-}
+        initCharacterHUD();
+
+        String myTag = getTag();
+        ((MainGameInterface)getActivity()).setCharacterFragment(myTag);
+
+        return characterView;
+    }
 
     public static CharacterScreen newInstance(String text) {
 
@@ -32,5 +41,22 @@ public class CharacterScreen extends Fragment {
         f.setArguments(b);
 
         return f;
+    }
+
+    public void setCharacterHUD(int health, int decorations){
+        characterHealth.setText(Integer.toString(health));
+        characterDecorations.setText(Integer.toString(decorations));
+    }
+
+    public void initCharacterHUD(){
+        characterName = (TextView) characterView.findViewById(R.id.character_name);
+        characterName.setText(getArguments().getString("msg"));
+
+        characterHealth = (TextView) characterView.findViewById(R.id.character_health);
+        characterHealth.setText(getArguments().getString("msg"));
+
+        characterDecorations = (TextView) characterView.findViewById(R.id.character_decorations);
+        characterDecorations.setText(getArguments().getString("msg"));
+
     }
 }

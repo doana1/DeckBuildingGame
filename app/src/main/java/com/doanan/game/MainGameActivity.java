@@ -112,6 +112,10 @@ public class MainGameActivity extends Fragment {
 
     MonsterCreate Mansion = new MonsterCreate();
 
+    String characterScreenFragment;
+
+    CharacterScreen characterScreen;
+
     public static MainGameActivity newInstance(String text) {
 
         MainGameActivity f = new MainGameActivity();
@@ -124,13 +128,15 @@ public class MainGameActivity extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.main_game, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.Discard);
-        tv.setText(getArguments().getString("msg"));
+
+
 
         mainView = inflater.inflate(R.layout.main_game, container, false);
         init();
+
+        TextView tv = (TextView) mainView.findViewById(R.id.Discard);
+        tv.setText(getArguments().getString("msg"));
 
 
         return mainView;
@@ -167,6 +173,10 @@ public class MainGameActivity extends Fragment {
         Deck();
         Mansion();
         viewDiscardDialog();
+        characterScreenFragment = ((MainGameInterface)getActivity()).getCharacterFragment();
+        characterScreen = (CharacterScreen)getActivity()
+                .getSupportFragmentManager()
+                .findFragmentByTag(characterScreenFragment);
 		    /*
 		     * Scroll View
 		    */
@@ -596,6 +606,7 @@ public class MainGameActivity extends Fragment {
     }
 
 
+
     /**
      * Sets up the Discard HUD.
      * Displays the amount of cards in Discard pile.
@@ -603,7 +614,12 @@ public class MainGameActivity extends Fragment {
     private void setDiscardHUD(){
         TextView discard = (TextView)mainView.findViewById(R.id.Discard);
         discard.setText("Discard: " + player1HAND.discardCards.size());
+
+        characterScreen.setCharacterHUD(2,3);
+
     }
+
+
 
     /**
      * Sets up the Deck HUD.
