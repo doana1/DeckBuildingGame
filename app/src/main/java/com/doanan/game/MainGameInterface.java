@@ -23,6 +23,13 @@ public class MainGameInterface extends android.support.v4.app.FragmentActivity {
 
     String CharacterFragment = "";
 
+    String characterChoice = "jill";
+//    String characterChoice = intent.getStringExtra("CharacterChoice");
+
+    public String getCharacterChoice(){
+        return characterChoice;
+    }
+
     public void setCharacterFragment(String t){
         CharacterFragment = t;
     }
@@ -44,6 +51,7 @@ public class MainGameInterface extends android.support.v4.app.FragmentActivity {
 
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
+        characterChoice = getIntent().getStringExtra("CharacterChoice");
     }
 
     public static class MyAdapter extends FragmentPagerAdapter {

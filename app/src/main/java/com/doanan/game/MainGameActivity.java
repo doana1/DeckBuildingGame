@@ -7,9 +7,12 @@ import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,12 +43,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainGameActivity extends Fragment {
-	//Card Types
-	//String Character, Ammunition, Weapon, Infected, Token, Item, Action;
-	
-	//Card Attributes
-	//String Name, Cost, Health, Effect, Gold, Ammo, Damage, Decorations;
-	
 	// Number of Images
 	private final int imageNumber= 18;
 	
@@ -88,8 +86,8 @@ public class MainGameActivity extends Fragment {
 	PlayerHand player1HAND = new PlayerHand();
 	
 	// ScrollView
-	Button addinHorizontalScrollView1, TurnEnd, Trash;
-	LinearLayout inHorizontalScrollView1, inHorizontalScrollView2, inScrollView1;
+	Button TurnEnd;
+	LinearLayout inHorizontalScrollView1, inHorizontalScrollView2;
 
     // Check if card drawn
     private boolean drawn = false;
@@ -115,6 +113,8 @@ public class MainGameActivity extends Fragment {
     String characterScreenFragment;
 
     CharacterScreen characterScreen;
+
+    int decorationsToWin = 3;
 
     public static MainGameActivity newInstance(String text) {
 
@@ -184,7 +184,6 @@ public class MainGameActivity extends Fragment {
 
         inHorizontalScrollView2 = (LinearLayout)mainView.findViewById(R.id.inhorizontalscrollview2);
         TurnEnd = (Button)mainView.findViewById(R.id.TurnEnd);
-        Trash = (Button)mainView.findViewById(R.id.trash);
         turnEnd();
     }
 
@@ -270,16 +269,17 @@ public class MainGameActivity extends Fragment {
 						inHorizontalScrollView1 = (LinearLayout)mainView.findViewById(R.id.inhorizontalscrollview1);
 						cardsUsed(inHorizontalScrollView1,handCard);
 
-                        if (handCard.NAME == "Ominous Battle"){
+
+                        if (handCard.NAME.equals("Ominous Battle")){
                             useCard(handCard);
 
                             trashHandCard();
 
                         }
-                        else if(handCard.NAME == "Reload"){
+                        else if(handCard.NAME.equals("Reload")){
                             weaponInDiscard();
                         }
-                        else if(handCard.NAME == "Umbrella Corporation"){
+                        else if(handCard.NAME.equals("Umbrella Corporation")){
                             useCard(handCard);
 
                             umbrellaCorporation();
@@ -468,12 +468,12 @@ public class MainGameActivity extends Fragment {
      * @return Array of card names from player's hand.
      */
     public CharSequence[] playerHandCardNames(){
-        List<String> cards = new ArrayList<String>();
+        List<String> cards = new ArrayList<>();
         for (Card m: player1HAND.playerHand){
             cards.add(m.NAME);
         }
-        CharSequence[] cardNames = cards.toArray(new CharSequence[cards.size()]);
-        return cardNames;
+
+        return cards.toArray(new CharSequence[cards.size()]);
     }
 
     public CharSequence[] discardPileCardNames(){
@@ -481,8 +481,8 @@ public class MainGameActivity extends Fragment {
         for (Card m: player1HAND.discardCards){
             cards.add(m.NAME);
         }
-        CharSequence[] cardNames = cards.toArray(new CharSequence[cards.size()]);
-        return cardNames;
+
+        return cards.toArray(new CharSequence[cards.size()]);
     }
 
     public void viewDiscardDialog(){
@@ -515,8 +515,8 @@ public class MainGameActivity extends Fragment {
                 Log.e("TAG",""+m.getClass());
             }
         }
-        CharSequence[] cardNames = cards.toArray(new CharSequence[cards.size()]);
-        return cardNames;
+
+        return cards.toArray(new CharSequence[cards.size()]);
     }
 
     public void weaponInDiscard(){
@@ -615,8 +615,6 @@ public class MainGameActivity extends Fragment {
         TextView discard = (TextView)mainView.findViewById(R.id.Discard);
         discard.setText("Discard: " + player1HAND.discardCards.size());
 
-        characterScreen.setCharacterHUD(2,3);
-
     }
 
 
@@ -642,6 +640,7 @@ public class MainGameActivity extends Fragment {
     private void setDamageHUD(){
         TextView damage = (TextView)mainView.findViewById(R.id.DAMAGE);
         damage.setText("Damage: " + player.getPlayerDAMAGE());
+        characterScreen.setCharacterHUD(player.HEALTH,player.DECORATIONS);
     }
 
     /**
@@ -702,7 +701,6 @@ public class MainGameActivity extends Fragment {
     }
 	
 	/**
-	 * TODO
 	 * Change this to fight monsters later.
      * All monsters will be generated in MonsterCreate
      * Then there will be a pile of monsters generated.
@@ -719,21 +717,26 @@ public class MainGameActivity extends Fragment {
 //                Toast toast = Toast.makeText(context, text, duration);
 //                toast.show();
 
-                // TODO
                 // MANSION Combat
                 // Draw a monster from the monster deck
                 // Compare Damage Values
+                // Show users  the battle
+                //
 
                 Mansion.EXPLORE();
                 combat(Mansion.getCurrentMonster());
 
+
                 if (battleResult){
                     // Get Rewards
                     player.DECORATIONS += Mansion.getDecoration();
+                    setDamageHUD();
                 }
                 else{
                     player.HEALTH -= Mansion.getDamage();
+                    setDamageHUD();
                 }
+                showPopup(v,Mansion.getName(),Mansion.getHealth(),Mansion.getDamage(),Mansion.getDecoration());
 
                 setDiscardHUD();
                 setDeckHUD();
@@ -749,11 +752,101 @@ public class MainGameActivity extends Fragment {
     public void combat(Monster monster){
         //Check if ammo requirement meets weapons demands
         //Check if damage is >= monster health
+        if (monster.getMonsterHasEffect()){
+            monster.useEffectBefore(monster.NAME,player,player1HAND);
+        }
+
         if (player.DAMAGE >= monster.HEALTH){
             battleResult = true;
         }
         else{
             battleResult = false;
+            if (monster.getMonsterHasEffect()){
+                monster.useEffectAfter(monster.NAME,Mansion,player1HAND);
+            }
+        }
+    }
+
+    public void showPopup(View anchorView,String monsterName,int monsterHealth,int monsterDamage,int monsterDecorations) {
+
+        View popupView = getLayoutInflater(getArguments()).inflate(R.layout.combat, null);
+
+        PopupWindow popupWindow = new PopupWindow(popupView,
+                ViewPager.LayoutParams.WRAP_CONTENT, ViewPager.LayoutParams.WRAP_CONTENT);
+
+        // Example: If you have a TextView inside `popup_layout.xml`
+        TextView player_dmg = (TextView) popupView.findViewById(R.id.player_damage);
+        TextView monster_dmg = (TextView) popupView.findViewById(R.id.monster_damage);
+
+        TextView player_health = (TextView) popupView.findViewById(R.id.player_health);
+        TextView monster_health = (TextView) popupView.findViewById(R.id.monster_health);
+
+        TextView monster_decorations = (TextView) popupView.findViewById(R.id.monster_decorations);
+        TextView battle_condition = (TextView) popupView.findViewById(R.id.battle_condition);
+
+        TextView player_name = (TextView) popupView.findViewById(R.id.player_name);
+        TextView monster_name = (TextView) popupView.findViewById(R.id.monster_name);
+
+        player_dmg.setText("Player Damage: " + player.DAMAGE);
+        monster_dmg.setText("Monster Damage: " + monsterDamage);
+
+        player_health.setText("Player Health: " + player.HEALTH);
+        monster_health.setText("Monster Health: " + monsterHealth);
+
+        monster_decorations.setText("Rewards: " + monsterDecorations);
+
+        player_name.setText(player.NAME);
+        monster_name.setText(monsterName);
+
+        if (battleResult){
+            battle_condition.setText("Player Wins Combat");
+        }
+        else{
+            battle_condition.setText("Monster Wins Combat");
+        }
+
+
+        // Initialize more widgets from `popup_layout.xml`
+
+
+        // If the PopupWindow should be focusable
+        popupWindow.setFocusable(true);
+
+        // If you need the PopupWindow to dismiss when when touched outside
+        popupWindow.setBackgroundDrawable(new ColorDrawable());
+
+        int location[] = new int[2];
+
+        // Get the View's(the one that was clicked in the Fragment) location
+        anchorView.getLocationOnScreen(location);
+
+        // Using location, the PopupWindow will be displayed right under anchorView
+//        popupWindow.showAtLocation(anchorView, Gravity.NO_GRAVITY,
+//                location[0], location[1] + anchorView.getHeight());
+
+        popupWindow.showAtLocation(mainView, Gravity.CENTER, 0, 0);
+
+    }
+
+
+
+    public void checkWin(){
+        if (player.DECORATIONS > decorationsToWin){
+            gameEnd(true);
+        }
+        if (player.HEALTH < 0){
+            gameEnd(false);
+        }
+    }
+
+    public void gameEnd(boolean ending){
+        // Show end game screen
+        // Return to main menu
+        if(ending){
+            //do this because they won
+        }
+        else{
+            //do this because they lost
         }
     }
 

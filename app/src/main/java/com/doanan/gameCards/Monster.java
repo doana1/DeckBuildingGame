@@ -1,5 +1,9 @@
 package com.doanan.gameCards;
 
+import com.doanan.gameComponentsCreate.MonsterCreate;
+import com.doanan.gamePlayer.Player;
+import com.doanan.gamePlayer.PlayerHand;
+
 public class Monster {
 	
 	/*
@@ -33,14 +37,58 @@ public class Monster {
         this.DECORATIONS = decorations;
         this.EFFECT = effect;
     }
-	
-	public void doubleDamage(){
-		this.DAMAGE *= 2;
-	}
 
-	public void getCurrentTurn() {
-		// TODO Auto-generated method stub
-		
-	}
-	
+    public void useEffectBefore(String monsterName,Player player,PlayerHand playerhand){
+        switch (monsterName){
+            case "Gatling Gun Majini": dmgIncrease(playerhand);
+                break;
+            case "Nemesis T-Type": immediateDamage(player);
+                break;
+        }
+    }
+
+    public void useEffectAfter(String monsterName,MonsterCreate mansion,PlayerHand playerhand){
+        switch (monsterName){
+            case "Uroboros Aheri": returnToMansion(mansion);
+                break;
+            case "Hunter": trash2Random(playerhand);
+                break;
+        }
+    }
+
+    public int dmgIncrease(PlayerHand playerhand){
+        int ammo10 = 0;
+        for (Card m: playerhand.playerHand){
+            if (m.NAME == "Ammunitionx10"){
+                ammo10++;
+            }
+        }
+        for (Card m: playerhand.usedCards){
+            if (m.NAME == "Ammunitionx10"){
+                ammo10++;
+            }
+        }
+        return (ammo10 & 5);
+    }
+
+
+
+    public void immediateDamage(Player player){
+        player.HEALTH -= 20;
+    }
+
+    public void trash2Random(PlayerHand playerHand){
+        playerHand.shuffleDiscard();
+        for (int i= 0; i < 2; i++){
+            playerHand.discardCards.remove(playerHand.discardCards.size()-1);
+        }
+    }
+
+    public void returnToMansion(MonsterCreate mansion){
+        mansion.returnToMansion();
+    }
+
+    public boolean getMonsterHasEffect(){
+        return EFFECT;
+    }
 }

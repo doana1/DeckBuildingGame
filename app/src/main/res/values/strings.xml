@@ -8,9 +8,10 @@
     <string name="sendMessage">Send Message</string>
     <string name="Edit_Text_1">Enter Text Here</string>
     
-    <string name="Fragment_1">Fragment 1</string>
-    <string name="Fragment_2">Fragment 2</string>
-    <string name="Fragment_3">Fragment 3</string><string name="title_activity_message_received">MessageReceived</string>
+    <string name="Fragment_1">Start Game</string>
+    <string name="Fragment_2">Instructions</string>
+
+    <string name="title_activity_message_received">MessageReceived</string>
     <string name="title_activity_main_game">MainActivity</string>
     <string name="title_activity_opengl">OpenGL</string>
     <string name="title_activity_main_game_interface">Main Game Interface</string>

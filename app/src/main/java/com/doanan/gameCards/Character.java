@@ -1,31 +1,54 @@
 package com.doanan.gameCards;
 
-public class Character extends Card{
-	//Card Types
-		String Character, Ammunition, Weapon, Infected, Token, Item;
-		
-		//Card Attributes
-		String Effect, Gold, Ammo, Damage;
-		
-		// Character Card Information
-		public int HEALTH, DECORATIONS, LEVEL;
-		public int AMMO;
-//		public String NAME;
-		
-		public Character(String name, int cost, int health, int ammo, int ammorequirement, int damage,int decorations, int level, int cardIndex,int gold,String filePath){
-			super(name, cost, ammo,ammorequirement,damage,cardIndex,gold,filePath);
-			
-			//Track Character Health, Ammo, and Decorations
-			//Characters don't have cost but required from inheritance
-//			this.NAME = name;
-//			this.COST = cost;
-			this.HEALTH = health;
-			this.DECORATIONS = decorations;
-			this.LEVEL = level;
-		}
+public class Character{
+    int HEALTH, DECORATIONS, LEVEL;
+    String NAME, FILEPATH;
 
-		public void getCurrentTurn() {
-			// TODO Auto-generated method stub
-			
-		}
+    /**
+     * Creates a character to play the game with.
+     *
+     * @param name Name of the character
+     * @param health Amount of health the character has.
+     * @param decorations Amount of decorations the character has.
+     * @param level The current level of the character.
+     * @param filePath Filepath to image file of the character.
+     */
+	public Character(String name, int health, int decorations, int level,String filePath){
+        this.NAME = name;
+		this.HEALTH = health;
+		this.DECORATIONS = decorations;
+		this.LEVEL = level;
+        this.FILEPATH = filePath;
+	}
+
+    public void levelUnlocked1(String name){
+        switch (name){
+            case "Chris Redfield":
+                break;
+            case "Jill Valentine":
+                break;
+        }
+    }
+
+    public void levelUnlocked2(String name){
+        switch (name){
+            case "Chris Redfield":
+                break;
+            case "Jill Valentine":
+                break;
+        }
+    }
+
+    public String getNAME(){
+        return NAME;
+    }
+
+    public int getHEALTH(){
+        return HEALTH;
+    }
+    public int getDECORATIONS(){
+        return DECORATIONS;
+    }
+
+
 }

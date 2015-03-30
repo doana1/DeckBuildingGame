@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class Fragment_1 extends Fragment{
+
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
 		return inflater.inflate(R.layout.fragment_1, container,false);
 	}
-	
+
 
 }

@@ -2,29 +2,14 @@ package com.doanan.gameComponentsCreate;
 
 import com.doanan.gameCards.Character;
 
-public class CharacterCreate{
-	/*
-	 * This Class is used to create all characters in the game.
-	 * Then this class's constructor will be created in the main game.
-	 */
-	
-	/*
-	 * Character Constructor
-	 * Name:
-	 * Cost:
-	 * Health:
-	 * Decorations:
-	 * Level:
-	 */
-	String rebeccaName = "Rebecca";
-	int rebeccaCost = 0;
-	int rebeccaHealth = 120;
-	int rebeccaDecorations = 0;
-	int rebeccaLevel = 0;
-	
-	public Character Rebecca = new Character(rebeccaName, rebeccaCost,rebeccaHealth, 0, 0,0,rebeccaDecorations,rebeccaLevel, -1,0,"royalty.png");
+/**
+ * Created by An Doan on 3/30/2015.
+ */
+public class CharacterCreate {
+    public CharacterCreate(){
 
-	public CharacterCreate(){
-		//Constructor used simply to create Characters
-	}
+
+    }
+    public Character Chris = new Character("Chris Redfield", 120, 4, 0, "royalty.png");
+    public Character Jill = new Character("Jill Valentine",80,8,0,"royalty.png");
 }

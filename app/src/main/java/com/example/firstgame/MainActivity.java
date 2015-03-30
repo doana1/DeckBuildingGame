@@ -7,12 +7,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
 
-import com.doanan.game.MainGameActivity;
 import com.doanan.game.MainGameInterface;
 
 public class MainActivity extends ActionBarActivity {
-	public final static String EXTRA_MESSAGE = "com.example.firstgame.MESSAGE";
+    String characterChosen;
+    boolean choiceSelected = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +48,38 @@ public class MainActivity extends ActionBarActivity {
 			case R.id.item2:
 				transaction.replace(R.id.container, new Fragment_2()).commit();
 				return true;
-			case R.id.item3:
-				transaction.replace(R.id.container, new Fragment_3()).commit();
-				return true;
 			case R.id.action_settings:
 				return true;
 			
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void startGame(View view){
-//		Intent intent = new Intent(this, MainGameActivity.class);
-        Intent intent = new Intent(this, MainGameInterface.class);
-		startActivity(intent);
+        if (choiceSelected){
+            Intent intent = new Intent(this, MainGameInterface.class);
+            intent.putExtra("CharacterChoice",characterChosen);
+
+            startActivity(intent);
+        }
 	}
+
+
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        choiceSelected = true;
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.jill:
+                if (checked)
+                    characterChosen = "jill";
+                    break;
+            case R.id.chris:
+                if (checked)
+                    characterChosen = "chris";
+                    break;
+        }
+    }
 }

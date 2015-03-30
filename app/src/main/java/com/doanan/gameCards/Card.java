@@ -12,6 +12,8 @@ public class Card{
     public int GOLD;
     public String FILEPATH;
 
+    public boolean weaponLoaded = false;
+
     public int deadlyAims = 0;
 	
 	/**

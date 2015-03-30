@@ -14,7 +14,7 @@ public class Weapon extends Card{
 	 */
 	public boolean EFFECT;
 	public int COST;
-    public int DAMAGE;
+    boolean lockedAndLoaded = false;
 
 	public Weapon(String name, int cost,int ammo,int ammoRequirement, int damage, boolean effect, int cardIndex, int gold, String filePath) {
 		super(name,cost, ammo,ammoRequirement,damage,cardIndex, gold, filePath);
@@ -23,12 +23,11 @@ public class Weapon extends Card{
 	}
 	
 	public void addDamage(){
-		this.COST += 20;
+        this.COST += 20;
 	}
 
-	public void getCurrentTurn() {
-		// TODO Auto-generated method stub
-		
-	}
+    public boolean getWeaponReloaded(){
+        return lockedAndLoaded;
+    }
 	
 }

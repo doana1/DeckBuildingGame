@@ -9,6 +9,9 @@ import com.doanan.gameCards.Weapon;
 import com.doanan.gameComponentsCreate.ActionCreate;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
 
 public class PlayerHand {
 	
@@ -21,6 +24,11 @@ public class PlayerHand {
 	public PlayerHand(){
 		
 	}
+
+    public void shuffleDiscard(){
+        long seed = System.nanoTime();
+        Collections.shuffle(discardCards, new Random(seed));
+    }
 
     public void trash(Card card){
         playerHand.remove(card);
@@ -153,6 +161,40 @@ public class PlayerHand {
         discardCards.clear();
     }
 
+    public ArrayList<Card> checkForWeapons(){
+        ArrayList<Card> weaponCards = new ArrayList<>();
+        for(Card m: usedCards){
+            if (m.getClass().equals(Weapon.class)){
+                weaponCards.add(m);
+            }
+        }
+        sortWeapons(weaponCards);
+        return weaponCards;
+    }
+
+    public void sortWeapons(ArrayList<Card> weapons){
+        Collections.sort(weapons, new Comparator<Card>() {
+            @Override
+            public int compare(Card lhs, Card rhs) {
+                if (lhs.DAMAGE >= rhs.DAMAGE){
+                    return 1;
+                }
+                else{
+                    return -1;
+                }
+            }
+        });
+    }
+
+    public void checkWeaponUsed(Player player){
+        for(Card m: checkForWeapons()){
+            if (player.AMMO >= m.AMMOREQUIREMENT && !m.weaponLoaded){
+                player.AMMO -= m.AMMOREQUIREMENT;
+                player.DAMAGE += m.DAMAGE;
+                break;
+            }
+        }
+    }
 		
 	/**
 	 * Use a card from the PLAYER's HAND.
@@ -164,11 +206,17 @@ public class PlayerHand {
 		if(card.getClass().equals(Ammunition.class)){
 			player.AMMO += card.AMMO;
             player.GOLD += card.GOLD;
+            checkWeaponUsed(player);
+            // Check if weapon card already on field
+            // If there is one, check if it is loaded
+            // If not, check if ammo is greater or equal to it
+            // Then remove ammo and add damage of weapon
 		}
         else if(card.getClass().equals(Weapon.class)){
             if(player.AMMO >= card.AMMOREQUIREMENT){
                 player.DAMAGE += card.DAMAGE;
                 player.AMMO -= card.AMMOREQUIREMENT;
+                card.weaponLoaded = true;
             }
         }
         else if(card.getClass().equals(Action.class)){
