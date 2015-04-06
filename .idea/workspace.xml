@@ -10,6 +10,14 @@
         <option name="packageNamePattern" value="com.example.firstgame" />
         <option name="pid" value="" />
       </filter>
+      <filter>
+        <option name="name" value="app: com.example.screens" />
+        <option name="packageNamePattern" value="com.example.screens" />
+      </filter>
+      <filter>
+        <option name="name" value="app: doanan.example.screens" />
+        <option name="packageNamePattern" value="doanan.example.screens" />
+      </filter>
     </filters>
   </component>
   <component name="AndroidLayouts">
@@ -56,117 +64,49 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.firstgame" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: doanan.example.screens" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/ammo_10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/ammo_20.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/ammo_30.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/burst_pistol.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/chris.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/deadly_aim.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/first_aid.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/herb.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/jill.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/jill_ok.flac" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/knife.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/machine_gun.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/mansion foyer.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/merchant.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/ominous_battle.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/pistol.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/reload.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/shotgun.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/six_shooter.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/struggle_for_survival.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/imgs/cards/umbrella_corporation.jpg" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\10_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\10_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\10_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\10_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\2_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\2_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\2_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\2_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\3_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\3_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\3_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\3_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\4_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\4_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\4_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\4_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\5_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\5_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\5_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\5_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\6_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\6_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\6_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\6_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\7_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\7_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\7_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\7_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\8_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\8_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\8_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\8_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\9_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\9_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\9_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\9_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\ace_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\ace_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\ace_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\ace_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\ace_of_spades2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\black_joker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\cards1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\cards2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_clubs2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_diamonds2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_hearts2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\jack_of_spades2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_clubs2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_diamonds2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_hearts2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\king_of_spades2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_clubs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_clubs2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_diamonds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_diamonds2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_hearts.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_hearts2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_spades.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\queen_of_spades2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\red_joker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\assets\imgs\cards\royalty.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/CharacterScreen.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/CharacterScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/firstgame/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/firstgame/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/bigimage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bigimage.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/character_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/character_screen.xml" />
+    <list default="true" id="b38389ab-74c7-48c8-b0e4-06edd7510d4e" name="Default" comment="TODO &#10;- Sound&#10;- Instructions&#10;&#10;Future&#10;- Edit User Interface">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/TokenCreate.java" />
+      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\generated\source\buildConfig\debug\com\example\screens\BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\generated\source\buildConfig\test\debug\com\example\screens\test\BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\build\generated\source\r\debug\com\example\screens\R.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\TokenCreate.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\res\menu\message_received.xml" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Action.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Action.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Ammunition.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Ammunition.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Card.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Card.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Character.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Character.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Item.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Item.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Monster.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Monster.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Token.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Token.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameCards\Weapon.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Weapon.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\ActionCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/ActionCreate.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\AmmunitionCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/AmmunitionCreate.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\CharacterCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/CharacterCreate.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\ItemCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/ItemCreate.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\MonsterCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/MonsterCreate.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gameComponentsCreate\WeaponCreate.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/WeaponCreate.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gamePlayer\Deck.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gamePlayer/Deck.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gamePlayer\Player.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gamePlayer/Player.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\gamePlayer\PlayerHand.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gamePlayer/PlayerHand.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\game\CharacterScreen.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/CharacterScreen.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\game\MainGameActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameActivity.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\game\MainGameInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameInterface.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\game\cardAddOnClickListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/cardAddOnClickListener.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\game\imageAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/imageAdapter.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\doanan\game\myOnClickListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/myOnClickListener.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\example\firstgame\Fragment_1.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/example/screens/Fragment_1.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\example\firstgame\Fragment_2.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/example/screens/Fragment_2.java" />
+      <change type="MOVED" beforePath="C:\Users\AnBan_000\Documents\GitHub\DeckBuildingGame\app\src\main\java\com\example\firstgame\MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/doanan/example/screens/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_game.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_game.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DeckBuildingGame.iws" />
@@ -196,10 +136,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="MainGameActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3298791" vertical-offset="20328" max-vertical-offset="22593">
-              <caret line="1247" column="52" selection-start-line="1247" selection-start-column="52" selection-end-line="1247" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.36880735" vertical-offset="14878" max-vertical-offset="22814">
+              <caret line="922" column="29" selection-start-line="922" selection-start-column="29" selection-end-line="922" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -207,82 +147,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemCreate.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java">
+      <file leaf-file-name="MainGameInterface.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CharacterScreen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/CharacterScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1274" max-vertical-offset="1853">
-              <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="394" max-vertical-offset="1275">
+              <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Action.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="969">
-              <caret line="29" column="29" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1053" max-vertical-offset="1632">
-              <caret line="98" column="35" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
-              <folding>
-                <element signature="e#2052#2053#0" expanded="true" />
-                <element signature="e#2094#2095#0" expanded="true" />
-                <element signature="e#2126#2127#0" expanded="true" />
-                <element signature="e#2158#2159#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="character_screen.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/character_screen.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="1666">
-              <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CharacterCreate.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="1020">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -293,6 +165,10 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="true" />
     </FindUsagesManager>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="C:\Users\AnBan_000\keyStore.jks" />
+    <option name="KEY_ALIAS" value="FirstKey" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -321,12 +197,12 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value=":app" />
-                <option name="path" value="$PROJECT_DIR$/app" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="DeckBuildingGame" />
                 <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value=":app" />
+                <option name="path" value="$PROJECT_DIR$/app" />
               </ExternalProjectPojo>
             </list>
           </value>
@@ -1139,7 +1015,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4272907684826" />
+        <entry key="$PROJECT_DIR$" value="4276619376430" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1373,7 +1249,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/cardAddOnClickListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java" />
@@ -1385,13 +1260,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_pager_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_pager.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/MonsterCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/combat.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/main_game.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -1402,8 +1275,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java" />
@@ -1413,7 +1284,22 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/character_screen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/CharacterScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/main_game.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/GamePieces/game/MainGameActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/CharacterScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/imageAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameInterface.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/doanan/example/screens/BuildConfig.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/doanan/example/screens/R.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/doanan/example/screens/BuildConfig.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/r/release/doanan/example/screens/R.java" />
       </list>
     </option>
   </component>
@@ -1421,10 +1307,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="width" value="960" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1456,7 +1340,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="1" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -1480,10 +1364,6 @@
               <option name="myItemId" value="DeckBuildingGame" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1492,214 +1372,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="raw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doanan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DeckBuildingGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1716,7 +1388,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad/bin/git.exe" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="options.lastSelected" value="fileTemplates" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -1727,6 +1399,9 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/AnBan_000/Documents/GitHub/DeckBuildingGame/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="ExportApk.ApkPath" value="C:\Users\AnBan_000\Desktop" />
+    <property name="ExportApk.Flavors" value="" />
+    <property name="ExportApk.BuildType" value="release" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1975,7 +1650,11 @@
       <created>1427720273590</created>
       <updated>1427720273590</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="TODO &#10;- Sound&#10;- Instructions&#10;&#10;Future&#10;- Edit User Interface">
+      <created>1428324273116</created>
+      <updated>1428324273116</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1999,27 +1678,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="0" y="0" width="960" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3069307" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3058306" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13646056" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32673267" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.01705757" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32453245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.007995736" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32343236" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33223322" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.343785" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6684435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2611111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2030,7 +1710,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2092,7 +1771,8 @@
     <MESSAGE value="Currently working on swipe views&#10;&#10;TODO&#10;- Swipe Views&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
     <MESSAGE value="-Now to add image of character and information on character&#10;-Health, Ammo, Damage, Decorations, Skills&#10;Swipe View Implemented&#10;&#10;&#10;TODO&#10;- Add more monsters&#10;- Add combat&#10;&#10;Future&#10;- Edit User Interface" />
     <MESSAGE value="TODO&#10;- Character Selection&#10;- Sound&#10;- Instructions&#10;&#10;Future&#10;- Edit User Interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO&#10;- Character Selection&#10;- Sound&#10;- Instructions&#10;&#10;Future&#10;- Edit User Interface" />
+    <MESSAGE value="TODO &#10;- Sound&#10;- Instructions&#10;&#10;Future&#10;- Edit User Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO &#10;- Sound&#10;- Instructions&#10;&#10;Future&#10;- Edit User Interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2100,35 +1780,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="134" max-vertical-offset="714">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/import-summary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1411">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/imageAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07718502" vertical-offset="0" max-vertical-offset="986">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/import-summary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6185567" vertical-offset="530" max-vertical-offset="1411">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/TokenCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/TokenCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.058419243" vertical-offset="0" max-vertical-offset="582">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -2145,14 +1797,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31348">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Token.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
           <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
@@ -2166,23 +1811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Ammunition.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Ammunition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5882353" vertical-offset="17" max-vertical-offset="612">
           <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5603448" vertical-offset="386" max-vertical-offset="1037">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-          <folding>
-            <element signature="e#666#684#0" expanded="true" />
-            <element signature="e#812#830#0" expanded="true" />
-            <element signature="e#1145#1186#0" expanded="true" />
-            <element signature="e#1536#1570#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2208,31 +1840,24 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Weapon.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="30" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Monster.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1116" max-vertical-offset="1700">
           <caret line="91" column="22" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/MonsterCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/MonsterCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="997" max-vertical-offset="2057">
           <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/firstgame/Fragment_2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11643836" vertical-offset="0" max-vertical-offset="584">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -2258,7 +1883,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Deck.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gamePlayer/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6528777" vertical-offset="1864" max-vertical-offset="2448">
           <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
@@ -2274,14 +1899,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/message_received.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="584">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -2300,36 +1917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#505#525#0" expanded="false" />
-            <element signature="e#665#685#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1076" max-vertical-offset="4981">
-          <caret line="180" column="48" selection-start-line="180" selection-start-column="48" selection-end-line="180" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/firstgame/Fragment_1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_1.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="275" max-vertical-offset="884">
@@ -2341,23 +1928,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/firstgame/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
-          <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1139">
-          <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/cardAddOnClickListener.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/cardAddOnClickListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1761658" vertical-offset="0" max-vertical-offset="579">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
@@ -2365,7 +1936,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/myOnClickListener.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/myOnClickListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5284974" vertical-offset="0" max-vertical-offset="612">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
@@ -2373,7 +1944,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/AmmunitionCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/AmmunitionCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32" vertical-offset="266" max-vertical-offset="1003">
           <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
@@ -2381,18 +1952,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Card.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Card.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="969">
           <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
           <folding>
-            <element signature="e#1211#1212#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1249#1250#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/WeaponCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/WeaponCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5254545" vertical-offset="663" max-vertical-offset="1292">
           <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
@@ -2411,7 +1982,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ActionCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/ActionCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7418182" vertical-offset="1179" max-vertical-offset="1819">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
@@ -2419,15 +1990,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/PlayerHand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5254545" vertical-offset="3281" max-vertical-offset="5185">
-          <caret line="228" column="52" selection-start-line="228" selection-start-column="43" selection-end-line="228" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Item.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30195382" vertical-offset="0" max-vertical-offset="563">
           <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
@@ -2435,7 +1998,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/ItemCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/ItemCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
@@ -2443,28 +2006,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gamePlayer/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1053" max-vertical-offset="1632">
-          <caret line="98" column="35" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
-          <folding>
-            <element signature="e#2052#2053#0" expanded="true" />
-            <element signature="e#2094#2095#0" expanded="true" />
-            <element signature="e#2126#2127#0" expanded="true" />
-            <element signature="e#2158#2159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="969">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameComponentsCreate/CharacterCreate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameComponentsCreate/CharacterCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
@@ -2472,11 +2014,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/gameCards/Character.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="1020">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_game.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-146.07408" vertical-offset="0" max-vertical-offset="4777">
+          <caret line="232" column="46" selection-start-line="232" selection-start-column="46" selection-end-line="232" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gameCards/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="935">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gamePlayer/PlayerHand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4301" max-vertical-offset="5304">
+          <caret line="287" column="55" selection-start-line="287" selection-start-column="55" selection-end-line="287" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/example/screens/Fragment_1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15722543" vertical-offset="0" max-vertical-offset="865">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2491,20 +2070,154 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/CharacterScreen.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/gamePlayer/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1274" max-vertical-offset="1853">
-          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1717">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="e#2139#2140#0" expanded="true" />
+            <element signature="e#2181#2182#0" expanded="true" />
+            <element signature="e#2213#2214#0" expanded="true" />
+            <element signature="e#2245#2246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/example/screens/Fragment_2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/CharacterScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1853">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/example/screens/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="1547">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/doanan/game/MainGameActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z_temp/temp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3298791" vertical-offset="20328" max-vertical-offset="22593">
-          <caret line="1247" column="52" selection-start-line="1247" selection-start-column="52" selection-end-line="1247" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65156794" vertical-offset="0" max-vertical-offset="574">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/scrollview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/doanan/example/screens/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-704.62195" vertical-offset="29958" max-vertical-offset="88536">
+          <caret line="5161" column="32" selection-start-line="5161" selection-start-column="32" selection-end-line="5161" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#306815#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="493">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/release/doanan/example/screens/BuildConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7" vertical-offset="0" max-vertical-offset="289">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="39678">
+          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/release/doanan/example/screens/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6037736" vertical-offset="29982" max-vertical-offset="88451">
+          <caret line="1783" column="42" selection-start-line="1783" selection-start-column="41" selection-end-line="1783" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/doanan/example/screens/BuildConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3029703" vertical-offset="0" max-vertical-offset="505">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.020754717" vertical-offset="28" max-vertical-offset="918">
+          <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/imageAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76330274" vertical-offset="519" max-vertical-offset="1122">
+          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="394" max-vertical-offset="1275">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/doanan/GamePieces/game/MainGameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36880735" vertical-offset="14878" max-vertical-offset="22814">
+          <caret line="922" column="29" selection-start-line="922" selection-start-column="29" selection-end-line="922" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

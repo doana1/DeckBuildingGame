@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.example.firstgame"
+        applicationId "doanan.example.screens"
         minSdkVersion 8
         targetSdkVersion 21
     }
