@@ -35,8 +35,5 @@
          android:layout_alignParentRight="true"
          android:text=" BUY " />
 
-     
 
-         
- 
 </RelativeLayout>

@@ -18,21 +18,21 @@ public class AmmunitionCreate {
 	int ammo10Cost = 0;
 	int ammo10Ammo = 10;
 	int ammo10Gold = 10;
-    String ammo10FilePath = "king_of_spades2.jpg";
+    String ammo10FilePath = "ammo_10.jpg";
 	
 	// Ammunition x20
 	String ammo20Name = "Ammunitionx20";
 	int ammo20Cost = 30;
 	int ammo20Ammo = 20;
 	int ammo20Gold = 20;
-    String ammo20FilePath = "queen_of_clubs2.jpg";
+    String ammo20FilePath = "ammo_20.jpg";
 	
 	// Ammunition x30
 	String ammo30Name = "Ammunitionx30";
 	int ammo30Cost = 60;
 	int ammo30Ammo = 30;
 	int ammo30Gold = 30;
-    String ammo30FilePath = "royalty.png";
+    String ammo30FilePath = "ammo_30.jpg";
 	
 	public Ammunition ammo10 = new Ammunition(ammo10Name, ammo10Cost, ammo10Ammo, 0,0,ammo10Gold, -1, ammo10FilePath);
 	public Ammunition ammo20 = new Ammunition(ammo20Name, ammo20Cost, ammo20Ammo, 0,0,ammo20Gold, -1, ammo20FilePath);

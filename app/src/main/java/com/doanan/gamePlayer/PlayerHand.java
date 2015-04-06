@@ -5,8 +5,10 @@ import android.util.Log;
 import com.doanan.gameCards.Action;
 import com.doanan.gameCards.Ammunition;
 import com.doanan.gameCards.Card;
+import com.doanan.gameCards.Item;
 import com.doanan.gameCards.Weapon;
 import com.doanan.gameComponentsCreate.ActionCreate;
+import com.doanan.gameComponentsCreate.ItemCreate;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +22,7 @@ public class PlayerHand {
 	public ArrayList<Card> discardCards = new ArrayList<>();
 
     ActionCreate action = new ActionCreate();
+    ItemCreate item = new ItemCreate();
 	
 	public PlayerHand(){
 		
@@ -217,6 +220,17 @@ public class PlayerHand {
                 player.DAMAGE += card.DAMAGE;
                 player.AMMO -= card.AMMOREQUIREMENT;
                 card.weaponLoaded = true;
+            }
+        }
+        else if(card.getClass().equals(Item.class)){
+            if (card.NAME.equals(item.herb.NAME)){
+                player.HEALTH += 20;
+                if (player.HEALTH > player.MAXHEALTH){
+                    player.HEALTH = player.MAXHEALTH;
+                }
+            }
+            else if (card.NAME.equals(item.firstAid.NAME)){
+                player.HEALTH = player.MAXHEALTH;
             }
         }
         else if(card.getClass().equals(Action.class)){

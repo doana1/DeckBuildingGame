@@ -38,10 +38,9 @@ public class Card{
         this.FILEPATH = filePath;
 	}
 
-	public void getCurrentTurn() {
-		// TODO Auto-generated method stub
-
-	}
+    public String getFilePath(){
+        return FILEPATH;
+    }
 	
 	/**
 	 * Returns the title name of a card.

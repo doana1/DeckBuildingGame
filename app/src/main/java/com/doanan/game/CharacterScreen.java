@@ -1,15 +1,22 @@
 package com.doanan.game;
 
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.doanan.gameComponentsCreate.CharacterCreate;
 import com.doanan.gameCards.Character;
+import com.doanan.gameComponentsCreate.CharacterCreate;
 import com.example.firstgame.R;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by An Doan on 3/26/2015.
@@ -49,14 +56,35 @@ public class CharacterScreen extends Fragment {
 
     public void selectCharacter(){
         String characterChoice = ((MainGameInterface)getActivity()).getCharacterChoice();
+        ImageView characterImage = (ImageView) characterView.findViewById(R.id.characterImage);
         switch (characterChoice){
             case "jill":
                 character = characters.Jill;
+                imageAssets(characterImage,characterChoice);
                 break;
             case "chris":
                 character = characters.Chris;
+                imageAssets(characterImage,characterChoice);
                 break;
         }
+    }
+
+    public void imageAssets(ImageView image,String character){
+        AssetManager assetManager = getActivity().getAssets();
+        InputStream istr;
+        try{
+            istr = assetManager.open("imgs/cards/"+ character+".jpg");
+            Bitmap bitmap = BitmapFactory.decodeStream(istr);
+            image.setImageBitmap(Bitmap.createScaledBitmap(bitmap,150,150,false));
+            istr.close();
+        }catch(IOException e){
+            e.printStackTrace();
+            image.setImageResource(R.drawable.test);
+        }
+    }
+
+    public Character getCurrentCharacter(){
+        return character;
     }
 
     public void setCharacterHUD(int health, int decorations){
@@ -66,13 +94,12 @@ public class CharacterScreen extends Fragment {
 
     public void initCharacterHUD(){
         characterName = (TextView) characterView.findViewById(R.id.character_name);
-        characterName.setText(getArguments().getString(character.getNAME()));
+        characterName.setText((character.getNAME()));
 
         characterHealth = (TextView) characterView.findViewById(R.id.character_health);
-        characterHealth.setText(getArguments().getString("Health: " + character.getHEALTH()));
+        characterHealth.setText(("Health: " + character.getHEALTH()));
 
         characterDecorations = (TextView) characterView.findViewById(R.id.character_decorations);
-        characterDecorations.setText(getArguments().getString("Decorations: " + character.getDECORATIONS()));
-
+        characterDecorations.setText(("Decorations: " + character.getDECORATIONS()));
     }
 }

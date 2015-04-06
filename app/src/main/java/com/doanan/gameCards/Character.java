@@ -24,8 +24,12 @@ public class Character{
     public void levelUnlocked1(String name){
         switch (name){
             case "Chris Redfield":
+                this.LEVEL = 1;
+                //Can't be healed
                 break;
             case "Jill Valentine":
+                this.LEVEL = 1;
+
                 break;
         }
     }
@@ -33,8 +37,10 @@ public class Character{
     public void levelUnlocked2(String name){
         switch (name){
             case "Chris Redfield":
+                this.LEVEL = 2;
                 break;
             case "Jill Valentine":
+                this.LEVEL = 2;
                 break;
         }
     }

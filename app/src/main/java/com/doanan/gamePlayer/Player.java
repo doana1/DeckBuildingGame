@@ -11,6 +11,7 @@ public class Player {
     public int DRAWS;
     public Deck DECK;
     public int DECORATIONS;
+    public int MAXHEALTH;
 	
 	/**
 	 * Creates a Player.
@@ -20,25 +21,24 @@ public class Player {
 	 * @param name Name of the person playing the game.
 	 * @param charactername Name of the character the player is using.
 	 * @param health Amount of health the player has left.
-	 * @param action Amount of actions the player can use.
-	 * @param buy Amount of buys the player can use.
-	 * @param explore Amount of explores the player can use.
-	 * @param gold Amount of gold the player has.
-	 * @param ammo Amount of ammo the player has.
 	 */
-	public Player(String name, String charactername, int health, int action, int buy, int explore, int gold, int ammo, int decorations){
+	public Player(String name, String charactername, int health){
 		this.NAME = name;
 		this.CHARACTERNAME = charactername;
 		this.HEALTH = health;
-		this.ACTION = action;
-		this.BUY = buy;
-		this.EXPLORE = explore;
-		this.GOLD = gold;
-		this.AMMO = ammo;
+		this.ACTION = 0;
+		this.BUY = 0;
+		this.EXPLORE = 0;
+		this.GOLD = 0;
+		this.AMMO = 0;
         this.DECK = new Deck();
-        this.DECORATIONS = decorations;
+        this.DECORATIONS = 0;
 
 	}
+
+    public Player(){
+        this.DECK = new Deck();
+    }
 	
 
 	
@@ -76,6 +76,31 @@ public class Player {
      */
     public int getPlayerDAMAGE(){
         return DAMAGE;
+    }
+
+    /**
+     * Sets the player's health.
+     *
+     * @param health Amount of health a player will have.
+     */
+    public void setPlayerHealth(int health){
+        this.HEALTH = health;
+    }
+
+    public void setPlayerName(String playerName){
+        this.NAME = playerName;
+    }
+
+    public void setCharacterName(String characterName){
+        this.CHARACTERNAME = characterName;
+    }
+
+    public void setMaxHealth(int maxHealth){
+        this.MAXHEALTH = maxHealth;
+    }
+
+    public int getMaxHealth(){
+        return MAXHEALTH;
     }
 	
 }

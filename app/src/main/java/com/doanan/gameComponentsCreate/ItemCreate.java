@@ -4,15 +4,18 @@ import com.doanan.gameCards.Item;
 
 public class ItemCreate {
 	
-	/*
-	 * List of Items
-	 */
-	String item = "item1";
-	int itemCost = 20;
-	
-	
-	public Item item1 = new Item(item,itemCost,0,0,0, -1,0,"royalty.png");
-	
+
+    // Herb
+    String herbName = "Herb";
+    int herbCost = 20;
+
+    // First Aid Spray
+    String firstAidName = "First Aid Spray";
+    int firstAidCost = 60;
+
+    public Item herb = new Item(herbName,herbCost,0,0,0,-1,0,"herb.jpg");
+    public Item firstAid = new Item(firstAidName,firstAidCost,0,0,0,-1,0,"first_aid.jpg");
+
 	
 	public ItemCreate(){
 		

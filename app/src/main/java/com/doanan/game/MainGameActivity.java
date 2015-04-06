@@ -82,7 +82,7 @@ public class MainGameActivity extends Fragment {
 	
 	private Context context = getActivity();
 
-	Player player = new Player("JIM", "REBECCA", 120, 0, 0, 0, 0, 0,0);
+	Player player = new Player();
 	PlayerHand player1HAND = new PlayerHand();
 	
 	// ScrollView
@@ -107,6 +107,7 @@ public class MainGameActivity extends Fragment {
     WeaponCreate weapon = new WeaponCreate();
     AmmunitionCreate ammo = new AmmunitionCreate();
     ActionCreate action = new ActionCreate();
+    ItemCreate item = new ItemCreate();
 
     MonsterCreate Mansion = new MonsterCreate();
 
@@ -167,16 +168,18 @@ public class MainGameActivity extends Fragment {
 //            gestureDetector = new GestureDetector(this,new GestureListener());
 
         // Cards Implemented
+        characterScreenFragment = ((MainGameInterface)getActivity()).getCharacterFragment();
+        characterScreen = (CharacterScreen)getActivity()
+                .getSupportFragmentManager()
+                .findFragmentByTag(characterScreenFragment);
+        setPlayer(player);
         startingCards(player.DECK);
         declareImages();
         setImages(images,imageFileName,imageDescription,imageTitle,cardType,player.DECK);
         Deck();
         Mansion();
         viewDiscardDialog();
-        characterScreenFragment = ((MainGameInterface)getActivity()).getCharacterFragment();
-        characterScreen = (CharacterScreen)getActivity()
-                .getSupportFragmentManager()
-                .findFragmentByTag(characterScreenFragment);
+
 		    /*
 		     * Scroll View
 		    */
@@ -711,18 +714,6 @@ public class MainGameActivity extends Fragment {
 		imageDeck.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-//                String text = "Deck has " + player.DECK.deckSize() + " cards.\n" +
-//                        "Player has " + player1HAND.handSize() + " cards in their hand.";
-//                int duration = Toast.LENGTH_SHORT;
-//                Toast toast = Toast.makeText(context, text, duration);
-//                toast.show();
-
-                // MANSION Combat
-                // Draw a monster from the monster deck
-                // Compare Damage Values
-                // Show users  the battle
-                //
-
                 Mansion.EXPLORE();
                 combat(Mansion.getCurrentMonster());
 
@@ -848,6 +839,18 @@ public class MainGameActivity extends Fragment {
         else{
             //do this because they lost
         }
+    }
+
+
+
+    public void setPlayer(Player player){
+        com.doanan.gameCards.Character character= characterScreen.getCurrentCharacter();
+        player.setPlayerName("Player1");
+        player.setCharacterName(character.getNAME());
+        player.setPlayerHealth(character.getHEALTH());
+        player.setMaxHealth(character.getHEALTH());
+        character = null;
+        System.gc();
     }
 
     /**
@@ -985,24 +988,24 @@ public class MainGameActivity extends Fragment {
         images[16] = image17;
         images[17] = image18;
 		//Filename for each image
-		imageFileName[0] = "ace_of_hearts.jpg";
-		imageFileName[1] = "ace_of_spades.jpg";
-		imageFileName[2] = "ace_of_diamonds.jpg";
-		imageFileName[3] = "ace_of_clubs.jpg";
-		imageFileName[4] = "king_of_hearts2.jpg";
-		imageFileName[5] = "king_of_spades2.jpg";
-		imageFileName[6] = "king_of_diamonds2.jpg";
-		imageFileName[7] = "king_of_clubs2.jpg";
-		imageFileName[8] = "queen_of_hearts2.jpg";
-		imageFileName[9] = "queen_of_spades2.jpg";
-		imageFileName[10] = "queen_of_diamonds2.jpg";
-		imageFileName[11] = "queen_of_clubs2.jpg";
-		imageFileName[12] = "red_joker.jpg";
-		imageFileName[13] = "black_joker.jpg";
-		imageFileName[14] = "royalty.png";
-        imageFileName[15] = "royalty.png";
-        imageFileName[16] = "royalty.png";
-        imageFileName[17] = "royalty.png";
+		imageFileName[0] = "pistol.jpg";
+		imageFileName[1] = "burst_pistol.jpg";
+		imageFileName[2] = "six_shooter.jpg";
+		imageFileName[3] = "deadly_aim.jpg";
+		imageFileName[4] = "reload.jpg";
+		imageFileName[5] = "ammo_10.jpg";
+		imageFileName[6] = "knife.jpg";
+		imageFileName[7] = "machine_gun.jpg";
+		imageFileName[8] = "shotgun.jpg";
+		imageFileName[9] = "ominous_battle.jpg";
+		imageFileName[10] = "mansion foyer.jpg";
+		imageFileName[11] = "ammo_20.jpg";
+		imageFileName[12] = "herb.jpg";
+		imageFileName[13] = "first_aid.jpg";
+		imageFileName[14] = "struggle_for_survival.jpg";
+        imageFileName[15] = "merchant.jpg";
+        imageFileName[16] = "umbrella_corporation.jpg";
+        imageFileName[17] = "ammo_30.jpg";
 
         card[0] = weapon.pistol;
         card[1] = weapon.burstPistol;
@@ -1011,36 +1014,106 @@ public class MainGameActivity extends Fragment {
         card[4] = action.reload;
         card[5] = ammo.ammo10;
         card[6] = weapon.knife;
-        card[7] = weapon.knife; // Macine Gun
-        card[8] = weapon.knife; // Shotgun
+        card[7] = weapon.machineGun; // Machine Gun
+        card[8] = weapon.shotgun; // Shotgun
         card[9] = action.ominousBattle;
         card[10] = action.mansionFoyer;
         card[11] = ammo.ammo20;
-        card[12] = weapon.knife; // Herb
-        card[13] = weapon.knife; // First Aid Spray
+        card[12] = item.herb; // Herb
+        card[13] = item.firstAid; // First Aid Spray
         card[14] = action.struggleForSurvival;
         card[15] = action.theMerchant;
         card[16] = action.umbrellaCorporation;
         card[17] = ammo.ammo30;
 		// Description of image
-		imageDescription[0] = "It's a Pistol";
-		imageDescription[1] = "It's a Burst Pistol";
-		imageDescription[2] = "It's a Magnum";
-		imageDescription[3] = "All your Weapons get +10 Damage this turn";
-		imageDescription[4] = "Move 1 Weapon from your Discard Pile to Your Hand";
-		imageDescription[5] = "Gives 10 ammo and 10 Gold";
-		imageDescription[6] = "It's a Knife";
-		imageDescription[7] = "It's a Machine Gun";
-		imageDescription[8] = "It's a Shotgun";
-		imageDescription[9] = "Trash 1 card from your hand";
-		imageDescription[10] = "Mansion Foyer, draw 2 more cards";
-		imageDescription[11] = "Gives 20 ammo and 20 Gold";
-		imageDescription[12] = "Herb it heals you";
-		imageDescription[13] = "First Aid Spray";
-		imageDescription[14] = "You can Discard this card from your Hand to lower the Damage of 1 Weapon being used costing 40 Gold or less to 0";
-        imageDescription[15] = "What are you buying?";
-        imageDescription[16] = "Move 1 card from your Hand to the top of your Inventory";
-        imageDescription[17] = "Gives 30 ammo and 30 Gold";
+		imageDescription[0] = "Cost: " + weapon.pistol.COST + "\n" +
+                              "Ammo Requirement: " + weapon.pistol.AMMOREQUIREMENT + "\n" +
+                              "Damage: " + weapon.pistol.DAMAGE + "\n" +
+                              "Use this to shoot things.";
+
+		imageDescription[1] = "Cost: " + weapon.burstPistol.COST + "\n" +
+                              "Ammo Requirement: " + weapon.burstPistol.AMMOREQUIREMENT + "\n" +
+                              "Damage: " + weapon.burstPistol.DAMAGE + "\n" +
+                              "Use this to shoot things faster.";
+
+		imageDescription[2] = "Cost: " + weapon.magnum.COST + "\n" +
+                              "Ammo Requirement: " + weapon.magnum.AMMOREQUIREMENT + "\n" +
+                              "Damage: " + weapon.magnum.DAMAGE + "\n" +
+                              "Magnums are cool.";
+
+		imageDescription[3] = "Cost: " + action.deadlyAim.COST + "\n" +
+                              "Ammo Supplied: " + action.deadlyAim.AMMO + "\n" +
+                              "All of your weapons being used get a +10 Dmg bonus this turn.";
+
+		imageDescription[4] = "Cost: " + action.reload.COST + "\n" +
+                              "Ammo Supplied: " + action.reload.AMMO + "\n" +
+                              "Extra Actions: " + action.reload.EXTRA_ACTION + "\n" +
+                              "Move a weapon from your discard pile to your Hand";
+
+		imageDescription[5] = "Cost: " + ammo.ammo10.COST + "\n" +
+                              "Ammo Supplied: " + ammo.ammo10.AMMO + "\n" +
+                              "Gold Supploed: " + ammo.ammo10.GOLD + "\n" +
+                              "Ammo to help you get started.";
+
+		imageDescription[6] = "Cost: " + weapon.knife.COST + "\n" +
+                              "Ammo Requirement: " + weapon.knife.AMMOREQUIREMENT + "\n" +
+                              "Damage: " + weapon.knife.DAMAGE + "\n" +
+                              "Knives are free but weak.";
+
+		imageDescription[7] = "Cost: " + weapon.machineGun.COST + "\n" +
+                              "Ammo Requirement: " + weapon.machineGun.AMMOREQUIREMENT + "\n" +
+                              "Damage: " + weapon.machineGun.DAMAGE + "\n" +
+                              "Machine guns have rapid fire.";
+
+		imageDescription[8] = "Cost: " + weapon.shotgun.COST + "\n" +
+                              "Ammo Requirement: " + weapon.shotgun.AMMOREQUIREMENT + "\n" +
+                              "Damage: " + weapon.shotgun.DAMAGE + "\n" +
+                              "Shotguns for close quarters.";
+
+		imageDescription[9] = "Cost: " + action.ominousBattle.COST + "\n" +
+                              "Gold Supplied: " + action.ominousBattle.GOLD + "\n" +
+                              "Extra Cards: " + action.ominousBattle.EXTRA_CARDS + "\n" +
+                              "Get more Gold and Draw more cards by using this. \n" +
+                              "Also Trash 1 Card from your Hand." ;
+
+		imageDescription[10] =  "Cost: " + action.mansionFoyer.COST + "\n" +
+                                "Extra Draws: " + action.mansionFoyer.EXTRA_ACTION + "\n" +
+                                "Draws two more cards.";
+
+		imageDescription[11] = "Cost: " + ammo.ammo20.COST + "\n" +
+                               "Ammo Supplied: " + ammo.ammo20.AMMO + "\n" +
+                               "Gold Supploed: " + ammo.ammo20.GOLD + "\n" +
+                               "Better ammo to help you grow";
+
+		imageDescription[12] = "Cost: " + item.herb.COST + "\n" +
+                               "Heals your character by 20 Health Points.";
+
+		imageDescription[13] = "Cost: " + item.firstAid.COST + "\n" +
+                               "Heals your character back to full health.";
+
+		imageDescription[14] = "Cost: " + action.struggleForSurvival.COST + "\n" +
+                               "Extra Actions: " + action.struggleForSurvival.EXTRA_ACTION + "\n" +
+                               "Extra Explores: " + action.struggleForSurvival.EXTRA_EXPLORE + "\n" +
+                               "Use this to play more action cards and explore the Mansion more.";
+
+        imageDescription[15] = "Cost: " + action.theMerchant.COST + "\n" +
+                               "Gold Supplied: " + action.theMerchant.GOLD + "\n" +
+                               "Extra Cards Drawn: " + action.theMerchant.EXTRA_CARDS + "\n" +
+                               "Extra Buys: " + action.theMerchant.EXTRA_BUY + "\n" +
+                               "What are you buying?\n" +
+                               "What are you selling?\n" +
+                               "Use this to get gold, another draw, and buy more stuff...";
+
+        imageDescription[16] = "Cost: " + action.umbrellaCorporation.COST + "\n" +
+                               "Extra Cards Drawn: " + action.umbrellaCorporation.EXTRA_CARDS + "\n" +
+                               "Extra Actions: " + action.umbrellaCorporation.EXTRA_ACTION + "\n" +
+                               "Play this to move 1 card from your Hand to the top of your Deck.";
+
+        imageDescription[17] = "Cost: " + ammo.ammo30.COST + "\n" +
+                               "Ammo Supplied: " + ammo.ammo30.AMMO + "\n" +
+                               "Gold Supplied: " + ammo.ammo30.GOLD + "\n" +
+                               "Best ammo in the game.";
+
 		// Title of image
 		imageTitle[0] = weapon.pistol.NAME;
 		imageTitle[1] = weapon.burstPistol.NAME;
@@ -1049,13 +1122,13 @@ public class MainGameActivity extends Fragment {
 		imageTitle[4] = action.reload.NAME;
 		imageTitle[5] = ammo.ammo10.NAME;
 		imageTitle[6] = weapon.knife.NAME;
-		imageTitle[7] = "Machine Gun";
-		imageTitle[8] = "Shotgun";
+		imageTitle[7] = weapon.machineGun.NAME;
+		imageTitle[8] = weapon.shotgun.NAME;
 		imageTitle[9] = action.ominousBattle.NAME;
 		imageTitle[10] = action.mansionFoyer.NAME;
 		imageTitle[11] = ammo.ammo20.NAME;
-		imageTitle[12] = "Herb";
-		imageTitle[13] = "First Aid Spray";
+		imageTitle[12] = item.herb.NAME;
+		imageTitle[13] = item.firstAid.NAME;
 		imageTitle[14] = action.struggleForSurvival.NAME;
         imageTitle[15] = action.theMerchant.NAME;
         imageTitle[16] = action.umbrellaCorporation.NAME;
@@ -1227,6 +1300,12 @@ public class MainGameActivity extends Fragment {
         else if(cardName.equals(weapon.magnum.NAME)){
             deck.add(weapon.magnum);
         }
+        else if (cardName.equals(weapon.machineGun.NAME)){
+            deck.add(weapon.machineGun);
+        }
+        else if (cardName.equals(weapon.shotgun.NAME)){
+            deck.add(weapon.shotgun);
+        }
 
     }
     public void addAction(Deck deck, String cardName){
@@ -1273,9 +1352,12 @@ public class MainGameActivity extends Fragment {
     public void addItem(Deck deck, String cardName){
         ItemCreate item = new ItemCreate();
 
-        if (cardName.equals(item.item1.NAME)){
-            deck.add(item.item1);
-
+        if (cardName.equals(item.herb.NAME)){
+            deck.add(item.herb);
+        }
+        else if (cardName.equals(item.firstAid.NAME)){
+            deck.add(item.firstAid);
         }
     }
+
 }

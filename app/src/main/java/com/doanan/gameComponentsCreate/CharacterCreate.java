@@ -10,6 +10,6 @@ public class CharacterCreate {
 
 
     }
-    public Character Chris = new Character("Chris Redfield", 120, 4, 0, "royalty.png");
-    public Character Jill = new Character("Jill Valentine",80,8,0,"royalty.png");
+    public Character Chris = new Character("Chris Redfield", 120, 0, 0, "royalty.png");
+    public Character Jill = new Character("Jill Valentine",80,0,0,"royalty.png");
 }
